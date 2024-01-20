@@ -1,13 +1,27 @@
-# Logs
-logs
+.cache/
+.env
+.env.development.local
+.env.local
+.env.production.local
+.env.test.local
+.eslintcache
+.node_repl_history
+.npm
+.stylelintcache
+*.lcov
 *.log
-
-# Node shit
+*.pid
+*.pid.lock
+*.seed
+*.tsbuildinfo
+build/
+coverage/
+dist/
+esbuild-meta.json
+logs
+node_modules/
 node_modules/
 npm-debug.log*
-.npm
-.eslintcache
-
-# Python stuff
-.nox/
-__pycache__
+pids
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+www/dist

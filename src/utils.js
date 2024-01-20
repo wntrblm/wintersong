@@ -5,7 +5,9 @@
 */
 
 export function Uint8Array_to_hex(buf) {
-    return Array.prototype.map.call(buf, (x) => ("00" + x.toString(16)).slice(-2)).join("");
+    return Array.prototype.map
+        .call(buf, (x) => ("00" + x.toString(16)).slice(-2))
+        .join("");
 }
 
 /* Returns a HTMLElement give the ID or the element itself. */
@@ -24,16 +26,16 @@ export function $s(x, y) {
     }
 }
 
-export function $make(tag_name, properties={}) {
+export function $make(tag_name, properties = {}) {
     const elem = document.createElement(tag_name);
-    for(const [name, value] of Object.entries(properties)) {
-        if(name === "children") {
-            for(const child of value) {
+    for (const [name, value] of Object.entries(properties)) {
+        if (name === "children") {
+            for (const child of value) {
                 elem.appendChild(child);
             }
             continue;
         }
-        if(name === "innerText") {
+        if (name === "innerText") {
             elem.innerText = value;
             continue;
         }
@@ -162,10 +164,16 @@ export class ObjectReviver {
 
     revive() {
         return (key, value) => {
-            if (value === null || value === undefined || typeof value !== "object") {
+            if (
+                value === null ||
+                value === undefined ||
+                typeof value !== "object"
+            ) {
                 return value;
             }
-            for (const [sentinel_key, revive] of Object.entries(this._revivers)) {
+            for (const [sentinel_key, revive] of Object.entries(
+                this._revivers
+            )) {
                 if (Object.prototype.hasOwnProperty.call(value, sentinel_key)) {
                     return revive(value);
                 }

@@ -1,13 +1,39 @@
-/* eslint-env node */
-module.exports = {
+export default {
+    root: true,
+    parser: "@typescript-eslint/parser",
+    plugins: ["@typescript-eslint", "mocha"],
     env: {
         browser: true,
         es2021: true,
     },
-    extends: ["eslint:recommended"],
+    extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "plugin:mocha/recommended",
+    ],
+    overrides: [],
     parserOptions: {
-        ecmaVersion: 12,
+        ecmaVersion: "latest",
         sourceType: "module",
     },
-    rules: {},
+    rules: {
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-empty-function": 0,
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                vars: "all",
+                args: "none",
+                ignoreRestSiblings: true,
+                varsIgnorePattern: "([Ii]gnored)|([Uu]nused)|(_)",
+            },
+        ],
+        "@typescript-eslint/no-inferrable-types": [
+            "warn",
+            { ignoreProperties: true, ignoreParameters: true  },
+        ],
+        "mocha/max-top-level-suites": "off",
+    },
 };

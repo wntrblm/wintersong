@@ -1,0 +1,45 @@
+name: Build
+
+on:
+  push:
+    branches: main
+    paths:
+      - "client/**"
+  pull_request:
+    branches: main
+    paths:
+      - "client/**"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+          cache: "npm"
+          cache-dependency-path: "client/package-lock.json"
+      - run: npm ci
+        working-directory: client
+      - run: npm run lint:eslint
+        working-directory: client
+      - run: npm run lint:prettier
+        working-directory: client
+      - run: npm run lint:types
+        working-directory: client
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+          cache: "npm"
+          cache-dependency-path: "client/package-lock.json"
+      - run: npm ci
+        working-directory: client
+      - run: npm run build
+        working-directory: client
+      - run: npm run test
+        working-directory: client
