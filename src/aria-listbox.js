@@ -1,4 +1,4 @@
-import { $e, $on } from "./utils.js";
+import { $e, $on } from "./base/dom.js";
 
 function random_id(length = 6) {
     return Math.random().toString(36).substr(2, length);

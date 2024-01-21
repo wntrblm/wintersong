@@ -33,3 +33,9 @@ export function sortedByNumericStrings<T>(
 ) {
     return array.slice().sort((a, b) => collator.compare(getter(a), getter(b)));
 }
+
+export function uint8ArrayToHex(buf: Uint8Array): string {
+    return Array.prototype.map
+        .call(buf, (x) => ("00" + x.toString(16)).slice(-2))
+        .join("");
+}

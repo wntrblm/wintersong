@@ -4,7 +4,7 @@
     Full text available at: https://opensource.org/licenses/MIT
 */
 
-import { $e, $on, DOMHelpers, ObjectHelpers } from "./utils.js";
+import { $e, $on, DOMHelpers, ObjectHelpers } from "./base/dom.js";
 
 /*
     Two-way databinding for a form input.
@@ -52,17 +52,28 @@ export class InputBinding {
     }
 
     update_value() {
-        const value = ObjectHelpers.get_property_by_path(this.data, this.key, false);
+        const value = ObjectHelpers.get_property_by_path(
+            this.data,
+            this.key,
+            false,
+        );
         if (value === undefined) {
             return;
         }
         this.elem.value = this.data_to_value(value);
         this.update_validation();
-        this.elem.dispatchEvent(new Event("winterjs:update", {bubbles: false}));
+        this.elem.dispatchEvent(
+            new Event("winterjs:update", { bubbles: false }),
+        );
     }
 
     update_data() {
-        ObjectHelpers.set_property_by_path(this.data, this.key, this.value_to_data(this.elem.value), false);
+        ObjectHelpers.set_property_by_path(
+            this.data,
+            this.key,
+            this.value_to_data(this.elem.value),
+            false,
+        );
     }
 
     get validation_enabled() {
@@ -82,8 +93,12 @@ export class InputBinding {
         const form = this.elem.closest("form");
         if (form !== null) {
             this.validation_message =
-                form.querySelector(`[data-validation-message-for="${this.elem.id}"]`) ||
-                form.querySelector(`[data-validation-message-for="${this.elem.name}"]`);
+                form.querySelector(
+                    `[data-validation-message-for="${this.elem.id}"]`,
+                ) ||
+                form.querySelector(
+                    `[data-validation-message-for="${this.elem.name}"]`,
+                );
         }
 
         $on(this.elem, "blur", () => {
@@ -139,7 +154,12 @@ export class MixMaxInputBinding extends InputBinding {
             }
         }
 
-        ObjectHelpers.set_property_by_path(this.data, this.key, this.value_to_data(this.elem.value), false);
+        ObjectHelpers.set_property_by_path(
+            this.data,
+            this.key,
+            this.value_to_data(this.elem.value),
+            false,
+        );
     }
 }
 
@@ -168,12 +188,23 @@ export class FloatInputBinding extends MixMaxInputBinding {
 /* Two-way databinding for checkbox inputs.  */
 export class CheckboxInputBinding extends InputBinding {
     update_value() {
-        this.elem.checked = ObjectHelpers.get_property_by_path(this.data, this.key) ? true : false;
-        this.elem.dispatchEvent(new Event("winterjs:update", {bubbles: false}));
+        this.elem.checked = ObjectHelpers.get_property_by_path(
+            this.data,
+            this.key,
+        )
+            ? true
+            : false;
+        this.elem.dispatchEvent(
+            new Event("winterjs:update", { bubbles: false }),
+        );
     }
 
     update_data() {
-        ObjectHelpers.set_property_by_path(this.data, this.key, this.elem.checked);
+        ObjectHelpers.set_property_by_path(
+            this.data,
+            this.key,
+            this.elem.checked,
+        );
     }
 }
 
@@ -187,7 +218,10 @@ export class SelectInputBinding extends InputBinding {
         if (options === undefined) {
             const options_key = elem.dataset.bindOptions;
             if (options_key !== undefined) {
-                this.options = ObjectHelpers.get_property_by_path(data, options_key);
+                this.options = ObjectHelpers.get_property_by_path(
+                    data,
+                    options_key,
+                );
                 this.update_options();
             }
         } else {
@@ -283,10 +317,15 @@ export class ValueDisplay {
             target_elem = $e(target_elem);
         } else {
             const target_id = this.display_elem.dataset.displayValueFor;
-            target_elem = $e(target_id) || document.querySelector(`[name="${target_id}"]`);
+            target_elem =
+                $e(target_id) ||
+                document.querySelector(`[name="${target_id}"]`);
         }
         if (!target_elem) {
-            console.error("Could not find target element for ValueDisplay", this.display_elem);
+            console.error(
+                "Could not find target element for ValueDisplay",
+                this.display_elem,
+            );
         }
         this.target_elem = target_elem;
 
@@ -304,8 +343,11 @@ export class ValueDisplay {
         }
         switch (this.display_elem.dataset.displayFormat) {
             case "float": {
-                let precision = parseInt(this.display_elem.dataset.displayPrecision, 10) || 2;
-                this.formatter = (input) => input.valueAsNumber.toFixed(precision);
+                let precision =
+                    parseInt(this.display_elem.dataset.displayPrecision, 10) ||
+                    2;
+                this.formatter = (input) =>
+                    input.valueAsNumber.toFixed(precision);
                 break;
             }
             case "percent":
@@ -318,7 +360,7 @@ export class ValueDisplay {
         if (this.display_elem.dataset.displayFormatter) {
             this.formatter = new Function(
                 "input",
-                `"use strict"; return ${this.display_elem.dataset.displayFormatter}`
+                `"use strict"; return ${this.display_elem.dataset.displayFormatter}`,
             );
         }
     }
@@ -364,7 +406,9 @@ export class Form {
     }
 
     _bind_all(data) {
-        for (const elem of this.elem.querySelectorAll("input[data-bind], select[data-bind], textarea[data-bind]")) {
+        for (const elem of this.elem.querySelectorAll(
+            "input[data-bind], select[data-bind], textarea[data-bind]",
+        )) {
             this.bind_one(elem, data);
         }
     }
@@ -415,7 +459,9 @@ export class Form {
     }
 
     _bind_all_displays() {
-        for (const elem of this.elem.querySelectorAll("[data-display-value-for]")) {
+        for (const elem of this.elem.querySelectorAll(
+            "[data-display-value-for]",
+        )) {
             new ValueDisplay(elem);
         }
     }

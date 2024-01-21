@@ -2,7 +2,7 @@
     Simple helper for Bulma-style modals.
 */
 
-import { $e, $on, DOMHelpers } from "./utils.js";
+import { $e, $on, DOMHelpers } from "./base/dom.js";
 
 export class Modal {
     constructor(elem) {
