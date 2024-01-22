@@ -9,6 +9,9 @@ import { bundle } from "./bundle.js";
 let { options, context } = await bundle({
     outfile: "www/winter.js",
     sourcemap: true,
+    define: {
+        DEBUG: "true",
+    },
 });
 
 await context.watch();

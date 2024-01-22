@@ -22,6 +22,9 @@ export async function bundle(options = {}) {
             ".js": "ts",
             ".css": "text",
         },
+        define: {
+            DEBUG: "false",
+        },
         plugins: [CSSMinifyPlugin],
         ...options,
     };

@@ -4,7 +4,7 @@
     "css.lint.float": "warning",
     "css.lint.ieHack": "error",
     "css.lint.important": "warning",
-    "eslint.alwaysShowStatus": false,
+    "eslint.experimental.useFlatConfig": true,
     "files.exclude": {
         "**/*.js": {
             "when": "$(basename).ts"
