@@ -7,7 +7,7 @@
 import { bundle } from "./bundle.js";
 
 let { options, context } = await bundle({
-    outfile: "www/winter.js",
+    outfile: "demo/winter.js",
     sourcemap: true,
     define: {
         DEBUG: "true",
@@ -17,7 +17,7 @@ let { options, context } = await bundle({
 await context.watch();
 
 let { host, port } = await context.serve({
-    servedir: "./www",
+    servedir: "./demo",
 });
 
 console.log(`Watching and building to ${options.outfile}`);

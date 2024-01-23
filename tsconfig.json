@@ -43,6 +43,13 @@
         "allowUnusedLabels": false,
         "allowUnreachableCode": false,
     },
-    "include": ["./src/**/*", "./test/**/*"],
-    "exclude": ["./node_modules", "./**/node_modules/*", "./scripts/"],
+    "include": [
+        "./src/**/*",
+        "./test/**/*"
+    ],
+    "exclude": [
+        "./node_modules",
+        "./**/node_modules/*",
+        "./scripts/"
+    ],
 }

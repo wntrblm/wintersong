@@ -36,7 +36,7 @@ export class MIDI {
     async receive() {
         const done = new Promise<MIDIMessageEvent>((resolve) => {
             this.input.onmidimessage = function (msg) {
-                resolve(msg);
+                resolve(msg as MIDIMessageEvent);
             };
         });
 
@@ -46,7 +46,7 @@ export class MIDI {
     async transact(data: Uint8Array) {
         const done = new Promise<MIDIMessageEvent>((resolve) => {
             this.input.onmidimessage = function (msg) {
-                resolve(msg);
+                resolve(msg as MIDIMessageEvent);
             };
             this.output.send(data);
         });

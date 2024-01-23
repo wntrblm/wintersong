@@ -8,7 +8,7 @@ import fs from "node:fs";
 import { bundle } from "./bundle.js";
 
 let { options, context } = await bundle({
-    outfile: "www/winter.js",
+    outfile: "dist/winter.js",
     minify: true,
     metafile: true,
 });
