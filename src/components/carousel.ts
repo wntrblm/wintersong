@@ -82,7 +82,7 @@ export class WinterCarouselElement extends LitElement {
 
     private _activeIndex: number = 0;
 
-    @property()
+    @property({ type: Number })
     set activeIndex(val: number) {
         this.activeImage?.classList.remove("--is-active");
         this.images[val]?.classList.add("--is-active");
@@ -115,7 +115,7 @@ export class WinterCarouselElement extends LitElement {
                     return html`<button
                         type="button"
                         data-index="${n}"
-                        class="${this.activeIndex == n ? "--is-active" : null}">
+                        class="${this.activeIndex == n ? "--is-active" : ""}">
                         ${n + 1}
                     </button>`;
                 })}

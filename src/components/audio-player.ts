@@ -61,7 +61,7 @@ export class WinterAudioPlayerElement extends LitElement {
     @property()
     src: string;
 
-    @property()
+    @property({ type: Boolean })
     loop: boolean;
 
     public get currentTime() {
@@ -161,7 +161,7 @@ export class WinterAudioPlayerElement extends LitElement {
             <audio
                 controls
                 crossorigin="anonymous"
-                loop="${this.loop}"
+                loop?="${this.loop}"
                 title="${this.title}"
                 @play=${this.onAudioPlay}
                 @pause=${this.onAudioPauseOrEnd}

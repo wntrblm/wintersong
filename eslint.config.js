@@ -1,11 +1,14 @@
-import configPrettier from "eslint-config-prettier";
-import mochaPlugin from "eslint-plugin-mocha";
+import js from "@eslint/js";
 import typescriptPlugin from "@typescript-eslint/eslint-plugin";
 import typescriptParser from "@typescript-eslint/parser";
+import configPrettier from "eslint-config-prettier";
+import litPlugin from "eslint-plugin-lit";
+import mochaPlugin from "eslint-plugin-mocha";
+import wcPlugin from "eslint-plugin-wc";
 import globals from "globals";
-import js from "@eslint/js";
 
 export default [
+    { files: ["src/**/*.ts", "tests/**/*.ts"] },
     js.configs.recommended,
     configPrettier,
     {
@@ -25,6 +28,9 @@ export default [
         rules: {
             ...typescriptPlugin.configs.recommended.rules,
             ...mochaPlugin.configs.recommended.rules,
+            ...litPlugin.configs.recommended.rules,
+            ...wcPlugin.configs.recommended.rules,
+            ...wcPlugin.configs["best-practice"].rules,
             "@typescript-eslint/no-explicit-any": "off",
             "@typescript-eslint/no-empty-function": 0,
             "@typescript-eslint/no-non-null-assertion": "off",
