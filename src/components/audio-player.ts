@@ -44,6 +44,7 @@ export class WinterAudioPlayerElement extends LitElement {
             }
 
             p {
+                font-size: 1.25em;
                 text-align: center;
                 margin: 0.5rem;
             }
@@ -161,7 +162,7 @@ export class WinterAudioPlayerElement extends LitElement {
             <audio
                 controls
                 crossorigin="anonymous"
-                loop?="${this.loop}"
+                ?loop=${this.loop}
                 title="${this.title}"
                 @play=${this.onAudioPlay}
                 @pause=${this.onAudioPauseOrEnd}

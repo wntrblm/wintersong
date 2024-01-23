@@ -1,36 +1,79 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="index.css" />
-    </head>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <body style="font-size: 18px">
-        <div style="width: 50%; margin: 0 auto">
-            <winter-audio-player title="ramp wave">
-                <source
-                    src="https://storage.googleapis.com/files.winterbloom.com/gemini/ramp_octaves.mp3" />
-            </winter-audio-player>
-            <winter-audio-player
-                title="ramp with filter"
-                src="https://storage.googleapis.com/files.winterbloom.com/gemini/ramp_filtered.mp3"
-                loop>
-            </winter-audio-player>
+    <link href="./styles/bulma.min.css" rel="stylesheet" />
+    <link href="./styles/theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
 
-            <winter-carousel>
-                <img src="./resources/17-hardware-pot-nuts-1.webp" />
-                <img src="./resources/17-hardware-pot-nuts-2.webp" />
-                <img src="./resources/17-hardware-pot-nuts-3.webp" />
-                <img src="./resources/17-hardware-pot-nuts-4.webp" />
-                <img src="./resources/17-hardware-pot-nuts-5.webp" />
-                <img src="./resources/17-hardware-pot-nuts-6.webp" />
-                <img src="./resources/17-hardware-pot-nuts-7.webp" />
-                <img src="./resources/17-hardware-pot-nuts-8.webp" />
-            </winter-carousel>
+  <body>
+    <header class="header">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container is-max-desktop">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="{{base_url}}" title="Home">
+              <img src="./images/winterbloom-logo.png" alt="Winterbloom logo" />
+            </a>
+            <a
+              role="button"
+              class="navbar-burger"
+              aria-label="menu"
+              aria-expanded="false"
+              data-target="navbar_menu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navbar_menu">
+            <div class="navbar-end">
+              <a class="navbar-item is-active" href="./">Home</a>
+            </div>
+          </div>
         </div>
-    </body>
+      </nav>
+    </header>
 
-    <script type="module" src="winter.js"></script>
+    <section class="section">
+      <div class="container is-max-desktop">
+        <article class="content">
+          <h1>Demos</h1>
+          <h2>Audio player</h2>
+          <p>
+            <winter-audio-player title="Ramp wave">
+              <source
+                src="https://storage.googleapis.com/files.winterbloom.com/gemini/ramp_octaves.mp3" />
+            </winter-audio-player>
+          </p>
+          <p>
+            <winter-audio-player
+              title="Ramp wave with filter"
+              src="https://storage.googleapis.com/files.winterbloom.com/gemini/ramp_filtered.mp3"
+              loop>
+            </winter-audio-player>
+          </p>
+          <h2>Carousel</h2>
+          <p>
+            <winter-carousel>
+              <img src="./images/17-hardware-pot-nuts-1.webp" />
+              <img src="./images/17-hardware-pot-nuts-2.webp" />
+              <img src="./images/17-hardware-pot-nuts-3.webp" />
+              <img src="./images/17-hardware-pot-nuts-4.webp" />
+              <img src="./images/17-hardware-pot-nuts-5.webp" />
+              <img src="./images/17-hardware-pot-nuts-6.webp" />
+              <img src="./images/17-hardware-pot-nuts-7.webp" />
+              <img src="./images/17-hardware-pot-nuts-8.webp" />
+            </winter-carousel>
+          </p>
+        </article>
+      </div>
+    </section>
+  </body>
+
+  <script type="module" src="winter.js"></script>
 </html>

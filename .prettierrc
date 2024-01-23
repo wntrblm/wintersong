@@ -17,6 +17,12 @@
                 "parser": "json5",
                 "quoteProps": "preserve"
             }
+        },
+        {
+            "files": ["*.html"],
+            "options": {
+                "tabWidth": 2
+            }
         }
     ]
 }
