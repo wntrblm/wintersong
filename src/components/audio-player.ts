@@ -7,8 +7,8 @@
 import { LitElement, css, html, type TemplateResult } from "lit";
 import { html as staticHtml } from "lit/static-html.js";
 import { customElement, property, query } from "lit/decorators.js";
-import { AudioContextManager } from "./context-manager";
-import { WinterAudioOscilloscopeElement } from "./oscilloscope";
+import { AudioContextManager } from "../audio/context-manager";
+import { WinterAudioOscilloscopeElement } from "./audio-oscilloscope";
 
 /**
  * Audio player element with oscilloscope view

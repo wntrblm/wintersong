@@ -7,7 +7,7 @@
 import { LitElement, css, html, type PropertyValueMap } from "lit";
 import { customElement, query } from "lit/decorators.js";
 import { prefersReducedMotion } from "../base/media-queries";
-import { AudioContextManager } from "./context-manager";
+import { AudioContextManager } from "../audio/context-manager";
 
 /**
  * Audio oscilloscope, used by WinterAudioPlayerElement

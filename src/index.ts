@@ -9,4 +9,4 @@ export const VERSION = "head";
 import "./base/livereload";
 
 export * as Teeth from "./teeth";
-export { WinterAudioPlayerElement } from "./audio/player";
+export { WinterAudioPlayerElement } from "./components/audio-player";
