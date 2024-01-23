@@ -21,7 +21,7 @@ export class WinterAudioPlayerElement extends LitElement {
     static override styles = [
         baseStyles,
         css`
-            :host {
+            div {
                 display: flex;
                 width: 100%;
                 max-width: 100%;
@@ -158,7 +158,8 @@ export class WinterAudioPlayerElement extends LitElement {
             sources = staticHtml`<source src="${this.src}" />`;
         }
 
-        return html`<winter-audio-oscilloscope></winter-audio-oscilloscope>
+        return html`<div class="elevated">
+            <winter-audio-oscilloscope></winter-audio-oscilloscope>
             <audio
                 controls
                 crossorigin="anonymous"
@@ -169,6 +170,7 @@ export class WinterAudioPlayerElement extends LitElement {
                 @ended=${this.onAudioPauseOrEnd}>
                 ${sources}
             </audio>
-            <p>${this.title}</p>`;
+            <p>${this.title}</p>
+        </div>`;
     }
 }
