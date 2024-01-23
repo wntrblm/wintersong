@@ -8,6 +8,7 @@ import { LitElement, css, html, type PropertyValueMap } from "lit";
 import { customElement, query } from "lit/decorators.js";
 import { prefersReducedMotion } from "../base/media-queries";
 import { AudioContextManager } from "../audio/context-manager";
+import baseStyles from "./styles";
 
 /**
  * Audio oscilloscope, used by WinterAudioPlayerElement
@@ -15,6 +16,7 @@ import { AudioContextManager } from "../audio/context-manager";
 @customElement("winter-audio-oscilloscope")
 export class WinterAudioOscilloscopeElement extends LitElement {
     static override styles = [
+        baseStyles,
         css`
             :host {
                 display: block;

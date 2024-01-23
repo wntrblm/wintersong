@@ -10,3 +10,4 @@ import "./base/livereload";
 
 export * as Teeth from "./teeth";
 export { WinterAudioPlayerElement } from "./components/audio-player";
+export { WinterCarouselElement } from "./components/carousel";

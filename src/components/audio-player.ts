@@ -9,6 +9,7 @@ import { html as staticHtml } from "lit/static-html.js";
 import { customElement, property, query } from "lit/decorators.js";
 import { AudioContextManager } from "../audio/context-manager";
 import { WinterAudioOscilloscopeElement } from "./audio-oscilloscope";
+import baseStyles from "./styles";
 
 /**
  * Audio player element with oscilloscope view
@@ -18,9 +19,9 @@ export class WinterAudioPlayerElement extends LitElement {
     private static instances: Set<WinterAudioPlayerElement> = new Set();
 
     static override styles = [
+        baseStyles,
         css`
             :host {
-                box-sizing: border-box;
                 display: flex;
                 width: 100%;
                 max-width: 100%;
@@ -31,21 +32,18 @@ export class WinterAudioPlayerElement extends LitElement {
             }
 
             audio {
-                box-sizing: border-box;
                 display: block;
                 width: 90%;
                 margin: 1em auto;
             }
 
             winter-audio-oscilloscope {
-                box-sizing: border-box;
                 background-color: inherit;
                 color: inherit;
                 margin: 0.5rem 0;
             }
 
             p {
-                box-sizing: border-box;
                 text-align: center;
                 margin: 0.5rem;
             }
