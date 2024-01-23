@@ -4,14 +4,17 @@
     Full text available at: https://opensource.org/licenses/MIT
 */
 
-import { CustomElement, attribute, css, html } from "../base/web-components";
+import { LitElement, css, html, type TemplateResult } from "lit";
+import { html as staticHtml } from "lit/static-html.js";
+import { customElement, property, query } from "lit/decorators.js";
 import { AudioContextManager } from "./context-manager";
 import { WinterAudioOscilloscopeElement } from "./oscilloscope";
 
 /**
  * Audio player element with oscilloscope view
  */
-export class WinterAudioPlayerElement extends CustomElement {
+@customElement("winter-audio-player")
+export class WinterAudioPlayerElement extends LitElement {
     private static instances: Set<WinterAudioPlayerElement> = new Set();
 
     static override styles = [
@@ -49,14 +52,18 @@ export class WinterAudioPlayerElement extends CustomElement {
         `,
     ];
 
-    private audio: HTMLAudioElement;
-    private audioSourceNode: MediaElementAudioSourceNode;
+    @query("audio")
+    private audio!: HTMLAudioElement;
+
+    @query("winter-audio-oscilloscope")
     private oscilloscope: WinterAudioOscilloscopeElement;
 
-    @attribute({ type: String })
+    private audioSourceNode: MediaElementAudioSourceNode;
+
+    @property()
     src: string;
 
-    @attribute({ type: Boolean })
+    @property()
     loop: boolean;
 
     public get currentTime() {
@@ -132,52 +139,37 @@ export class WinterAudioPlayerElement extends CustomElement {
         this.oscilloscope.stop();
     }
 
-    override connectedCallback(): void | undefined {
+    override connectedCallback(): void {
         super.connectedCallback();
         const staticThis = this.constructor as typeof WinterAudioPlayerElement;
         staticThis.instances.add(this);
     }
 
-    override disconnectedCallback(): void | undefined {
+    override disconnectedCallback(): void {
         super.disconnectedCallback();
         const staticThis = this.constructor as typeof WinterAudioPlayerElement;
         staticThis.instances.delete(this);
     }
 
     override render() {
-        let sources: NodeListOf<HTMLElement> | HTMLElement =
+        let sources: NodeListOf<HTMLElement> | TemplateResult =
             this.querySelectorAll("source");
 
         if (!sources.length) {
-            sources = html`<source src="${this.src}" />` as HTMLElement;
+            sources = staticHtml`<source src="${this.src}" />`;
         }
 
-        this.audio = html`<audio
-            controls
-            crossorigin="anonymous"
-            loop="${this.loop}"
-            title="${this.title}">
-            ${sources}
-        </audio>` as HTMLAudioElement;
-
-        this.audio.addEventListener("play", () => {
-            this.onAudioPlay();
-        });
-
-        this.audio.addEventListener("pause", () => {
-            this.onAudioPauseOrEnd();
-        });
-
-        this.audio.addEventListener("ended", () => {
-            this.onAudioPauseOrEnd();
-        });
-
-        this.oscilloscope =
-            html`<winter-audio-oscilloscope></winter-audio-oscilloscope>` as WinterAudioOscilloscopeElement;
-
-        return html` ${this.oscilloscope} ${this.audio}
+        return html`<winter-audio-oscilloscope></winter-audio-oscilloscope>
+            <audio
+                controls
+                crossorigin="anonymous"
+                loop="${this.loop}"
+                title="${this.title}"
+                @play=${this.onAudioPlay}
+                @pause=${this.onAudioPauseOrEnd}
+                @ended=${this.onAudioPauseOrEnd}>
+                ${sources}
+            </audio>
             <p>${this.title}</p>`;
     }
 }
-
-window.customElements.define("winter-audio-player", WinterAudioPlayerElement);

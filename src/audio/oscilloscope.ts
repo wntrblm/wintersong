@@ -4,14 +4,16 @@
     Full text available at: https://opensource.org/licenses/MIT
 */
 
-import { CustomElement, css, html } from "../base/web-components";
+import { LitElement, css, html, type PropertyValueMap } from "lit";
+import { customElement, query } from "lit/decorators.js";
 import { prefersReducedMotion } from "../base/media-queries";
 import { AudioContextManager } from "./context-manager";
 
 /**
  * Audio oscilloscope, used by WinterAudioPlayerElement
  */
-export class WinterAudioOscilloscopeElement extends CustomElement {
+@customElement("winter-audio-oscilloscope")
+export class WinterAudioOscilloscopeElement extends LitElement {
     static override styles = [
         css`
             :host {
@@ -27,7 +29,9 @@ export class WinterAudioOscilloscopeElement extends CustomElement {
         `,
     ];
 
-    private canvas: HTMLCanvasElement;
+    @query("canvas")
+    private canvas!: HTMLCanvasElement;
+
     private ctx: CanvasRenderingContext2D;
     private scope: Oscilloscope;
 
@@ -42,14 +46,14 @@ export class WinterAudioOscilloscopeElement extends CustomElement {
     override render() {
         const width = Math.floor(400 * window.devicePixelRatio);
         const height = Math.floor(100 * window.devicePixelRatio);
+
+        return html`<canvas width="${width}" height="${height}"></canvas>`;
+    }
+
+    protected override firstUpdated(
+        _changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>,
+    ): void {
         const computedStyles = window.getComputedStyle(this);
-
-        this.canvas = html`<canvas
-            width="${width}"
-            height="${height}"></canvas>` as HTMLCanvasElement;
-
-        console.log(computedStyles.backgroundColor);
-
         this.ctx = this.canvas.getContext("2d", { alpha: false })!;
         this.scope = new Oscilloscope(
             this.ctx,
@@ -57,15 +61,8 @@ export class WinterAudioOscilloscopeElement extends CustomElement {
             computedStyles.color ?? "#FF0000",
             5,
         );
-
-        return html`${this.canvas}`;
     }
 }
-
-window.customElements.define(
-    "winter-audio-oscilloscope",
-    WinterAudioOscilloscopeElement,
-);
 
 class Oscilloscope {
     public width: number;
