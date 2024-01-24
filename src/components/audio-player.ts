@@ -21,14 +21,19 @@ export class WinterAudioPlayerElement extends LitElement {
     static override styles = [
         baseStyles,
         css`
+            :host {
+            }
+
             div {
                 display: flex;
+                flex-direction: column;
                 width: 100%;
                 max-width: 100%;
                 padding: 0;
                 color: white;
                 background-color: #408d94;
-                flex-direction: column;
+                border: 0px solid transparent;
+                border-radius: 0.2em;
             }
 
             audio {
@@ -46,7 +51,7 @@ export class WinterAudioPlayerElement extends LitElement {
             p {
                 font-size: 1.25em;
                 text-align: center;
-                margin: 0.5rem;
+                margin: 0 0 0.75em 0;
             }
         `,
     ];
