@@ -42,7 +42,7 @@ export class WinterAudioPlayerElement extends LitElement {
             winter-audio-oscilloscope {
                 background-color: inherit;
                 color: inherit;
-                margin: 0.5rem 0;
+                margin: 2em 0 0.5em 0;
             }
 
             p {

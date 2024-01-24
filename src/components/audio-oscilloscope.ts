@@ -21,7 +21,7 @@ export class WinterAudioOscilloscopeElement extends LitElement {
             :host {
                 display: block;
                 width: 100%;
-                aspect-ratio: 4 / 1;
+                aspect-ratio: 8 / 1;
             }
 
             canvas {
@@ -46,7 +46,7 @@ export class WinterAudioOscilloscopeElement extends LitElement {
     }
 
     override render() {
-        const width = Math.floor(400 * window.devicePixelRatio);
+        const width = Math.floor(800 * window.devicePixelRatio);
         const height = Math.floor(100 * window.devicePixelRatio);
 
         return html`<canvas width="${width}" height="${height}"></canvas>`;
@@ -61,7 +61,7 @@ export class WinterAudioOscilloscopeElement extends LitElement {
             this.ctx,
             computedStyles.backgroundColor ?? "#333333",
             computedStyles.color ?? "#FF0000",
-            5,
+            6,
         );
     }
 }
