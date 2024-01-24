@@ -4,7 +4,7 @@
     Full text available at: https://opensource.org/licenses/MIT
 */
 
-const FFT_SIZE = 1024;
+const FFT_SIZE = 4096;
 const HAS_AUDIO_CONTEXT = window.AudioContext !== undefined;
 
 /**
@@ -38,7 +38,7 @@ export class AudioContextManager {
         this.analyser.smoothingTimeConstant = 1;
         this.analyser.fftSize = FFT_SIZE;
         this.analyser.connect(this.context.destination);
-        this.fftData = new Uint8Array(this.analyser.fftSize);
+        this.fftData = new Uint8Array(this.analyser.frequencyBinCount);
         this.activeSource = undefined;
     }
 
@@ -75,5 +75,18 @@ export class AudioContextManager {
     get analyzerData(): Uint8Array {
         this.analyser.getByteTimeDomainData(this.fftData);
         return this.fftData;
+    }
+
+    static findFirstPositiveZeroCrossing(data: Uint8Array) {
+        let n = -1;
+        for (let i = 0; i < data.length; i++) {
+            const val = data[i]!;
+            if (val < 128) {
+                n = i;
+            } else if (val >= 128 && n > -1) {
+                return n;
+            }
+        }
+        return 0;
     }
 }

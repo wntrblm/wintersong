@@ -108,6 +108,8 @@ class Oscilloscope {
 
     drawAnalyzer() {
         const data = AudioContextManager.instance.analyzerData;
+        const zeroCrossing =
+            AudioContextManager.findFirstPositiveZeroCrossing(data);
 
         this.clear();
         this.ctx.lineJoin = "round";
@@ -116,7 +118,8 @@ class Oscilloscope {
         this.ctx.beginPath();
 
         for (let x = 0; x < this.width; x++) {
-            const sampleIdx = Math.round((x / this.width) * data.length);
+            let sampleIdx = Math.round((x / this.width) * data.length);
+            sampleIdx = (zeroCrossing + sampleIdx) % data.length;
             const sample = data[sampleIdx] ?? 0;
             const y = ((sample / 128) * this.height) / 2;
 
