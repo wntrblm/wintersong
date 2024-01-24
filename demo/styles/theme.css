@@ -1,7 +1,7 @@
 /*
     Section: imports
 */
-@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@200;400;700&family=IBM+Plex+Mono&family=Material+Icons&family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@200;400;700&family=IBM+Plex+Mono&family=Material+Symbols+Outlined&family=Nunito&display=swap");
 
 /*
     Section: non-sematic global variables
@@ -549,18 +549,6 @@ article .admonition.fairy .admonition-title::before {
     padding: 0.5em 2em 0 2em;
 }
 
-.content .winter-audio-player {
-    width: 640px;
-    max-width: 80%;
-    margin: 2em auto;
-    padding: 0.2rem;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-    box-shadow:
-        0 0.5em 1em -0.125em rgba(10, 10, 10, 0.2),
-        0 0 0 1px rgba(10, 10, 10, 0.04);
-}
-
 /*
     Section: footer
 */
@@ -790,25 +778,6 @@ a.button.is-ghost:hover {
 /*
     Dark mode
 */
-
-.dark-mode-switch {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    color: var(--text-color);
-    text-shadow: 0 0 0.5rem var(--text-color);
-}
-
-.dark-mode-switch:hover {
-    color: var(--color-alt-cyan-3);
-    cursor: pointer;
-}
-
-.dark-mode-switch .material-icons {
-    font-size: 1.5rem;
-}
 
 html.dark,
 html.dark body,

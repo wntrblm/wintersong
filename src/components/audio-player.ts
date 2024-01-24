@@ -21,9 +21,6 @@ export class WinterAudioPlayerElement extends LitElement {
     static override styles = [
         baseStyles,
         css`
-            :host {
-            }
-
             div {
                 display: flex;
                 flex-direction: column;

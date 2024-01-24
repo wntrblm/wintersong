@@ -7,3 +7,7 @@
 export const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
 );
+
+export const prefersDarkScheme = window.matchMedia(
+    "(prefers-color-scheme: dark)",
+);
