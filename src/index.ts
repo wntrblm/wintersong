@@ -13,3 +13,4 @@ export { WinterAudioPlayerElement } from "./components/audio-player";
 export { WinterCarouselElement } from "./components/carousel";
 export { WinterIconElement } from "./components/icon";
 export { WinterDarkModeElement } from "./components/dark-mode";
+export { WinterImageMapElement } from "./components/image-map";

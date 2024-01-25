@@ -37,6 +37,8 @@ export class WinterCarouselElement extends LitElement {
             }
 
             .navigation button {
+                font-family: inherit;
+                line-height: 1.5;
                 font-size: 1em;
                 color: var(--button-fg);
                 background: var(--button-bg);
