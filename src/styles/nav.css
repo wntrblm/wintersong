@@ -16,10 +16,15 @@ header {
         font-size: 2.5rem;
         font-weight: bold;
         border-bottom: 0.2rem solid rebeccapurple;
-    }
 
-    & > nav:first-of-type ul {
-        margin-bottom: -0.75rem;
+        & ul {
+            margin-bottom: -0.75rem;
+        }
+
+        & :where(a, [role="link"]) {
+            display: inline-block;
+            text-decoration: none;
+        }
     }
 }
 
