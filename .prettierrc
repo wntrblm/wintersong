@@ -4,6 +4,7 @@
     "printWidth": 80,
     "trailingComma": "all",
     "bracketSameLine": true,
+    "plugins": ["prettier-plugin-jinja-template"],
     "overrides": [
         {
             "files": ["*.js", "*.ts"],
@@ -23,6 +24,12 @@
             "options": {
                 "tabWidth": 2,
                 "htmlWhitespaceSensitivity": "ignore"
+            }
+        },
+        {
+            "files": ["src/winter/**/*.html"],
+            "options": {
+                "parser": "jinja-template"
             }
         }
     ]

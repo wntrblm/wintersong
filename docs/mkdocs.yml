@@ -1,0 +1,48 @@
+site_name: Winter
+site_url: https://winter.wntr.dev
+copyright: "© 2024 Winterbloom LCC & Thea Flowers, licensed under Creative Commons CC BY-SA 4.0"
+repo_url: "https://github.com/wntrblm/winter"
+edit_uri: edit/main/docs/docs
+theme:
+    name: winter
+plugins: []
+markdown_extensions:
+    - abbr
+    - admonition
+    - def_list
+    - attr_list
+    - footnotes
+    - md_in_html
+    - toc:
+          permalink: "#"
+          toc_depth: 2-2
+    - pymdownx.arithmatex:
+          generic: true
+    - pymdownx.betterem:
+          smart_enable: all
+    - pymdownx.blocks.tab:
+          alternate_style: true
+    - pymdownx.caret
+    - pymdownx.details
+    - pymdownx.highlight:
+          anchor_linenums: true
+          line_spans: __span
+          pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.keys
+    - pymdownx.magiclink:
+          hide_protocol: true
+          repo_url_shortener: true
+          social_url_shortener: true
+          normalize_issue_symbols: true
+          repo_url_shorthand: true
+          user: wntrblm
+          repo: winter
+    - pymdownx.mark
+    - pymdownx.superfences
+    - pymdownx.tasklist:
+          custom_checkbox: true
+    - pymdownx.tilde
+nav:
+    - "Home": index.md
+    - "Components": components.md
