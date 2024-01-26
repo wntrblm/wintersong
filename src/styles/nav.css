@@ -1,0 +1,72 @@
+/*
+    Copyright (c) 2024 Winterbloom LLC, Alethea Katherine Flowers
+    Published under the standard MIT License.
+    Full text available at: https://opensource.org/licenses/MIT
+*/
+
+body > header {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-family: "Space Grotesk";
+}
+
+header {
+    & > nav:first-of-type {
+        font-size: 2.5rem;
+        font-weight: bold;
+        border-bottom: 0.2rem solid rebeccapurple;
+    }
+
+    & > nav:first-of-type ul {
+        margin-bottom: -0.75rem;
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+
+    & ul {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        list-style: none;
+    }
+
+    & li {
+        display: flex;
+        align-items: center;
+    }
+
+    & winter-icon {
+        font-size: 1.5rem;
+    }
+
+    & img.logo {
+        height: 0.5lh;
+        width: auto;
+    }
+
+    & :where(a, [role="link"]) {
+        display: inline-block;
+        text-decoration: none;
+
+        &:is([aria-current], :hover, :active, :focus) {
+            text-decoration: underline;
+        }
+    }
+
+    & ul.has-dividers {
+        & li:not(:first-child) {
+            margin-inline-start: 1.75rem;
+        }
+        & li:not(:last-child) ::after {
+            position: absolute;
+            margin-inline-start: 0.6rem;
+            content: "/";
+            text-align: center;
+            pointer-events: none;
+        }
+    }
+}

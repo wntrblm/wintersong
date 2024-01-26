@@ -4,9 +4,10 @@
     Full text available at: https://opensource.org/licenses/MIT
 */
 
-@import url("./reset.css");
-@import url("./fonts.css");
-@import url("./globals.css");
-@import url("./layout.css");
-@import url("./nav.css");
-@import url("./content.css");
+main {
+    & winter-audio-player {
+        width: 640px;
+        max-width: 80%;
+        margin: 2em auto;
+    }
+}
