@@ -12,7 +12,8 @@ export class WinterIconElement extends LitElement {
     static override styles = [
         css`
             :host {
-                display: inline;
+                display: inline-block;
+                box-sizing: content-box;
                 font-family: "Material Symbols Outlined";
                 font-weight: normal;
                 font-style: normal;

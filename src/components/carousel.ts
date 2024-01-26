@@ -65,11 +65,11 @@ export class WinterCarouselElement extends LitElement {
 
             ::slotted(img) {
                 width: 100%;
-                display: none;
+                display: none !important;
             }
 
             ::slotted(img.--is-active) {
-                display: block;
+                display: block !important;
             }
         `,
     ];
