@@ -39,9 +39,9 @@
         "lint:prettier": "prettier src tests --check",
         "lint": "npm run lint:eslint && npm run lint:types && npm run lint:prettier",
         "format": "prettier . --write",
-        "serve": "node scripts/serve.js",
         "build:no-check": "node scripts/build.js",
         "build": "tsc -p tsconfig.json && node scripts/build.js",
+        "watch": "node scripts/watch.js",
         "clean": "rm -rf dist && rm -rf www/dist"
     },
     "repository": {

@@ -1,0 +1,175 @@
+/*
+    IMPORTS
+*/
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@200;400;700&family=IBM+Plex+Mono&family=Material+Symbols+Outlined&family=Nunito&display=swap");
+
+/*
+    RESET
+*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    font-size: 20px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/*
+    GLOBAL TYPOGRAPHY
+*/
+
+body {
+    font-family: Nunito;
+}
+
+/*
+    SECTIONING AND LAYOUT
+*/
+
+body {
+    width: 100%;
+    margin: 0;
+}
+
+body > header,
+body > main,
+body > footer {
+    width: 100%;
+    max-width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+main {
+    display: block;
+}
+
+/*
+    HEADER & NAV
+*/
+
+body > header {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-family: "Space Grotesk";
+}
+
+header > nav:first-of-type {
+    font-size: 2.5rem;
+    font-weight: bold;
+    border-bottom: 0.2rem solid rebeccapurple;
+}
+
+header > nav:first-of-type ul {
+    margin-bottom: -0.75rem;
+}
+
+nav,
+nav ul {
+    display: flex;
+}
+
+nav {
+    justify-content: space-between;
+}
+nav ul {
+    align-items: center;
+    padding: 0;
+    list-style: none;
+}
+nav li {
+    display: flex;
+    align-items: center;
+}
+nav li winter-icon {
+    font-size: 1.5rem;
+}
+nav :where(a, [role="link"]) {
+    display: inline-block;
+    margin: calc(var(--nav-link-spacing-vertical) * -1)
+        calc(var(--nav-link-spacing-horizontal) * -1);
+    padding: var(--nav-link-spacing-vertical) var(--nav-link-spacing-horizontal);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+}
+nav :where(a, [role="link"]):is([aria-current], :hover, :active, :focus) {
+    text-decoration: underline;
+}
+
+nav [role="button"] {
+    margin-right: inherit;
+    margin-left: inherit;
+    padding: var(--nav-link-spacing-vertical) var(--nav-link-spacing-horizontal);
+}
+
+nav ul.has-dividers li:not(:first-child) {
+    margin-inline-start: 1.75rem;
+}
+nav ul.has-dividers li:not(:last-child) ::after {
+    position: absolute;
+    margin-inline-start: 0.6rem;
+    content: "/";
+    text-align: center;
+    pointer-events: none;
+}
+
+nav img.logo {
+    height: 0.5lh;
+    width: auto;
+}
+
+/*
+    CONTENT
+*/
+
+.content winter-audio-player {
+    width: 640px;
+    max-width: 80%;
+    margin: 2em auto;
+}
