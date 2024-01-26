@@ -6,7 +6,7 @@
 
 import { assert } from "@esm-bundle/chai";
 
-import Teeth from "../src/teeth";
+import Teeth from "../src/scripts/teeth";
 
 function* generate_data(length) {
     for (let i = 0; i < length; i++) {

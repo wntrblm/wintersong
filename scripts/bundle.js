@@ -8,7 +8,7 @@ import esbuild from "esbuild";
 import { resolve } from "node:path";
 import { readFile } from "node:fs/promises";
 
-export const ENTRY = resolve("src/index.ts");
+export const ENTRY = resolve("src/scripts/index.ts");
 
 export async function bundle(options = {}) {
     options = {

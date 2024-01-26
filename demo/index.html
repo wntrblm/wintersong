@@ -5,41 +5,50 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href="./styles/bulma.min.css" rel="stylesheet" />
-    <link href="./styles/theme.css" rel="stylesheet" />
     <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
-    <header class="header">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="container is-max-desktop">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="{{base_url}}" title="Home">
-              <img src="./images/winterbloom-logo.png" alt="Winterbloom logo" />
-            </a>
-            <a
-              role="button"
-              class="navbar-burger"
-              aria-label="menu"
-              aria-expanded="false"
-              data-target="navbar_menu">
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </a>
-          </div>
-
-          <div class="navbar-menu" id="navbar_menu">
-            <div class="navbar-end">
-              <a class="navbar-item is-active" href="./">Home</a>
-            </div>
-          </div>
-        </div>
+    <header>
+      <nav role="navigation" aria-label="main navigation">
+        <ul>
+          <li>
+            <a href="/">Castor & Pollux</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <img
+              class="logo"
+              src="./images/winterbloom-logo.png"
+              alt="Winterbloom logo" />
+          </li>
+        </ul>
+      </nav>
+      <nav role="navigation" aria-label="secondary navigation">
+        <ul class="has-dividers">
+          <li>
+            <a aria-current href="/">Manual</a>
+          </li>
+          <li>
+            <a href="/">Build</a>
+          </li>
+          <li>
+            <a href="/">Settings</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <winter-icon>search</winter-icon>
+          </li>
+          <li>
+            <winter-icon>dark_mode</winter-icon>
+          </li>
+        </ul>
       </nav>
     </header>
 
-    <section class="section">
+    <main>
       <div class="container is-max-desktop">
         <article class="content">
           <h1>Demos</h1>
@@ -63,8 +72,7 @@
             <winter-audio-player
               title="Ramp wave with filter"
               src="https://storage.googleapis.com/files.winterbloom.com/gemini/ramp_filtered.mp3"
-              loop>
-            </winter-audio-player>
+              loop></winter-audio-player>
           </p>
           <h2>Carousel</h2>
           <p>
@@ -82,47 +90,47 @@
           <h2>Image map</h2>
           <p>
             <winter-image-map src="./images/kit-contents.svg">
-              <winter-image-map-item id="mainboard"
-                >Mainboard</winter-image-map-item
-              >
-              <winter-image-map-item id="faceplate"
-                >Faceplate</winter-image-map-item
-              >
-              <winter-image-map-item id="jacks"
-                >1/8" jacks (8)</winter-image-map-item
-              >
-              <winter-image-map-item id="jack-nuts"
-                >Hex nuts for the 1/8" jacks (8)</winter-image-map-item
-              >
-              <winter-image-map-item id="power-header"
-                >Eurorack power header</winter-image-map-item
-              >
-              <winter-image-map-item id="rubber-bands"
-                >Rubber bands (2)</winter-image-map-item
-              >
-              <winter-image-map-item id="big-knob"
-                >Big knob</winter-image-map-item
-              >
-              <winter-image-map-item id="small-knob"
-                >Small knobs (3)</winter-image-map-item
-              >
-              <winter-image-map-item id="trimpots"
-                >Tall trimmer pots (3)</winter-image-map-item
-              >
-              <winter-image-map-item id="pots"
-                >9mm pots (4)</winter-image-map-item
-              >
-              <winter-image-map-item id="pot-washers"
-                >Washers for 9mm pots (4)</winter-image-map-item
-              >
-              <winter-image-map-item id="pot-nuts"
-                >Nuts for 9mm pots (4)</winter-image-map-item
-              >
+              <winter-image-map-item id="mainboard">
+                Mainboard
+              </winter-image-map-item>
+              <winter-image-map-item id="faceplate">
+                Faceplate
+              </winter-image-map-item>
+              <winter-image-map-item id="jacks">
+                1/8" jacks (8)
+              </winter-image-map-item>
+              <winter-image-map-item id="jack-nuts">
+                Hex nuts for the 1/8" jacks (8)
+              </winter-image-map-item>
+              <winter-image-map-item id="power-header">
+                Eurorack power header
+              </winter-image-map-item>
+              <winter-image-map-item id="rubber-bands">
+                Rubber bands (2)
+              </winter-image-map-item>
+              <winter-image-map-item id="big-knob">
+                Big knob
+              </winter-image-map-item>
+              <winter-image-map-item id="small-knob">
+                Small knobs (3)
+              </winter-image-map-item>
+              <winter-image-map-item id="trimpots">
+                Tall trimmer pots (3)
+              </winter-image-map-item>
+              <winter-image-map-item id="pots">
+                9mm pots (4)
+              </winter-image-map-item>
+              <winter-image-map-item id="pot-washers">
+                Washers for 9mm pots (4)
+              </winter-image-map-item>
+              <winter-image-map-item id="pot-nuts">
+                Nuts for 9mm pots (4)
+              </winter-image-map-item>
             </winter-image-map>
           </p>
         </article>
       </div>
-    </section>
+    </main>
 
     <winter-dark-mode></winter-dark-mode>
   </body>

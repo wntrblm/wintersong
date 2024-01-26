@@ -6,7 +6,7 @@
 
 import { assert } from "@esm-bundle/chai";
 
-import { VERSION } from "../src";
+import { VERSION } from "../src/scripts";
 
 suite("winterjs", function () {
     test(".VERSION", function () {
