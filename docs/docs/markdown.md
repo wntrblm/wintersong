@@ -263,6 +263,13 @@ Admonitions are a [Markdown extension](https://python-markdown.github.io/extensi
 !!! note "Admonition titles"
     You can set the title of an admonition if you don't want to use the generic title.
 
+!!! tip inline end "Inline admonitions"
+    This is an inline admonition
+
+Admonitions can be inlined next to content, if desired.  This is just filler text to give it something to wrap around. You can ignore the rest of this paragraph. Seriously. I mean it!
+
+Example source:
+
 ```markdown
 !!! note
     Admonitions allow you to draw attention to specific text.

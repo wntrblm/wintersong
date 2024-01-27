@@ -341,6 +341,23 @@ dialog {
 dialog::backdrop {
 }
 
+/* Modifiers */
+
+article {
+    /* Allows pulling block elements left or right */
+    .inline {
+        float: inline-start;
+        width: 40%;
+        margin-inline-end: var(--winter-block-spacing);
+        margin-top: 0;
+
+        &.end {
+            float: inline-end;
+            margin-inline: var(--winter-block-spacing);
+        }
+    }
+}
+
 /* Other */
 
 main {
