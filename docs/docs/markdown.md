@@ -208,16 +208,16 @@ This functionality is provided through the [Arithmatex](https://facelessuser.git
 | --------- | ------ |
 | C1, C2    | 10 uF  |
 | C3 - C10  | 100 nF |
-| R1, R2    | 100 kΩ |
-| R3        | 10 kΩ  |
+| R1, R2    | 100 kΩ |
+| R3        | 10 kΩ  |
 
 ```markdown
 | Reference | Value  |
 | --------- | ------ |
 | C1, C2    | 10 uF  |
 | C3 - C10  | 100 nF |
-| R1, R2    | 100 kΩ |
-| R3        | 10 kΩ  |
+| R1, R2    | 100 kΩ |
+| R3        | 10 kΩ  |
 ```
 
 ## Admonitions
@@ -225,26 +225,53 @@ This functionality is provided through the [Arithmatex](https://facelessuser.git
 Admonitions are a [Markdown extension](https://python-markdown.github.io/extensions/admonition/) that add stylized callouts.
 
 !!! note
-Admonitions allow you to draw attention to specific text.
+    Admonitions allow you to draw attention to specific text.
+
+!!! info
+    There are different types of admonitions.
+
+!!! tip
+    There are different types of admonitions.
+
+!!! success
+    There are different types of admonitions.
+
+!!! question
+    There are different types of admonitions.
 
 !!! warning
-There are two different styles of admonitions: `note` and `warning`. More can be added by modifying the theme.
+    There are different types of admonitions.
+
+!!! failure
+    There are different types of admonitions.
+
+!!! danger
+    There are different types of admonitions.
+
+!!! bug
+    There are different types of admonitions.
+
+!!! example
+    There are different types of admonitions.
+
+!!! quote
+    There are different types of admonitions.
+
+!!! fairy
+    There are different types of admonitions.
 
 !!! note "Admonition titles"
-You can set the title of an admonition if you don't want to use the generic
-title.
+    You can set the title of an admonition if you don't want to use the generic title.
 
 ```markdown
 !!! note
-Admonitions allow you to draw attention to specific text.
+    Admonitions allow you to draw attention to specific text.
 
 !!! warning
-There are two different styles of admonitions: `note` and `warning`.
-More can be added by modifying the theme.
+    There are two different styles of admonitions: `note` and `warning`. More can be added by modifying the theme.
 
 !!! note "Admonition titles"
-You can set the title of an admonition if you don't want to use the generic
-title.
+    You can set the title of an admonition if you don't want t0 use the generic title.
 ```
 
 ## Definition lists

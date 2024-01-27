@@ -173,23 +173,79 @@
     --winter-blockquote-fg: var(--winter-not-quite-black);
     --winter-blockquote-bg: var(--winter-teal-5);
 
-    --admonition-fg: var(--fg);
-    --admonition-bg: var(--bg);
-    --admonition-padding: 0.1em 0.5em;
-    --admonition-border-width: 0.25rem;
-    --admonition-title-font-weight: var(--font-weight-semibold);
-    --admonition-body-padding: 0.25em 0;
+    /* Markdown extensions */
 
-    --admonition-default-color: var(--color-teal-3);
-    --admonition-info-color: var(--color-teal-3);
-    --admonition-tip-color: var(--color-teal-3);
-    --admonition-success-color: var(--color-alt-green-2);
-    --admonition-question-color: var(--color-alt-purple-2);
-    --admonition-warning-color: var(--color-alt-yellow-2);
-    --admonition-failure-color: var(--color-alt-red-2);
-    --admonition-danger-color: var(--color-alt-red-2);
-    --admonition-bug-color: var(--color-red-2);
-    --admonition-example-color: var(--color-alt-purple-2);
-    --admonition-quote-color: var(--color-alt-purple-2);
-    --admonition-fairy-color: var(--color-alt-purple-2);
+    /* .admonition */
+    --winter-admonition-font: var(--winter-font-serif);
+    --winter-blockquote-font-size: var(--winter-font-size-l);
+    --winter-admonition-fg: var(--winter-fg);
+    --winter-admonition-bg: var(--winter-bg);
+    --winter-admonition-accent: var(--winter-teal-1);
+    --winter-admonition-icon: "info";
+    --winter-admonition-padding: var(--winter-spacing-xs)
+        var(--winter-spacing-s);
+    --winter-admonition-title-font: var(--winter-font-decorative);
+    --winter-admonition-title-font-size: var(--winter-font-size-xl);
+    --winter-admonition-body-spacing: var(--winter-spacing-s);
+
+    --winter-admonition-note-accent: var(--winter-teal-1);
+    --winter-admonition-note-fg: var(--winter-admonition-fg);
+    --winter-admonition-note-bg: var(--winter-bg);
+    --winter-admonition-note-icon: "stylus";
+    --winter-admonition-info-accent: var(--winter-teal-2);
+    --winter-admonition-info-fg: var(--winter-admonition-fg);
+    --winter-admonition-info-bg: var(--winter-bg);
+    --winter-admonition-info-icon: "info";
+    --winter-admonition-tip-accent: var(--winter-teal-2);
+    --winter-admonition-tip-fg: var(--winter-admonition-fg);
+    --winter-admonition-tip-bg: var(--winter-bg);
+    --winter-admonition-tip-icon: "lightbulb";
+    --winter-admonition-success-accent: var(--witch-hazel-green-1);
+    --winter-admonition-success-fg: var(--winter-admonition-fg);
+    --winter-admonition-success-bg: var(--winter-bg);
+    --winter-admonition-success-icon: "check";
+    --winter-admonition-question-accent: var(--witch-hazel-green-2);
+    --winter-admonition-question-fg: var(--winter-admonition-fg);
+    --winter-admonition-question-bg: var(--winter-bg);
+    --winter-admonition-question-icon: "help";
+    --winter-admonition-warning-accent: var(--witch-hazel-yellow-2);
+    --winter-admonition-warning-fg: var(--winter-admonition-fg);
+    --winter-admonition-warning-bg: var(--winter-bg);
+    --winter-admonition-warning-icon: "warning";
+    --winter-admonition-failure-accent: var(--witch-hazel-red-1);
+    --winter-admonition-failure-fg: var(--winter-admonition-fg);
+    --winter-admonition-failure-bg: var(--winter-bg);
+    --winter-admonition-failure-icon: "close";
+    --winter-admonition-danger-accent: var(--winter-red-1);
+    --winter-admonition-danger-fg: var(--winter-admonition-fg);
+    --winter-admonition-danger-bg: var(--winter-bg);
+    --winter-admonition-danger-icon: "report";
+    --winter-admonition-bug-accent: var(--winter-red-2);
+    --winter-admonition-bug-fg: var(--winter-admonition-fg);
+    --winter-admonition-bug-bg: var(--winter-bg);
+    --winter-admonition-bug-icon: "bug_report";
+    --winter-admonition-example-accent: var(--winter-purple-1);
+    --winter-admonition-example-fg: var(--winter-admonition-fg);
+    --winter-admonition-example-bg: var(--winter-bg);
+    --winter-admonition-example-icon: "developer_guide";
+    --winter-admonition-quote-accent: var(--witch-hazel-purple-alt-2);
+    --winter-admonition-quote-fg: var(--winter-admonition-fg);
+    --winter-admonition-quote-bg: var(--winter-bg);
+    --winter-admonition-quote-icon: "format_quote";
+    --winter-admonition-fairy-accent: var(--winter-purple-2);
+    --winter-admonition-fairy-fg: var(--winter-admonition-fg);
+    --winter-admonition-fairy-bg: var(--winter-bg);
+    --winter-admonition-fairy-icon: "🧚";
+
+    --winter-admonition-info-color: var(--winter-teal-3);
+    --winter-admonition-tip-color: var(--winter-teal-3);
+    --winter-admonition-success-color: var(--color-alt-green-2);
+    --winter-admonition-question-color: var(--color-alt-purple-2);
+    --winter-admonition-warning-color: var(--color-alt-yellow-2);
+    --winter-admonition-failure-color: var(--color-alt-red-2);
+    --winter-admonition-danger-color: var(--color-alt-red-2);
+    --winter-admonition-bug-color: var(--color-red-2);
+    --winter-admonition-example-color: var(--color-alt-purple-2);
+    --winter-admonition-quote-color: var(--color-alt-purple-2);
+    --winter-admonition-fairy-color: var(--color-alt-purple-2);
 }

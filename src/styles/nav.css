@@ -66,8 +66,7 @@ nav {
     }
 
     & winter-icon {
-        font-size: 120%;
-        /* font-size: var(--winter-header-icon-size); */
+        font-size: var(--winter-header-icon-size);
     }
 
     & a,
