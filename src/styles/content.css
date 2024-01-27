@@ -37,7 +37,10 @@ h6 {
     font-weight: var(--winter-heading-font-weight);
     line-height: var(--winter-heading-line-height);
     color: var(--winter-heading-fg);
-    margin-block-end: var(--winter-block-spacing);
+
+    &:not(:first-child) {
+        margin-block-start: var(--winter-heading-spacing);
+    }
 
     & .headerlink {
         position: absolute;
@@ -72,6 +75,18 @@ h5 {
 }
 h6 {
     font-size: var(--winter-font-size-l);
+}
+
+h2 + :is(h2, h3, h4, h5, h6),
+h3 + :is(h3, h4, h5, h6),
+h4 + :is(h4, h5, h6),
+h5 + :is(h5, h6),
+h6 + :is(h6) {
+    margin-block-start: 0;
+
+    &:not(:first-child) {
+        margin-block-start: 0;
+    }
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -125,20 +140,6 @@ main {
     }
 }
 
-ol {
-}
-ul {
-}
-li {
-}
-ol ol,
-ol ul,
-ul ul,
-ul ol {
-}
-li li {
-}
-
 code {
     font-family: var(--mono-font);
     font-size: var(--winter-code-font-size);
@@ -147,6 +148,7 @@ code {
     padding: var(--winter-code-padding);
     /* border: 1px solid var(--inline-code-border); */
 }
+
 pre {
     -webkit-overflow-scrolling: touch;
     white-space: pre;
@@ -181,8 +183,18 @@ hr {
 dl {
 }
 dt {
+    margin-block-start: var(--winter-desc-list-block-spacing);
+    font-family: var(--winter-desc-term-font);
+    font-size: var(--winter-desc-term-font-size);
+    color: var(--winter-desc-term-fg);
+    border-left: 0.15rem solid var(--winter-desc-term-fg);
+    padding-left: var(--winter-desc-list-padding);
+    padding-right: var(--winter-desc-list-padding);
 }
 dd {
+    border-left: 0.15rem solid var(--winter-desc-term-fg);
+    padding-left: var(--winter-desc-list-padding);
+    padding-right: var(--winter-desc-list-padding);
 }
 
 /* Inline text */

@@ -97,6 +97,7 @@
     /* <footer> */
 
     /* <h1>-<h6> */
+    --winter-heading-spacing: var(--winter-spacing-xxl);
     --winter-heading-fg: var(--winter-purple-1);
     --winter-heading-font: var(--winter-font-decorative);
     --winter-heading-font-weight: var(--winter-font-weight-semibold);
@@ -147,6 +148,13 @@
     /* <ul>, <ol>, <li> */
     --winter-list-indent: var(--winter-spacing-l);
     --winter-list-spacing: var(--winter-spacing-xs);
+
+    /* <dl>, <dt>, <dd> */
+    --winter-desc-list-block-spacing: var(--winter-spacing-m);
+    --winter-desc-list-padding: var(--winter-spacing-s);
+    --winter-desc-term-font: var(--winter-font-decorative);
+    --winter-desc-term-font-size: var(--winter-font-size-xl);
+    --winter-desc-term-fg: var(--winter-teal-1);
 
     /* <table> */
     --table-border-color: var(--color-purple-4);
