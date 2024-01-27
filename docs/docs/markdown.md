@@ -144,6 +144,8 @@ This feature is most useful for illustrations and isn't recommended for photogra
 
 ## Blockquotes
 
+This is a blockquote:
+
 > You can format a paragraph as a blockquote,
 > and even extend it over multiple lines.
 > You can use text formatting like **bold** and _italic_

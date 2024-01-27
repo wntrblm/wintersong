@@ -167,9 +167,11 @@
     --table-row-even-bg: var(--color-purple-5);
 
     /* <blockquote> */
-    --quote-bg: transparent;
-    --quote-fg: var(--color-purple-1);
-    --quote-border: 0.25em solid var(--color-purple-1);
+    --winter-blockquote-padding: 1px var(--winter-spacing-l);
+    --winter-blockquote-font: var(--winter-font-serif);
+    --winter-blockquote-font-size: var(--winter-font-size-l);
+    --winter-blockquote-fg: var(--winter-not-quite-black);
+    --winter-blockquote-bg: var(--winter-teal-5);
 
     --admonition-fg: var(--fg);
     --admonition-bg: var(--bg);

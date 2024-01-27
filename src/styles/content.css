@@ -170,6 +170,12 @@ pre {
 }
 
 blockquote {
+    font-family: var(--winter-blockquote-font);
+    font-size: var(--winter-blockquote-font-size);
+    color: var(--winter-blockquote-fg);
+    background: var(--winter-blockquote-bg);
+    border-inline-start: 0.15rem solid var(--winter-blockquote-fg);
+    padding: var(--winter-blockquote-padding);
 }
 
 figure {
@@ -188,13 +194,12 @@ dt {
     font-size: var(--winter-desc-term-font-size);
     color: var(--winter-desc-term-fg);
     border-left: 0.15rem solid var(--winter-desc-term-fg);
-    padding-left: var(--winter-desc-list-padding);
-    padding-right: var(--winter-desc-list-padding);
+    padding-inline: var(--winter-desc-list-padding);
 }
 dd {
     border-left: 0.15rem solid var(--winter-desc-term-fg);
-    padding-left: var(--winter-desc-list-padding);
-    padding-right: var(--winter-desc-list-padding);
+    padding: var(--winter-desc-list-padding);
+    padding-block-end: 0;
 }
 
 /* Inline text */
