@@ -1,0 +1,185 @@
+:root {
+    /* Border radius */
+    --winter-border-radius-sm: 0.1875rem;
+    --winter-border-radius-m: 0.25rem;
+    --winter-border-radius-l: 0.5rem;
+    --winter-border-radius-xl: 1rem;
+    --winter-border-radius-circle: 50%;
+    --winter-border-radius-pill: 9999px;
+
+    /* Elevation */
+    --winter-shadow-xs: 0 1px 2px hsl(240 3.8% 46.1% / 6%);
+    --winter-shadow-s: 0 1px 2px hsl(240 3.8% 46.1% / 12%);
+    --winter-shadow-m: 0 2px 4px hsl(240 3.8% 46.1% / 12%);
+    --winter-shadow-l: 0 2px 8px hsl(240 3.8% 46.1% / 12%);
+    --winter-shadow-xl: 0 4px 16px hsl(240 3.8% 46.1% / 12%);
+
+    /* Generic spacing */
+    --winter-spacing-xxxs: 0.125rem;
+    --winter-spacing-xxs: 0.25rem;
+    --winter-spacing-xs: 0.5rem;
+    --winter-spacing-s: 0.75rem;
+    --winter-spacing-m: 1rem;
+    --winter-spacing-l: 1.25rem;
+    --winter-spacing-xl: 1.75rem;
+    --winter-spacing-xxl: 2.25rem;
+    --winter-spacing-xxxl: 3rem;
+    --winter-spacing-xxxxl: 4.5rem;
+
+    /* Transitons/duration */
+    --winter-duration-xs: 50ms;
+    --winter-duration-s: 150ms;
+    --winter-duration-m: 250ms;
+    --winter-duration-l: 500ms;
+    --winter-duration-xl: 1000ms;
+
+    /* Typography */
+    --winter-font-serif: "Nunito", Georgia, "Times New Roman", serif;
+    --winter-font-sans: "Nunito Sans", system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+        "Open Sans", "Helvetica Neue", sans-serif;
+    --winter-font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, SF Mono,
+        Menlo, Consolas, Liberation Mono, monospace;
+    --winter-font-decorative: "Space Grotesk", system-ui;
+
+    --winter-font-size-base: 20px;
+    --winter-font-size-xxs: 0.625rem;
+    --winter-font-size-xs: 0.75rem;
+    --winter-font-size-s: 0.875rem;
+    --winter-font-size-m: 1rem;
+    --winter-font-size-l: 1.25rem;
+    --winter-font-size-xl: 1.5rem;
+    --winter-font-size-xxl: 1.75rem;
+    --winter-font-size-xxxl: 2rem;
+    --winter-font-size-xxxxl: 2.5rem;
+    --winter-font-size-xxxxxl: 3rem;
+
+    --winter-font-weight-light: 300;
+    --winter-font-weight-normal: 400;
+    --winter-font-weight-semibold: 500;
+    --winter-font-weight-bold: 700;
+
+    --winter-letter-spacing-xs: -0.03em;
+    --winter-letter-spacing-s: -0.015em;
+    --winter-letter-spacing-m: normal;
+    --winter-letter-spacing-l: 0.075em;
+    --winter-letter-spacing-xl: 0.15em;
+
+    --winter-line-height-xs: 1;
+    --winter-line-height-s: 1.4;
+    --winter-line-height-m: 1.8;
+    --winter-line-height-l: 2.2;
+    --winter-line-height-xl: 2.6;
+
+    /* Focus */
+    --winter-focus-outline-color: var(--color-not-quite-black);
+    --winter-focus-outline: 1px solid var(--focus-outline-color);
+    --winter-focus-outline-offset: 2px;
+
+    /* Page colors */
+    --winter-bg: var(--winter-white);
+    --winter-fg: var(--winter-not-quite-black);
+
+    /* <header> and <nav> */
+    --winter-header-font: var(--winter-font-decorative);
+    --winter-header-font-size: var(--winter-font-size-l);
+    --winter-header-font-weight: var(--winter-font-weight-normal);
+    --winter-header-line-height: var(--winter-line-height-m);
+    --winter-header-icon-size: var(--winter-font-size-xxl);
+    --winter-header-block-spacing-top: 2rem;
+    --winter-header-block-spacing-bottom: 0rem;
+    --winter-header-bg: transparent;
+    --winter-header-fg: var(--winter-purple-1);
+    --winter-header-divider: 0.15rem solid var(--winter-purple-1);
+    --winter-header-name-font-size: var(--winter-font-size-xxxxl);
+    --winter-header-name-font-weight: var(--winter-font-weight-bold);
+
+    /* <footer> */
+
+    /* <h1>-<h6> */
+    --winter-heading-fg: var(--winter-purple-1);
+    --winter-heading-font: var(--winter-font-decorative);
+    --winter-heading-font-weight: var(--winter-font-weight-semibold);
+    --winter-heading-line-height: var(--winter-line-height-l);
+    --winter-heading-link-fg: var(--winter-teal-4);
+
+    /* Inline content */
+
+    /* <a> */
+    --winter-link-fg: var(--winter-red-1);
+    --winter-link-bg: transparent;
+    --winter-link-decoration: underline;
+    --winter-link-hover-fg: var(--color-teal-1);
+    --winter-link-hover-bg: transparent;
+    --winter-link-hover-decoration: underline;
+
+    /* <code> */
+    --winter-code-font-size: 100%;
+    --winter-code-padding: 0.15em 0.25em 0.15em;
+    --winter-code-fg: var(--winter-white);
+    --winter-code-bg: var(--winter-not-quite-black);
+
+    /* <kbd> */
+    --kbd-font-size: var(--code-font-size);
+    --kbd-padding: var(--code-padding);
+    --kbd-border-radius: var(--border-radius-s);
+    --kbd-fg: var(--color-alt-white);
+    --kbd-bg: var(--color-alt-purple-1);
+    --kbd-intra-padding: 0 0.2em;
+
+    /* <mark> (highlighted text) */
+    --mark-fg: inherit;
+    --mark-bg: var(--color-alt-yellow-4);
+
+    /* <abbr> */
+    --abbr-border: 0.1em dashed var(--fg);
+
+    /* Block content */
+    --winter-block-spacing: var(--winter-spacing-l);
+
+    /* <pre> */
+    --winter-pre-font-size: var(--winter-font-size-m);
+    --winter-pre-line-height: var(--winter-line-height-s);
+    --winter-pre-padding: 1rem;
+    --winter-pre-fg: var(--winter-white);
+    --winter-pre-bg: var(--winter-not-quite-black);
+
+    /* <ul>, <ol>, <li> */
+    --winter-list-indent: var(--winter-spacing-l);
+    --winter-list-spacing: var(--winter-spacing-xs);
+
+    /* <table> */
+    --table-border-color: var(--color-purple-4);
+    --table-heading-font-weight: 600;
+    --table-heading-fg: inherit;
+    --table-heading-bg: var(--color-purple-5);
+    --table-cell-padding: 0.75em 1em;
+    --table-cell-border: 1px solid var(--table-border-color);
+    --table-row-bg: transparent;
+    --table-row-even-bg: var(--color-purple-5);
+
+    /* <blockquote> */
+    --quote-bg: transparent;
+    --quote-fg: var(--color-purple-1);
+    --quote-border: 0.25em solid var(--color-purple-1);
+
+    --admonition-fg: var(--fg);
+    --admonition-bg: var(--bg);
+    --admonition-padding: 0.1em 0.5em;
+    --admonition-border-width: 0.25rem;
+    --admonition-title-font-weight: var(--font-weight-semibold);
+    --admonition-body-padding: 0.25em 0;
+
+    --admonition-default-color: var(--color-teal-3);
+    --admonition-info-color: var(--color-teal-3);
+    --admonition-tip-color: var(--color-teal-3);
+    --admonition-success-color: var(--color-alt-green-2);
+    --admonition-question-color: var(--color-alt-purple-2);
+    --admonition-warning-color: var(--color-alt-yellow-2);
+    --admonition-failure-color: var(--color-alt-red-2);
+    --admonition-danger-color: var(--color-alt-red-2);
+    --admonition-bug-color: var(--color-red-2);
+    --admonition-example-color: var(--color-alt-purple-2);
+    --admonition-quote-color: var(--color-alt-purple-2);
+    --admonition-fairy-color: var(--color-alt-purple-2);
+}

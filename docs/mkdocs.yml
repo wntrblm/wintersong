@@ -1,7 +1,7 @@
-site_name: Winter
-site_url: https://winter.wntr.dev
+site_name: Wintersong
+site_url: https://wintersong.wntr.dev
 copyright: "© 2024 Winterbloom LCC & Thea Flowers, licensed under Creative Commons CC BY-SA 4.0"
-repo_url: "https://github.com/wntrblm/winter"
+repo_url: "https://github.com/wntrblm/wintersong"
 edit_uri: edit/main/docs/docs
 theme:
     name: winter
@@ -46,3 +46,4 @@ markdown_extensions:
 nav:
     - "Home": index.md
     - "Components": components.md
+    - "Markdown": markdown.md

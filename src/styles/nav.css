@@ -5,23 +5,43 @@
 */
 
 body > header {
-    padding-top: 2rem;
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-    font-family: "Space Grotesk";
+    padding-top: var(--winter-header-block-spacing-top);
+    margin-bottom: var(--winter-header-block-spacing-bottom);
+    font-family: var(--winter-header-font);
+    font-size: var(--winter-header-font-size);
+    font-weight: var(--winter-header-font-weight);
+    line-height: var(--winter-header-line-height);
+    color: var(--winter-header-fg);
+    background: var(--winter-header-bg);
 }
 
 header {
     & > nav:first-of-type {
-        font-size: 2.5rem;
-        font-weight: bold;
-        border-bottom: 0.2rem solid rebeccapurple;
+        font-size: var(--winter-header-name-font-size);
+        font-weight: var(--winter-header-name-font-weight);
+        border-bottom: var(--winter-header-divider);
 
         & ul {
-            margin-bottom: -0.75rem;
+            & a {
+                margin-bottom: -0.25lh;
+                /* This "erases" the divider line where the text has descenders */
+                --outline-color: var(--winter-bg);
+                --outline-size: 0.15em;
+                text-shadow:
+                    calc(var(--outline-size) * -1) 0px 0px var(--outline-color),
+                    var(--outline-size) 0px 0px var(--outline-color);
+            }
+
+            & img.logo {
+                margin-bottom: -0.15lh;
+                height: 0.5lh;
+                width: auto;
+            }
         }
 
-        & :where(a, [role="link"]) {
+        & a,
+        [role="link"] {
+            color: var(--winter-header-fg);
             display: inline-block;
             text-decoration: none;
         }
@@ -35,6 +55,7 @@ nav {
     & ul {
         display: flex;
         align-items: center;
+        margin-block: 0;
         padding: 0;
         list-style: none;
     }
@@ -45,30 +66,33 @@ nav {
     }
 
     & winter-icon {
-        font-size: 1.5rem;
+        font-size: 120%;
+        /* font-size: var(--winter-header-icon-size); */
     }
 
-    & img.logo {
-        height: 0.5lh;
-        width: auto;
-    }
-
-    & :where(a, [role="link"]) {
+    & a,
+    [role="link"] {
+        color: var(--winter-header-fg);
+        background: var(--winter-header-bg);
         display: inline-block;
         text-decoration: none;
 
         &:is([aria-current], :hover, :active, :focus) {
+            color: var(--winter-header-fg);
+            background: var(--winter-header-bg);
             text-decoration: underline;
+            text-decoration-thickness: 0.08em;
         }
     }
 
     & ul.has-dividers {
         & li:not(:first-child) {
-            margin-inline-start: 1.75rem;
+            margin-inline-start: 1.2em;
         }
         & li:not(:last-child) ::after {
+            color: var(--winter-header-fg);
             position: absolute;
-            margin-inline-start: 0.6rem;
+            margin-inline-start: 0.4em;
             content: "/";
             text-align: center;
             pointer-events: none;

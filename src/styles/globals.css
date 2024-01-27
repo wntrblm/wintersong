@@ -4,6 +4,7 @@
     Full text available at: https://opensource.org/licenses/MIT
 */
 
-body {
-    font-family: Nunito, system-ui, sans-serif;
+.hidden,
+[hidden] {
+    display: none !important;
 }

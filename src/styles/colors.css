@@ -1,0 +1,66 @@
+/*
+    Copyright (c) 2024 Winterbloom LLC, Alethea Katherine Flowers
+    Published under the standard MIT License.
+    Full text available at: https://opensource.org/licenses/MIT
+*/
+
+:root {
+    --winter-white: #fff;
+    --winter-black: #000;
+    --winter-not-quite-black: #333;
+    --winter-yellow-1: rgb(184, 125, 33);
+    --winter-yellow-2: rgb(219, 161, 64);
+    --winter-yellow-3: rgb(250, 194, 105);
+    --winter-yellow-4: rgb(255, 214, 143);
+    --winter-yellow-5: rgb(255, 229, 186);
+    --winter-red-1: rgb(191, 36, 54);
+    --winter-red-2: rgb(217, 74, 92);
+    --winter-red-3: rgb(245, 115, 128);
+    --winter-red-4: rgb(250, 153, 163);
+    --winter-red-5: rgb(252, 194, 201);
+    --winter-teal-1: rgb(38, 120, 128);
+    --winter-teal-2: rgb(64, 140, 148);
+    --winter-teal-3: rgb(102, 173, 181);
+    --winter-teal-4: rgb(153, 209, 214);
+    --winter-teal-5: rgb(204, 237, 240);
+    --winter-purple-1: rgb(94, 64, 158);
+    --winter-purple-2: rgb(125, 97, 186);
+    --winter-purple-3: rgb(163, 138, 214);
+    --winter-purple-4: rgb(199, 184, 237);
+    --winter-purple-5: rgb(235, 227, 250);
+    --witch-hazel-yellow-5: rgb(255, 251, 200);
+    --witch-hazel-yellow-4: rgb(255, 249, 162);
+    --witch-hazel-yellow-3: rgb(254, 247, 129);
+    --witch-hazel-yellow-2: rgb(202, 196, 100);
+    --witch-hazel-yellow-1: rgb(137, 133, 78);
+    --witch-hazel-green-5: rgb(199, 255, 226);
+    --witch-hazel-green-4: rgb(162, 255, 207);
+    --witch-hazel-green-3: rgb(129, 255, 190);
+    --witch-hazel-green-2: rgb(100, 203, 150);
+    --witch-hazel-green-1: rgb(78, 137, 107);
+    --witch-hazel-cyan-5: rgb(199, 248, 254);
+    --witch-hazel-cyan-4: rgb(163, 243, 255);
+    --witch-hazel-cyan-3: rgb(129, 238, 255);
+    --witch-hazel-cyan-2: rgb(100, 190, 203);
+    --witch-hazel-cyan-1: rgb(78, 129, 137);
+    --witch-hazel-purple-5: rgb(220, 200, 255);
+    --witch-hazel-purple-4: rgb(196, 163, 255);
+    --witch-hazel-purple-3: rgb(174, 129, 255);
+    --witch-hazel-purple-2: rgb(136, 100, 202);
+    --witch-hazel-purple-1: rgb(98, 78, 137);
+    --witch-hazel-purple-alt-5: rgb(119, 99, 209);
+    --witch-hazel-purple-alt-4: rgb(113, 103, 153);
+    --witch-hazel-purple-alt-3: rgb(67, 62, 86);
+    --witch-hazel-purple-alt-2: rgb(40, 38, 52);
+    --witch-hazel-purple-alt-1: rgb(18, 18, 24);
+    --witch-hazel-red-5: rgb(255, 200, 219);
+    --witch-hazel-red-4: rgb(255, 163, 195);
+    --witch-hazel-red-3: rgb(254, 129, 173);
+    --witch-hazel-red-2: rgb(202, 100, 135);
+    --witch-hazel-red-1: rgb(137, 77, 98);
+    --witch-hazel-cream: rgb(228, 229, 198);
+    --witch-hazel-gray: rgb(137, 137, 119);
+    --witch-hazel-light-gray: rgb(191, 191, 191);
+    --witch-hazel-off-white: rgb(247, 248, 240);
+    --witch-hazel-white: rgb(255, 255, 255);
+}

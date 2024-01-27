@@ -4,6 +4,328 @@
     Full text available at: https://opensource.org/licenses/MIT
 */
 
+/* Root elements */
+
+html {
+}
+
+body {
+    font-family: var(--winter-font-serif);
+    font-size: var(--winter-font-size-base);
+    font-weight: var(--winter-font-weight-normal);
+    font-feature-settings: "kern", "liga";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: var(--winter-letter-spacing-normal);
+    line-height: var(--winter-line-height-normal);
+    color: var(--winter-fg);
+    background: var(--winter-bg);
+}
+
+/* Content sectioning */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    display: block;
+    width: 100%;
+    position: relative;
+    font-family: var(--winter-heading-font);
+    font-weight: var(--winter-heading-font-weight);
+    line-height: var(--winter-heading-line-height);
+    color: var(--winter-heading-fg);
+    margin-block-end: var(--winter-block-spacing);
+
+    & .headerlink {
+        position: absolute;
+        top: 0;
+        left: -1.25ch;
+        height: 100%;
+        display: inline-flex;
+        align-items: center;
+        color: var(--winter-heading-link-fg);
+        text-decoration: none;
+        font-size: 75%;
+
+        &:is([aria-current], :hover, :active, :focus) {
+            text-decoration: none;
+        }
+    }
+}
+h1 {
+    font-size: var(--winter-font-size-xxxl);
+}
+h2 {
+    font-size: var(--winter-font-size-xxxl);
+}
+h3 {
+    font-size: var(--winter-font-size-xxl);
+}
+h4 {
+    font-size: var(--winter-font-size-xl);
+}
+h5 {
+    font-size: var(--winter-font-size-l);
+}
+h6 {
+    font-size: var(--winter-font-size-l);
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Text block content
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* Overall styling, e.g. vertical spacing */
+p,
+ol,
+ul,
+pre,
+blockquote,
+figure,
+hr,
+dl {
+    margin-block: var(--winter-block-spacing);
+}
+
+p {
+}
+
+main {
+    & ol,
+    ul {
+        padding: 0;
+        margin-inline-start: var(--winter-list-indent);
+
+        &:not([hidden]) {
+            display: flow-root;
+        }
+
+        & ol {
+            list-style-type: lower-alpha;
+            & ol {
+                list-style-type: lower-roman;
+            }
+        }
+
+        & li {
+            margin-inline-start: var(--winter-list-indent);
+            margin-bottom: var(--winter-list-spacing);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            & :is(ul, ol) {
+                margin-block: var(--winter-list-spacing);
+            }
+        }
+    }
+}
+
+ol {
+}
+ul {
+}
+li {
+}
+ol ol,
+ol ul,
+ul ul,
+ul ol {
+}
+li li {
+}
+
+code {
+    font-family: var(--mono-font);
+    font-size: var(--winter-code-font-size);
+    color: var(--winter-code-fg);
+    background: var(--winter-code-bg);
+    padding: var(--winter-code-padding);
+    /* border: 1px solid var(--inline-code-border); */
+}
+pre {
+    -webkit-overflow-scrolling: touch;
+    white-space: pre;
+    word-wrap: normal;
+    overflow-x: auto;
+    font-family: var(--winter-font-mono);
+    font-size: var(--winter-pre-font-size);
+    line-height: var(--winter-pre-line-height);
+    color: var(--winter-pre-fg);
+    background: var(--winter-pre-bg);
+    padding: var(--winter-pre-padding);
+
+    & code {
+        font-size: 1em;
+        color: currentColor;
+        padding: 0;
+        background: transparent;
+    }
+}
+
+blockquote {
+}
+
+figure {
+}
+figcaption {
+}
+
+hr {
+}
+
+dl {
+}
+dt {
+}
+dd {
+}
+
+/* Inline text */
+
+a,
+[role="link"] {
+    color: var(--winter-link-fg);
+    background: var(--winter-link-bg);
+    text-decoration: var(--winter-link-decoration);
+
+    &:is([aria-current], :hover, :active, :focus) {
+        color: var(--winter-link-hover-fg);
+        background: var(--winter-link-hover-bg);
+        text-decoration: var(--winter-link-hover-decoration);
+    }
+}
+
+strong {
+}
+b {
+}
+
+em {
+}
+i {
+}
+
+q {
+}
+cite {
+}
+
+s {
+}
+
+mark {
+}
+
+small {
+    font-size: 0.8em;
+    line-height: inherit;
+}
+
+/* Prevent `sub` and `sup` elements from affecting line height */
+sub,
+sup {
+    position: relative;
+    font-size: 0.8em;
+    line-height: 0;
+    vertical-align: baseline;
+}
+sub {
+    bottom: -0.25em;
+}
+sup {
+    top: -0.5em;
+}
+
+code {
+}
+
+dfn {
+}
+abbr {
+}
+abbr[title] {
+}
+
+var {
+}
+kbd {
+}
+kbd kbd {
+}
+samp {
+}
+
+u {
+}
+
+data {
+}
+time {
+}
+
+del {
+}
+ins {
+}
+
+/* Embedded media */
+
+img {
+}
+svg {
+}
+video {
+}
+canvas {
+}
+audio {
+}
+object {
+}
+
+/* Tables */
+
+table {
+}
+caption {
+}
+col:first-child {
+}
+thead {
+}
+tbody {
+}
+tfoot {
+}
+tr {
+}
+th {
+}
+td {
+}
+
+/* Details, dialog */
+details {
+}
+details[open] {
+}
+summary {
+}
+details[open] summary {
+}
+
+dialog {
+}
+dialog::backdrop {
+}
+
+/* Other */
+
 main {
     & winter-audio-player {
         width: 640px;
