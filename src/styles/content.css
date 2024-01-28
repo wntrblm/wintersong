@@ -201,7 +201,7 @@ dl {
     }
     & dd {
         border-left: 0.15rem solid var(--winter-desc-term-fg);
-        padding: var(--winter-desc-list-padding);
+        padding-inline: var(--winter-desc-list-padding);
         padding-block-end: 0;
     }
 }

@@ -9,10 +9,14 @@
 
     /* Elevation */
     --winter-shadow-color-hsl: 261, 32%, 28%;
-    --winter-shadow-xs: 1px 1px 1px 0 hsl(var(--winter-shadow-color-hsl), 0.2);
-    --winter-shadow-s: 3px 3px 2px 0 hsl(var(--winter-shadow-color-hsl), 0.2);
-    --winter-shadow-m: 6px 6px 3px 0 hsl(var(--winter-shadow-color-hsl), 0.3);
-    --winter-shadow-l: 10px 10px 3px 0 hsl(var(--winter-shadow-color-hsl), 0.3);
+    --winter-shadow-xs: 1px 1px 1px 0 hsl(var(--winter-shadow-color-hsl), 0.2),
+        0 0 10px 0 hsl(var(--winter-shadow-color-hsl), 0.1);
+    --winter-shadow-s: 3px 3px 2px 0 hsl(var(--winter-shadow-color-hsl), 0.2),
+        0 0 10px 0 hsl(var(--winter-shadow-color-hsl), 0.15);
+    --winter-shadow-m: 6px 6px 3px 0 hsl(var(--winter-shadow-color-hsl), 0.3),
+        0 0 10px 0 hsl(var(--winter-shadow-color-hsl), 0.2);
+    --winter-shadow-l: 10px 10px 3px 0 hsl(var(--winter-shadow-color-hsl), 0.3),
+        0 0 10px 0 hsl(var(--winter-shadow-color-hsl), 0.2);
 
     /* Generic spacing */
     --winter-spacing-xxxs: 0.125rem;

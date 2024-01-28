@@ -24,6 +24,7 @@
     color: var(--fg);
     background: var(--bg);
     page-break-inside: avoid;
+    box-shadow: var(--winter-shadow-s);
 
     & .admonition-title {
         color: var(--accent);
