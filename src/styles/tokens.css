@@ -159,7 +159,7 @@
     --winter-desc-list-block-spacing: var(--winter-spacing-m);
     --winter-desc-list-padding: var(--winter-spacing-s);
     --winter-desc-term-font: var(--winter-font-decorative);
-    --winter-desc-term-font-size: var(--winter-font-size-xl);
+    --winter-desc-term-font-size: var(--winter-font-size-l);
     --winter-desc-term-fg: var(--winter-teal-1);
 
     /* <table> */
@@ -173,11 +173,11 @@
     --table-row-even-bg: var(--color-purple-5);
 
     /* <blockquote> */
-    --winter-blockquote-padding: 1px var(--winter-spacing-l);
+    --winter-blockquote-padding: var(--winter-spacing-m);
     --winter-blockquote-font: var(--winter-font-serif);
-    --winter-blockquote-font-size: var(--winter-font-size-l);
+    --winter-blockquote-font-size: var(--winter-font-size-m);
     --winter-blockquote-fg: var(--winter-not-quite-black);
-    --winter-blockquote-bg: var(--winter-teal-5);
+    --winter-blockquote-bg: var(--color-white);
 
     /* <hr> */
     --winter-hr-border: 0.15rem solid var(--winter-purple-3);
@@ -186,7 +186,7 @@
 
     /* .admonition */
     --winter-admonition-font: var(--winter-font-serif);
-    --winter-blockquote-font-size: var(--winter-font-size-l);
+    --winter-admonition-font-size: var(--winter-font-size-m);
     --winter-admonition-fg: var(--winter-fg);
     --winter-admonition-bg: var(--winter-bg);
     --winter-admonition-accent: var(--winter-teal-1);
@@ -194,7 +194,7 @@
     --winter-admonition-padding: var(--winter-spacing-xs)
         var(--winter-spacing-s);
     --winter-admonition-title-font: var(--winter-font-decorative);
-    --winter-admonition-title-font-size: var(--winter-font-size-xl);
+    --winter-admonition-title-font-size: var(--winter-font-size-l);
     --winter-admonition-body-spacing: var(--winter-spacing-s);
 
     --winter-admonition-note-accent: var(--winter-teal-1);

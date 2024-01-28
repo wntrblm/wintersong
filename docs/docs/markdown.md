@@ -104,6 +104,11 @@ This is a blockquote:
 > and even extend it over multiple lines.
 > You can use text formatting like **bold** and _italic_
 > as well.
+>
+> Blockquotes can also span multiple paragraphs and such.
+
+!!! quote
+    There are different types of admonitions.
 
 ```markdown
 > You can format a paragraph as a blockquote,
@@ -326,7 +331,7 @@ You can place the definition wherever, but they'll all end up at the bottom of t
 
 ## Images
 
-You can include images stored in the documentation repository using their relative path:
+Standard markdown images are rendered with nice spacing:
 
 ![An example image](images/example.webp)
 
@@ -334,40 +339,36 @@ You can include images stored in the documentation repository using their relati
 ![An example image](images/example.webp)
 ```
 
-For external images, use the fully qualified URL:
+But there's a few more tricks. You can pull an image to left or right of a body of text. For example:
 
-![An example external image](https://storage.googleapis.com/files.thea.codes/photos/unsorted/PXL_20201021_161900467.jpg)
-
-```markdown
-![An example external image](https://storage.googleapis.com/files.thea.codes/photos/unsorted/PXL_20201021_161900467.jpg)
-```
-
-The theme adds additional features for images.
-
-You can pull an image to left or right of a body of text. For example:
-
-![An image pulled to the right](images/example.webp){: .is-pulled-right }
+![An image pulled to the right](images/example.webp){: align=right }
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 ```markdown
-![An image pulled to the right](images/example.webp){: .is-pulled-right }
+![An image pulled to the right](images/example.webp){: align=right }
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ...
 ```
 
-You can also control the size of the images. This is useful for showing panel mockups:
+You can also control the size of the images:
 
-![An image that takes up just 10% of the space](images/example.webp){: .is-small }
-![An image that takes up a quarter of the space](images/example.webp){: .is-quarter }
-![An image that takes up a quarter of the space](images/example.webp){: .is-half }
+![small](images/example.webp){: .small }
+![quarter](images/example.webp){: .quarter }
+![half](images/example.webp){: .half }
+
+```markdown
+![small](images/example.webp){: .small }
+![quarter](images/example.webp){: .quarter }
+![half](images/example.webp){: .half }
+```
 
 Finally, the theme can automatically invert images when Dark mode is used. Toggle Dark mode on and off to see the effect on the image below:
 
-![An image that is inverted in Dark mode](images/fs.png){: .is-small .is-inverted-dark }
+![An image that is inverted in Dark mode](images/fs.png){: .is-half .is-inverted-dark }
 
 ```markdown
-![An image that is inverted in Dark mode](images/fs.png){: .is-small .is-inverted-dark }
+![An image that is inverted in Dark mode](images/fs.png){: .is-half .is-inverted-dark }
 ```
 
 This feature is most useful for illustrations and isn't recommended for photographs.

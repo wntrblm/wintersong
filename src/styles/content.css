@@ -177,6 +177,14 @@ blockquote {
     background: var(--winter-blockquote-bg);
     border-inline-start: 0.15rem solid var(--winter-blockquote-fg);
     padding: var(--winter-blockquote-padding);
+    box-shadow: var(--winter-shadow-s);
+
+    & p:first-child {
+        margin-block-start: 0;
+    }
+    & p:last-child {
+        margin-block-end: 0;
+    }
 }
 
 figure {
@@ -306,7 +314,42 @@ ins {
 
 /* Embedded media */
 
+img,
+svg,
+video,
+canvas,
+audio,
+object {
+    margin-block: var(--winter-block-spacing);
+    margin-inline: auto;
+    max-width: 100%;
+    height: auto;
+    box-shadow: var(--winter-shadow-s);
+}
+
 img {
+    &[align] {
+        margin: 1em;
+        max-width: 50%;
+    }
+
+    &[align="left"] {
+        margin-left: 0;
+    }
+
+    &[align="right"] {
+        margin-right: 0;
+    }
+
+    &.small {
+        max-width: 10%;
+    }
+    &.quarter {
+        max-width: 25%;
+    }
+    &.half {
+        max-width: 50%;
+    }
 }
 svg {
 }
