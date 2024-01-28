@@ -120,16 +120,17 @@
 
     /* <code> */
     --winter-code-font-size: 90%;
-    --winter-code-padding: 0.15em 0.25em 0.15em;
+    --winter-code-padding: 0.15em 0.5em 0.15em;
     --winter-code-fg: var(--winter-white);
     --winter-code-bg: var(--winter-not-quite-black);
+    --winter-code-border-radius: var(--winter-border-radius-s);
 
     /* <kbd> */
     --winter-kbd-font: var(--winter-font-decorative);
-    --winter-kbd-font-size: 90%;
+    --winter-kbd-font-size: 85%;
     --winter-kbd-padding: 0.15em 0.5em 0.15em;
     --winter-kbd-fg: var(--winter-white);
-    --winter-kbd-bg: var(--color-cyan-600);
+    --winter-kbd-bg: var(--color-purple-600);
     --winter-kbd-combinator-fg: var(--color-gray-600);
     --winter-kbd-border-radius: var(--winter-border-radius-s);
 
@@ -165,6 +166,13 @@
     --winter-desc-term-fg: var(--winter-teal-1);
 
     /* <table> */
+    --winter-table-font-size: var(--winter-font-size-m);
+    --winter-table-border: var(--color-purple-200);
+    --winter-table-heading-border: var(--winter-purple-2);
+    --winter-table-padding: var(--winter-spacing-xxs) var(--winter-spacing-xs);
+    --winter-table-striped-bg: var(--color-purple-50);
+    --winter-table-hover-bg: var(--color-purple-100);
+
     --table-border-color: var(--color-purple-4);
     --table-heading-font-weight: 600;
     --table-heading-fg: inherit;

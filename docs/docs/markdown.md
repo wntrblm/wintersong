@@ -242,11 +242,11 @@ Example source:
 
 ## Definition lists
 
-Definition lists are a Markdown extension that's useful for defining terms or creating a legend. This example is from the [BIA](/bia) documentation:
+Definition lists are a Markdown extension that's useful for defining terms or creating a legend.
 
 Pitch
 : The pitch knob and CV input adjusts the pitch of the fundamental oscillator.
-This is a `1 V / octave` per octave standard input. The knob sums with the CV input.
+This is a `1 V / octave` standard input. The knob sums with the CV input.
 
 Decay
 : The decay knob and CV input adjust the decay for all oscillators. The knob offsets the CV input.

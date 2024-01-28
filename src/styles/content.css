@@ -143,7 +143,9 @@ main {
         color: var(--winter-code-fg);
         background: var(--winter-code-bg);
         padding: var(--winter-code-padding);
-        /* border: 1px solid var(--inline-code-border); */
+        border: 1px solid transparent;
+        border-radius: var(--winter-code-border-radius);
+        box-shadow: var(--winter-shadow-s);
     }
 
     & pre {
@@ -164,6 +166,7 @@ main {
             color: currentColor;
             padding: 0;
             background: transparent;
+            border: none;
         }
 
         scrollbar-width: thin;
@@ -387,13 +390,65 @@ Tables
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 main {
-    & table {
+    & table:not([class]) {
+        max-width: 100%;
+        overflow: auto;
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-size: var(--winter-table-font-size);
+        border-color: var(--winter-table-border);
+        border-style: solid;
+        border-width: 0;
+
+        & tr {
+            border-color: inherit;
+            border-style: inherit;
+            border-width: 0;
+
+            &:nth-child(2n) {
+                background: var(--winter-table-striped-bg);
+            }
+
+            &:hover {
+                background: var(--winter-table-hover-bg);
+            }
+        }
+
+        & th,
+        td {
+            border-color: inherit;
+            border-style: inherit;
+            padding: var(--winter-table-padding);
+            background: transparent;
+            min-width: 8rem;
+
+            &:not([align]) {
+                text-align: left;
+            }
+        }
+
+        & th {
+            border-width: 0 0 2px;
+        }
+
+        & td {
+            border-width: 0 0 1px;
+        }
+
+        & thead,
+        tbody {
+            border-color: inherit;
+            border-style: inherit;
+            border-width: 0;
+        }
+
+        & thead {
+            border-color: var(--winter-table-heading-border);
+        }
     }
     & caption {
     }
     & col:first-child {
-    }
-    & thead {
     }
     & tbody {
     }
