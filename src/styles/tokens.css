@@ -155,8 +155,8 @@
     --winter-pre-scrollbar-hover: var(--winter-purple-3);
 
     /* <ul>, <ol>, <li> */
-    --winter-list-indent: var(--winter-spacing-l);
-    --winter-list-spacing: var(--winter-spacing-xs);
+    --winter-list-indent: var(--winter-spacing-m);
+    --winter-list-spacing: var(--winter-spacing-xxs);
 
     /* <dl>, <dt>, <dd> */
     --winter-desc-list-block-spacing: var(--winter-spacing-m);
