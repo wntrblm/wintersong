@@ -187,19 +187,19 @@ hr {
 }
 
 dl {
-}
-dt {
-    margin-block-start: var(--winter-desc-list-block-spacing);
-    font-family: var(--winter-desc-term-font);
-    font-size: var(--winter-desc-term-font-size);
-    color: var(--winter-desc-term-fg);
-    border-left: 0.15rem solid var(--winter-desc-term-fg);
-    padding-inline: var(--winter-desc-list-padding);
-}
-dd {
-    border-left: 0.15rem solid var(--winter-desc-term-fg);
-    padding: var(--winter-desc-list-padding);
-    padding-block-end: 0;
+    & dt {
+        margin-block-start: var(--winter-desc-list-block-spacing);
+        font-family: var(--winter-desc-term-font);
+        font-size: var(--winter-desc-term-font-size);
+        color: var(--winter-desc-term-fg);
+        border-left: 0.15rem solid var(--winter-desc-term-fg);
+        padding-inline: var(--winter-desc-list-padding);
+    }
+    & dd {
+        border-left: 0.15rem solid var(--winter-desc-term-fg);
+        padding: var(--winter-desc-list-padding);
+        padding-block-end: 0;
+    }
 }
 
 /* Inline text */
@@ -217,13 +217,11 @@ a,
     }
 }
 
-strong {
-}
+strong,
 b {
 }
 
-em {
-}
+em,
 i {
 }
 
@@ -264,6 +262,9 @@ code {
 dfn {
 }
 abbr {
+    text-decoration: none;
+    cursor: help;
+    border-bottom: var(--winter-abbr-border);
 }
 abbr[title] {
 }

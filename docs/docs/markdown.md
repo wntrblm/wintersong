@@ -32,37 +32,14 @@ Analog-inspired parameterized drum synthesizer
 
 ###### This is H6
 
-## Font style
+## Inline text
 
-You can use **bold**, _italic_, **_bold and italic_**, ~~strikethrough~~, `monospace`, super^script^, and sub~script~.
+Inline text can be formatted in several ways, such as **bold**, _italic_, **_bold and italic_**, ~~strikethrough~~, `monospace`, super^script^, sub~script~, and =mark=.
 
 ```markdown
 You can use **bold**, _italic_, **_bold and italic_**, ~~strikethrough~~, and `monospace`.
 ```
 
-## Lists
-
-Lists look like this:
-
--   Lists can be
--   created unordered
--   or ordered
-    1. They can also be nested
-    1. multiple times
-        - and different styles can
-        - be mixed as
-    1. needed
-
-```markdown
--   Lists can be
--   created unordered
--   or ordered
-    1. They can also be nested
-    1. multiple times
-        - and different styles can
-        - be mixed as
-    1. needed
-```
 
 ## Links
 
@@ -94,53 +71,30 @@ You can also create [links to headings in the page](#page).
 Each heading has a permalink styled as a `#` next to it.
 ```
 
-## Images
 
-You can include images stored in the documentation repository using their relative path:
+## Lists
 
-![An example image](images/example.webp)
+Lists look like this:
 
-```markdown
-![An example image](images/example.webp)
-```
-
-For external images, use the fully qualified URL:
-
-![An example external image](https://storage.googleapis.com/files.thea.codes/photos/unsorted/PXL_20201021_161900467.jpg)
-
-```markdown
-![An example external image](https://storage.googleapis.com/files.thea.codes/photos/unsorted/PXL_20201021_161900467.jpg)
-```
-
-The theme adds additional features for images.
-
-You can pull an image to left or right of a body of text. For example:
-
-![An image pulled to the right](images/example.webp){: .is-pulled-right }
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+-   Lists can be
+-   created unordered
+-   or ordered
+    1. They can also be nested
+    1. multiple times
+        - and different styles can
+        - be mixed as
+    1. needed
 
 ```markdown
-![An image pulled to the right](images/example.webp){: .is-pulled-right }
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ...
+-   Lists can be
+-   created unordered
+-   or ordered
+    1. They can also be nested
+    1. multiple times
+        - and different styles can
+        - be mixed as
+    1. needed
 ```
-
-You can also control the size of the images. This is useful for showing panel mockups:
-
-![An image that takes up just 10% of the space](images/example.webp){: .is-small }
-![An image that takes up a quarter of the space](images/example.webp){: .is-quarter }
-![An image that takes up a quarter of the space](images/example.webp){: .is-half }
-
-Finally, the theme can automatically invert images when Dark mode is used. Toggle Dark mode on and off to see the effect on the image below:
-
-![An image that is inverted in Dark mode](images/fs.png){: .is-small .is-inverted-dark }
-
-```markdown
-![An image that is inverted in Dark mode](images/fs.png){: .is-small .is-inverted-dark }
-```
-
-This feature is most useful for illustrations and isn't recommended for photographs.
 
 ## Blockquotes
 
@@ -312,3 +266,75 @@ For example: Each oscillator has an individual envelope that is controlled by
 the ++"Attack"++, ++"Decay"++, and ++"Harm"++ controls. The noise envelope is
 also affected by the ++"Attack"++ knob.
 ```
+
+## Abbreviations
+
+You can use abbreviations (HTML tag `<abbr>`). First, create an abbreviation definition like this:
+
+```markdown
+*[HTML]: Hyper Text Markup Language
+*[W3C]:  World Wide Web Consortium
+```
+
+then, elsewhere in the document, write text such as:
+
+```markdown
+The HTML specification is maintained by the W3C.
+```
+
+Any instace of the abbreviations will automatically get rendered as such, for example:
+
+The HTML specification is maintained by the W3C.
+
+*[HTML]: Hyper Text Markup Language
+*[W3C]:  World Wide Web Consortium
+
+Abbreviations are case-sensitive, and will span on multiple words when defined as such. An abbreviation may also have an empty definition, in which case `<abbr>` tags will be added in the text but the title attribute will be omitted. The abbreviation definitions can be anywhere in the document.
+
+## Images
+
+You can include images stored in the documentation repository using their relative path:
+
+![An example image](images/example.webp)
+
+```markdown
+![An example image](images/example.webp)
+```
+
+For external images, use the fully qualified URL:
+
+![An example external image](https://storage.googleapis.com/files.thea.codes/photos/unsorted/PXL_20201021_161900467.jpg)
+
+```markdown
+![An example external image](https://storage.googleapis.com/files.thea.codes/photos/unsorted/PXL_20201021_161900467.jpg)
+```
+
+The theme adds additional features for images.
+
+You can pull an image to left or right of a body of text. For example:
+
+![An image pulled to the right](images/example.webp){: .is-pulled-right }
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+```markdown
+![An image pulled to the right](images/example.webp){: .is-pulled-right }
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ...
+```
+
+You can also control the size of the images. This is useful for showing panel mockups:
+
+![An image that takes up just 10% of the space](images/example.webp){: .is-small }
+![An image that takes up a quarter of the space](images/example.webp){: .is-quarter }
+![An image that takes up a quarter of the space](images/example.webp){: .is-half }
+
+Finally, the theme can automatically invert images when Dark mode is used. Toggle Dark mode on and off to see the effect on the image below:
+
+![An image that is inverted in Dark mode](images/fs.png){: .is-small .is-inverted-dark }
+
+```markdown
+![An image that is inverted in Dark mode](images/fs.png){: .is-small .is-inverted-dark }
+```
+
+This feature is most useful for illustrations and isn't recommended for photographs.

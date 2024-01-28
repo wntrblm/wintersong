@@ -133,7 +133,8 @@
     --mark-bg: var(--color-alt-yellow-4);
 
     /* <abbr> */
-    --abbr-border: 0.1em dashed var(--fg);
+    --winter-abbr-border: 0.1em dashed
+        color-mix(in srgb, currentColor 40%, white);
 
     /* Block content */
     --winter-block-spacing: var(--winter-spacing-l);
