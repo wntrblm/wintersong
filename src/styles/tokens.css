@@ -174,6 +174,9 @@
     --winter-blockquote-fg: var(--winter-not-quite-black);
     --winter-blockquote-bg: var(--winter-teal-5);
 
+    /* <hr> */
+    --winter-hr-border: 0.15rem solid var(--winter-purple-3);
+
     /* Markdown extensions */
 
     /* .admonition */
@@ -238,15 +241,7 @@
     --winter-admonition-fairy-bg: var(--winter-bg);
     --winter-admonition-fairy-icon: "🧚";
 
-    --winter-admonition-info-color: var(--winter-teal-3);
-    --winter-admonition-tip-color: var(--winter-teal-3);
-    --winter-admonition-success-color: var(--color-alt-green-2);
-    --winter-admonition-question-color: var(--color-alt-purple-2);
-    --winter-admonition-warning-color: var(--color-alt-yellow-2);
-    --winter-admonition-failure-color: var(--color-alt-red-2);
-    --winter-admonition-danger-color: var(--color-alt-red-2);
-    --winter-admonition-bug-color: var(--color-red-2);
-    --winter-admonition-example-color: var(--color-alt-purple-2);
-    --winter-admonition-quote-color: var(--color-alt-purple-2);
-    --winter-admonition-fairy-color: var(--color-alt-purple-2);
+    /* footnotes */
+    --winter-footnote-font-size: var(--winter-font-size-s);
+    --winter-footnote-fg: var(--color-gray-800);
 }

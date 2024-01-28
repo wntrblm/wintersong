@@ -291,6 +291,22 @@ The HTML specification is maintained by the W3C.
 
 Abbreviations are case-sensitive, and will span on multiple words when defined as such. An abbreviation may also have an empty definition, in which case `<abbr>` tags will be added in the text but the title attribute will be omitted. The abbreviation definitions can be anywhere in the document.
 
+## Footnotes
+
+Footnotes work mostly like reference-style links, where you use a *marker* in the text that will become a superscript link, and a footnote *definition*:
+
+```
+That's some text[^1] with a footnote.
+
+[^1]: This is the footnote.
+```
+
+> That's some text[^1] with a footnote.
+
+[^1]: This is the footnote.
+
+You can place the definition wherever, but they'll all end up at the bottom of the document.
+
 ## Images
 
 You can include images stored in the documentation repository using their relative path:
