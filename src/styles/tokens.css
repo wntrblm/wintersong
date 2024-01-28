@@ -1,6 +1,6 @@
 :root {
     /* Border radius */
-    --winter-border-radius-sm: 0.1875rem;
+    --winter-border-radius-s: 0.1875rem;
     --winter-border-radius-m: 0.25rem;
     --winter-border-radius-l: 0.5rem;
     --winter-border-radius-xl: 1rem;
@@ -8,11 +8,11 @@
     --winter-border-radius-pill: 9999px;
 
     /* Elevation */
-    --winter-shadow-xs: 0 1px 2px hsl(240 3.8% 46.1% / 6%);
-    --winter-shadow-s: 0 1px 2px hsl(240 3.8% 46.1% / 12%);
-    --winter-shadow-m: 0 2px 4px hsl(240 3.8% 46.1% / 12%);
-    --winter-shadow-l: 0 2px 8px hsl(240 3.8% 46.1% / 12%);
-    --winter-shadow-xl: 0 4px 16px hsl(240 3.8% 46.1% / 12%);
+    --winter-shadow-color-hsl: 261, 32%, 28%;
+    --winter-shadow-xs: 1px 1px 1px 0 hsl(var(--winter-shadow-color-hsl), 0.2);
+    --winter-shadow-s: 3px 3px 2px 0 hsl(var(--winter-shadow-color-hsl), 0.2);
+    --winter-shadow-m: 6px 6px 3px 0 hsl(var(--winter-shadow-color-hsl), 0.3);
+    --winter-shadow-l: 10px 10px 3px 0 hsl(var(--winter-shadow-color-hsl), 0.3);
 
     /* Generic spacing */
     --winter-spacing-xxxs: 0.125rem;
@@ -115,22 +115,23 @@
     --winter-link-hover-decoration: underline;
 
     /* <code> */
-    --winter-code-font-size: 100%;
+    --winter-code-font-size: 90%;
     --winter-code-padding: 0.15em 0.25em 0.15em;
     --winter-code-fg: var(--winter-white);
     --winter-code-bg: var(--winter-not-quite-black);
 
     /* <kbd> */
-    --kbd-font-size: var(--code-font-size);
-    --kbd-padding: var(--code-padding);
-    --kbd-border-radius: var(--border-radius-s);
-    --kbd-fg: var(--color-alt-white);
-    --kbd-bg: var(--color-alt-purple-1);
-    --kbd-intra-padding: 0 0.2em;
+    --winter-kbd-font: var(--winter-font-decorative);
+    --winter-kbd-font-size: 90%;
+    --winter-kbd-padding: 0.15em 0.5em 0.15em;
+    --winter-kbd-fg: var(--winter-white);
+    --winter-kbd-bg: var(--color-cyan-600);
+    --winter-kbd-combinator-fg: var(--color-gray-600);
+    --winter-kbd-border-radius: var(--winter-border-radius-s);
 
-    /* <mark> (highlighted text) */
-    --mark-fg: inherit;
-    --mark-bg: var(--color-alt-yellow-4);
+    /* <mark> */
+    --winter-mark-fg: inherit;
+    --winter-mark-bg: var(--color-yellow-100);
 
     /* <abbr> */
     --winter-abbr-border: 0.1em dashed

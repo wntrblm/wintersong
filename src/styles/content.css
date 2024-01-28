@@ -141,7 +141,7 @@ main {
 }
 
 code {
-    font-family: var(--mono-font);
+    font-family: var(--winter-font-mono);
     font-size: var(--winter-code-font-size);
     color: var(--winter-code-fg);
     background: var(--winter-code-bg);
@@ -160,6 +160,7 @@ pre {
     color: var(--winter-pre-fg);
     background: var(--winter-pre-bg);
     padding: var(--winter-pre-padding);
+    box-shadow: var(--winter-shadow-s);
 
     & code {
         font-size: 1em;
@@ -237,6 +238,10 @@ s {
 }
 
 mark {
+    color: var(--winter-mark-fg);
+    background-color: var(--winter-mark-bg);
+    word-break: break-word;
+    box-decoration-break: clone;
 }
 
 small {
@@ -275,8 +280,13 @@ abbr[title] {
 var {
 }
 kbd {
-}
-kbd kbd {
+    font-family: var(--winter-kbd-font);
+    font-size: var(--winter-kbd-font-size);
+    color: var(--winter-kbd-fg);
+    background: var(--winter-kbd-bg);
+    padding: var(--winter-kbd-padding);
+    border-radius: var(--winter-kbd-border-radius);
+    border: 1px solid transparent;
 }
 samp {
 }

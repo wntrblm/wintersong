@@ -34,7 +34,7 @@ Analog-inspired parameterized drum synthesizer
 
 ## Inline text
 
-Inline text can be formatted in several ways, such as **bold**, _italic_, **_bold and italic_**, ~~strikethrough~~, `monospace`, super^script^, sub~script~, and =mark=.
+Inline text can be formatted in several ways, such as **bold**, _italic_, **_bold and italic_**, ~~strikethrough~~, `monospace`, super^script^, sub~script~, ==mark==, ^^insert^^, and ++ctrl+alt+del++.
 
 ```markdown
 You can use **bold**, _italic_, **_bold and italic_**, ~~strikethrough~~, and `monospace`.
@@ -266,6 +266,23 @@ For example: Each oscillator has an individual envelope that is controlled by
 the ++"Attack"++, ++"Decay"++, and ++"Harm"++ controls. The noise envelope is
 also affected by the ++"Attack"++ knob.
 ```
+
+Keys can of course be used for keyboard keys, and there's special cases for those that add helpful icons:
+
+* ++alt++, ++left-alt++, ++right-alt++
+* ++command++, ++left-command++, ++right-command++
+* ++control++, ++left-control++, ++right-control++
+* ++meta++, ++left-meta++, ++right-meta++
+* ++option++, ++left-option++, ++right-option++
+* ++shift++, ++left-shift++, ++right-shift++
+* ++super++, ++left-super++, ++right-super++
+* ++windows++, ++left-windows++, ++right-windows++
+* ++arrow-left++, ++arrow-right++, ++arrow-up++, ++arrow-down++
+* ++escape++, ++caps-lock++, ++tab++, ++backspace++, ++backtab++, ++enter++, ++num-enter++
+* ++context-menu++, ++print-screen++, ++clear++, ++eject++
+* ++insert++, ++delete++, ++home++, ++end++, ++page-up++, ++page-down++
+
+And of course, key combinations are styled nicely, like ++ctrl+alt+delete++ and ++command+v++.
 
 ## Abbreviations
 
