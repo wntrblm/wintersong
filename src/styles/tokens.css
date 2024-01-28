@@ -150,6 +150,8 @@
     --winter-pre-padding: 1rem;
     --winter-pre-fg: var(--winter-white);
     --winter-pre-bg: var(--winter-not-quite-black);
+    --winter-pre-scrollbar: var(--color-gray-500);
+    --winter-pre-scrollbar-hover: var(--winter-purple-3);
 
     /* <ul>, <ol>, <li> */
     --winter-list-indent: var(--winter-spacing-l);

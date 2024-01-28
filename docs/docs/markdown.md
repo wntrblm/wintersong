@@ -365,10 +365,10 @@ You can also control the size of the images:
 
 Finally, the theme can automatically invert images when Dark mode is used. Toggle Dark mode on and off to see the effect on the image below:
 
-![An image that is inverted in Dark mode](images/fs.png){: .is-half .is-inverted-dark }
+![An image that is inverted in Dark mode](images/fs.png){: .half .is-inverted-dark }
 
 ```markdown
-![An image that is inverted in Dark mode](images/fs.png){: .is-half .is-inverted-dark }
+![An image that is inverted in Dark mode](images/fs.png){: .half .is-inverted-dark }
 ```
 
 This feature is most useful for illustrations and isn't recommended for photographs.

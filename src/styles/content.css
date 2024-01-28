@@ -168,6 +168,25 @@ pre {
         padding: 0;
         background: transparent;
     }
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--winter-pre-scrollbar) transparent;
+
+    &:hover {
+        scrollbar-color: var(--winter-pre-scrollbar-hover) transparent;
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--winter-pre-scrollbar-hover);
+        }
+    }
+
+    &::-webkit-scrollbar {
+        width: 0.25rem;
+        height: 0.25rem;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--winter-pre-scrollbar);
+    }
 }
 
 blockquote {
