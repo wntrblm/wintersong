@@ -59,9 +59,11 @@
             {%- endfor -%}
           </ul>
           <ul>
-            <li>
-              <winter-icon>search</winter-icon>
-            </li>
+            {%- if 'search' in config.plugins -%}
+              <li>
+                <winter-icon>search</winter-icon>
+              </li>
+            {%- endif -%}
             <li>
               <winter-dark-mode></winter-dark-mode>
             </li>
