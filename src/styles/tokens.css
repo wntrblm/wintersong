@@ -55,8 +55,7 @@
     --winter-font-size-xl: 1.5rem;
     --winter-font-size-xxl: 1.75rem;
     --winter-font-size-xxxl: 2rem;
-    --winter-font-size-xxxxl: 2.5rem;
-    --winter-font-size-xxxxxl: 3rem;
+    --winter-font-size-xxxxl: 2.25rem;
 
     --winter-font-weight-light: 300;
     --winter-font-weight-normal: 400;
@@ -89,7 +88,7 @@
     --winter-header-font-size: var(--winter-font-size-l);
     --winter-header-font-weight: var(--winter-font-weight-normal);
     --winter-header-line-height: var(--winter-line-height-m);
-    --winter-header-icon-size: var(--winter-font-size-xxl);
+    --winter-header-icon-size: var(--winter-font-size-xl);
     --winter-header-block-spacing-top: 2rem;
     --winter-header-block-spacing-bottom: 0rem;
     --winter-header-bg: transparent;

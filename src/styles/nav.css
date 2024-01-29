@@ -44,6 +44,10 @@ header {
             color: var(--winter-header-fg);
             display: inline-block;
             text-decoration: none;
+
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 }
