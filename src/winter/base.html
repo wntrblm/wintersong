@@ -72,6 +72,37 @@
 
     <main>{% block content %}{% endblock %}</main>
 
+    {%- block footer -%}
+      <footer>
+        <ul>
+          <li>
+            © {{ config.theme.copyright_year }}
+            {{ config.theme.copyright_author }}
+          </li>
+          <li>
+            Published under
+            <a
+              href="{{ config.repo_url }}/{{ config.theme.copyright_license_uri }}">
+              {{ config.theme.copyright_license }}
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li class="updated">
+            Last updated on {{ build_date_utc.strftime('%Y/%-m/%-d') }}
+          </li>
+          <li>
+            <a href="{{ page.edit_url }}">Edit this page on GitHub</a>
+          </li>
+          <li>
+            <a href="mailto:{{ config.theme.contact_email }}">
+              Send us a message
+            </a>
+          </li>
+        </ul>
+      </footer>
+    {%- endblock footer -%}
+
     {% block scripts %}
       <script type="module" src="{{ 'winter.js' | url }}"></script>
       {% for script in config.extra_javascript %}

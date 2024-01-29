@@ -99,6 +99,15 @@
     --winter-header-name-font-weight: var(--winter-font-weight-bold);
 
     /* <footer> */
+    --winter-footer-font: var(--winter-font-decorative);
+    --winter-footer-font-size: var(--winter-font-size-xs);
+    --winter-footer-font-weight: var(--winter-font-weight-normal);
+    --winter-footer-line-height: var(--winter-line-height-s);
+    --winter-footer-block-spacing-top: 1rem;
+    --winter-footer-block-spacing-bottom: 3rem;
+    --winter-footer-fg: var(--winter-purple-1);
+    --winter-footer-accent: var(--winter-teal-1);
+    --winter-footer-divider: 0.15rem solid var(--winter-footer-fg);
 
     /* <h1>-<h6> */
     --winter-heading-spacing: var(--winter-spacing-xxl);
@@ -250,7 +259,9 @@
 
     /* footnotes */
     --winter-footnote-font-size: var(--winter-font-size-s);
-    --winter-footnote-fg: var(--color-gray-800);
+    --winter-footnote-fg: var(--color-gray-700);
+    --winter-footnote-divider-color: var(--color-gray-200);
+    --winter-footnote-divider: 0.1rem solid var(--winter-footnote-divider-color);
 }
 
 @media screen {
@@ -264,6 +275,7 @@
         --winter-fg: var(--winter-white);
         --winter-header-fg: var(--winter-purple-3);
         --winter-header-accent: var(--winter-teal-3);
+        --winter-footer-fg: var(--winter-purple-3);
         --winter-heading-fg: var(--winter-purple-3);
         --winter-heading-link-fg: var(--winter-teal-1);
         --winter-link-fg: var(--color-mint-300);
@@ -302,6 +314,7 @@
         --winter-admonition-quote-accent: var(--color-gray-400);
         --winter-admonition-fairy-accent: var(--color-pink-400);
         --winter-admonition-fairy-icon: "🧚";
-        --winter-footnote-fg: var(--color-gray-800);
+        --winter-footnote-fg: var(--color-gray-500);
+        --winter-footnote-divider-color: var(--color-gray-900);
     }
 }

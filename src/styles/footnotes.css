@@ -16,6 +16,7 @@
     font-size: var(--winter-footnote-font-size);
     color: var(--winter-footnote-fg);
     & hr {
+        border-bottom: var(--winter-footnote-divider);
     }
 
     > ol {
