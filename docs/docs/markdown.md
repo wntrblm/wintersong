@@ -363,12 +363,18 @@ You can also control the size of the images:
 ![half](images/example.webp){: .half }
 ```
 
-Finally, the theme can automatically invert images when Dark mode is used. Toggle Dark mode on and off to see the effect on the image below:
+Finally, the theme automatically inverts illustrations (`.svg`s) when dark mode is used. Toggle dark mode on and off to see the effect on the image below:
 
-![An image that is inverted in Dark mode](images/fs.png){: .half .is-inverted-dark }
+![Inverted in dark mode](images/interface-cutoff-formula.svg)
 
 ```markdown
-![An image that is inverted in Dark mode](images/fs.png){: .half .is-inverted-dark }
+![Inverted in dark mode](images/interface-cutoff-formula.svg)
 ```
 
-This feature is most useful for illustrations and isn't recommended for photographs.
+You can prevent this by using `.no-invert`:
+
+![Not inverted in dark mode](images/interface-cutoff-formula.svg){: .no-invert }
+
+```markdown
+![Not inverted in dark mode](images/interface-cutoff-formula.svg){: .no-invert }
+```

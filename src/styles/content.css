@@ -373,8 +373,13 @@ main {
         &.half {
             max-width: 50%;
         }
+
+        &[src$=".svg"] {
+            box-shadow: none;
+        }
     }
     & svg {
+        box-shadow: none;
     }
     & video {
     }
@@ -383,6 +388,15 @@ main {
     & audio {
     }
     & object {
+    }
+}
+
+.dark main {
+    & img {
+        /* Automaticall adjusts illustrations (svgs) in dark mode, unless they're marked ".no-invert" */
+        &[src$=".svg"]:not(.no-invert) {
+            filter: invert(1) hue-rotate(180deg);
+        }
     }
 }
 
