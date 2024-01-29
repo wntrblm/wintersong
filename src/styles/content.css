@@ -6,7 +6,8 @@
 
 /* Root elements */
 
-html {
+html,
+body {
     font-family: var(--winter-font-serif);
     font-size: var(--winter-font-size-base);
     font-weight: var(--winter-font-weight-normal);
@@ -14,7 +15,7 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: var(--winter-letter-spacing-normal);
-    line-height: var(--winter-line-height-normal);
+    line-height: var(--winter-line-height-m);
 }
 
 body {

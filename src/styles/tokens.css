@@ -69,10 +69,10 @@
     --winter-letter-spacing-xl: 0.15em;
 
     --winter-line-height-xs: 1;
-    --winter-line-height-s: 1.4;
-    --winter-line-height-m: 1.8;
-    --winter-line-height-l: 2.2;
-    --winter-line-height-xl: 2.6;
+    --winter-line-height-s: 1.25;
+    --winter-line-height-m: 1.6;
+    --winter-line-height-l: 1.8;
+    --winter-line-height-xl: 2.2;
 
     /* Focus */
     --winter-focus-outline-color: var(--color-not-quite-black);
@@ -114,7 +114,7 @@
     --winter-heading-fg: var(--winter-purple-1);
     --winter-heading-font: var(--winter-font-decorative);
     --winter-heading-font-weight: var(--winter-font-weight-semibold);
-    --winter-heading-line-height: var(--winter-line-height-l);
+    --winter-heading-line-height: var(--winter-line-height-m);
     --winter-heading-link-fg: var(--winter-teal-4);
 
     /* Inline content */
@@ -129,7 +129,7 @@
 
     /* <code> */
     --winter-code-font-size: 90%;
-    --winter-code-padding: 0.15em 0.5em 0.15em;
+    --winter-code-padding: 0.12em 0.5em;
     --winter-code-fg: var(--winter-white);
     --winter-code-bg: var(--winter-not-quite-black);
     --winter-code-border-radius: var(--winter-border-radius-s);
@@ -137,7 +137,7 @@
     /* <kbd> */
     --winter-kbd-font: var(--winter-font-decorative);
     --winter-kbd-font-size: 85%;
-    --winter-kbd-padding: 0.15em 0.5em 0.15em;
+    --winter-kbd-padding: 0.12em 0.5em;
     --winter-kbd-fg: var(--winter-white);
     --winter-kbd-bg: var(--color-purple-600);
     --winter-kbd-combinator-fg: var(--color-gray-600);
@@ -252,7 +252,7 @@
     --winter-admonition-quote-fg: var(--winter-admonition-fg);
     --winter-admonition-quote-bg: var(--winter-admonition-bg);
     --winter-admonition-quote-icon: "format_quote";
-    --winter-admonition-fairy-accent: var(--color-pink-400);
+    --winter-admonition-fairy-accent: var(--color-pink-500);
     --winter-admonition-fairy-fg: var(--winter-admonition-fg);
     --winter-admonition-fairy-bg: var(--winter-admonition-bg);
     --winter-admonition-fairy-icon: "🧚";
