@@ -150,6 +150,9 @@ main {
         border: 1px solid transparent;
         border-radius: var(--winter-code-border-radius);
         box-shadow: var(--winter-shadow-s);
+        word-break: break-word;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
     }
 
     & pre {
