@@ -279,6 +279,7 @@ main {
         color: var(--winter-mark-fg);
         background-color: var(--winter-mark-bg);
         word-break: break-word;
+        -webkit-box-decoration-break: clone;
         box-decoration-break: clone;
     }
 
@@ -320,6 +321,9 @@ main {
         padding: var(--winter-kbd-padding);
         border-radius: var(--winter-kbd-border-radius);
         border: 1px solid transparent;
+        word-break: break-word;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
     }
     & samp {
     }
