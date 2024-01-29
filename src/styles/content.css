@@ -60,7 +60,6 @@ main {
         }
     }
     & h1 {
-        display: none;
         font-size: var(--winter-font-size-xxxl);
     }
     & h2 {
@@ -89,6 +88,10 @@ main {
         &:not(:first-child) {
             margin-block-start: 0;
         }
+    }
+
+    &.hide-title h1 {
+        display: none;
     }
 }
 

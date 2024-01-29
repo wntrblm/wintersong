@@ -72,7 +72,10 @@
       </header>
     {%- endblock header -%}
 
-    <main>{% block content %}{% endblock %}</main>
+    <main
+      class="{%- if not page.meta['show-title']: -%}hide-title{%- endif -%}">
+      {%- block content -%}{%- endblock -%}
+    </main>
 
     {%- block footer -%}
       <footer>
