@@ -5,6 +5,12 @@
 */
 
 main {
+    & winter-audio-player,
+    winter-carousel,
+    winter-image-map {
+        --elevation-shadow: var(--winter-shadow-m);
+    }
+
     & winter-audio-player {
         width: 640px;
         max-width: 80%;
