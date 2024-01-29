@@ -93,7 +93,8 @@
     --winter-header-block-spacing-bottom: 0rem;
     --winter-header-bg: transparent;
     --winter-header-fg: var(--winter-purple-1);
-    --winter-header-divider: 0.15rem solid var(--winter-purple-1);
+    --winter-header-accent: var(--winter-teal-1);
+    --winter-header-divider: 0.15rem solid var(--winter-header-fg);
     --winter-header-name-font-size: var(--winter-font-size-xxxxl);
     --winter-header-name-font-weight: var(--winter-font-weight-bold);
 
@@ -172,15 +173,6 @@
     --winter-table-striped-bg: var(--color-purple-50);
     --winter-table-hover-bg: var(--color-purple-100);
 
-    --table-border-color: var(--color-purple-4);
-    --table-heading-font-weight: 600;
-    --table-heading-fg: inherit;
-    --table-heading-bg: var(--color-purple-5);
-    --table-cell-padding: 0.75em 1em;
-    --table-cell-border: 1px solid var(--table-border-color);
-    --table-row-bg: transparent;
-    --table-row-even-bg: var(--color-purple-5);
-
     /* <blockquote> */
     --winter-blockquote-padding: var(--winter-spacing-m);
     --winter-blockquote-font: var(--winter-font-serif);
@@ -189,7 +181,8 @@
     --winter-blockquote-bg: var(--color-white);
 
     /* <hr> */
-    --winter-hr-border: 0.15rem solid var(--winter-purple-3);
+    --winter-hr-border-color: var(--winter-purple-3);
+    --winter-hr-border: 0.15rem solid var(--winter-hr-border-color);
 
     /* Markdown extensions */
 
@@ -208,54 +201,107 @@
 
     --winter-admonition-note-accent: var(--winter-teal-1);
     --winter-admonition-note-fg: var(--winter-admonition-fg);
-    --winter-admonition-note-bg: var(--winter-bg);
+    --winter-admonition-note-bg: var(--winter-admonition-bg);
     --winter-admonition-note-icon: "stylus";
     --winter-admonition-info-accent: var(--winter-teal-2);
     --winter-admonition-info-fg: var(--winter-admonition-fg);
-    --winter-admonition-info-bg: var(--winter-bg);
+    --winter-admonition-info-bg: var(--winter-admonition-bg);
     --winter-admonition-info-icon: "info";
     --winter-admonition-tip-accent: var(--winter-teal-2);
     --winter-admonition-tip-fg: var(--winter-admonition-fg);
-    --winter-admonition-tip-bg: var(--winter-bg);
+    --winter-admonition-tip-bg: var(--winter-admonition-bg);
     --winter-admonition-tip-icon: "lightbulb";
     --winter-admonition-success-accent: var(--color-green-400);
     --winter-admonition-success-fg: var(--winter-admonition-fg);
-    --winter-admonition-success-bg: var(--winter-bg);
+    --winter-admonition-success-bg: var(--winter-admonition-bg);
     --winter-admonition-success-icon: "check";
     --winter-admonition-question-accent: var(--color-mint-400);
     --winter-admonition-question-fg: var(--winter-admonition-fg);
-    --winter-admonition-question-bg: var(--winter-bg);
+    --winter-admonition-question-bg: var(--winter-admonition-bg);
     --winter-admonition-question-icon: "help";
     --winter-admonition-warning-accent: var(--color-yellow-300);
     --winter-admonition-warning-fg: var(--winter-admonition-fg);
-    --winter-admonition-warning-bg: var(--winter-bg);
+    --winter-admonition-warning-bg: var(--winter-admonition-bg);
     --winter-admonition-warning-icon: "warning";
     --winter-admonition-failure-accent: var(--color-red-500);
     --winter-admonition-failure-fg: var(--winter-admonition-fg);
-    --winter-admonition-failure-bg: var(--winter-bg);
+    --winter-admonition-failure-bg: var(--winter-admonition-bg);
     --winter-admonition-failure-icon: "close";
     --winter-admonition-danger-accent: var(--color-red-600);
     --winter-admonition-danger-fg: var(--winter-admonition-fg);
-    --winter-admonition-danger-bg: var(--winter-bg);
+    --winter-admonition-danger-bg: var(--winter-admonition-bg);
     --winter-admonition-danger-icon: "report";
     --winter-admonition-bug-accent: var(--color-violet-500);
     --winter-admonition-bug-fg: var(--winter-admonition-fg);
-    --winter-admonition-bug-bg: var(--winter-bg);
+    --winter-admonition-bug-bg: var(--winter-admonition-bg);
     --winter-admonition-bug-icon: "bug_report";
     --winter-admonition-example-accent: var(--color-purple-500);
     --winter-admonition-example-fg: var(--winter-admonition-fg);
-    --winter-admonition-example-bg: var(--winter-bg);
+    --winter-admonition-example-bg: var(--winter-admonition-bg);
     --winter-admonition-example-icon: "developer_guide";
     --winter-admonition-quote-accent: var(--color-gray-600);
     --winter-admonition-quote-fg: var(--winter-admonition-fg);
-    --winter-admonition-quote-bg: var(--winter-bg);
+    --winter-admonition-quote-bg: var(--winter-admonition-bg);
     --winter-admonition-quote-icon: "format_quote";
     --winter-admonition-fairy-accent: var(--color-pink-400);
     --winter-admonition-fairy-fg: var(--winter-admonition-fg);
-    --winter-admonition-fairy-bg: var(--winter-bg);
+    --winter-admonition-fairy-bg: var(--winter-admonition-bg);
     --winter-admonition-fairy-icon: "🧚";
 
     /* footnotes */
     --winter-footnote-font-size: var(--winter-font-size-s);
     --winter-footnote-fg: var(--color-gray-800);
+}
+
+@media screen {
+    html.dark {
+        --winter-near-black: color-mix(
+            in srgb,
+            var(--color-purple-900) 30%,
+            var(--winter-bg)
+        );
+        --winter-bg: var(--winter-black);
+        --winter-fg: var(--winter-white);
+        --winter-header-fg: var(--winter-purple-3);
+        --winter-header-accent: var(--winter-teal-3);
+        --winter-heading-fg: var(--winter-purple-3);
+        --winter-heading-link-fg: var(--winter-teal-1);
+        --winter-link-fg: var(--color-mint-300);
+        --winter-link-hover-fg: var(--color-pink-300);
+        --winter-code-fg: var(--winter-white);
+        --winter-code-bg: var(--winter-not-quite-black);
+        --winter-kbd-fg: var(--winter-white);
+        --winter-kbd-bg: var(--color-purple-600);
+        --winter-kbd-combinator-fg: var(--color-gray-600);
+        --winter-mark-fg: inherit;
+        --winter-mark-bg: var(--color-yellow-600);
+        --winter-pre-fg: var(--winter-white);
+        --winter-pre-bg: var(--winter-not-quite-black);
+        --winter-desc-term-fg: var(--winter-teal-1);
+        --winter-table-border: var(--color-purple-900);
+        --winter-table-heading-border: var(--color-purple-400);
+        --winter-table-striped-bg: var(--winter-near-black);
+        --winter-table-hover-bg: var(--color-purple-900);
+        --winter-blockquote-fg: var(--color-purple-200);
+        --winter-blockquote-bg: var(--winter-near-black);
+        --winter-hr-border-color: var(--color-purple-900);
+        --winter-desc-term-fg: var(--winter-teal-4);
+        --winter-admonition-fg: var(--winter-fg);
+        --winter-admonition-bg: var(--winter-near-black);
+        --winter-admonition-accent: var(--winter-teal-3);
+        --winter-admonition-note-accent: var(--winter-teal-3);
+        --winter-admonition-info-accent: var(--winter-teal-4);
+        --winter-admonition-tip-accent: var(--winter-teal-4);
+        --winter-admonition-success-accent: var(--color-green-300);
+        --winter-admonition-question-accent: var(--color-mint-300);
+        --winter-admonition-warning-accent: var(--color-yellow-200);
+        --winter-admonition-failure-accent: var(--color-red-400);
+        --winter-admonition-danger-accent: var(--color-red-500);
+        --winter-admonition-bug-accent: var(--color-violet-400);
+        --winter-admonition-example-accent: var(--color-purple-500);
+        --winter-admonition-quote-accent: var(--color-gray-400);
+        --winter-admonition-fairy-accent: var(--color-pink-400);
+        --winter-admonition-fairy-icon: "🧚";
+        --winter-footnote-fg: var(--color-gray-800);
+    }
 }

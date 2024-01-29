@@ -391,6 +391,7 @@ Tables
 
 main {
     & table:not([class]) {
+        margin-block: var(--winter-block-spacing);
         max-width: 100%;
         overflow: auto;
         border-collapse: collapse;
@@ -445,20 +446,6 @@ main {
         & thead {
             border-color: var(--winter-table-heading-border);
         }
-    }
-    & caption {
-    }
-    & col:first-child {
-    }
-    & tbody {
-    }
-    & tfoot {
-    }
-    & tr {
-    }
-    & th {
-    }
-    & td {
     }
 }
 

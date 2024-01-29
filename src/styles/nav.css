@@ -69,10 +69,6 @@ nav {
         align-items: center;
     }
 
-    & winter-icon {
-        font-size: var(--winter-header-icon-size);
-    }
-
     & a,
     [role="link"] {
         color: var(--winter-header-fg);
@@ -100,5 +96,14 @@ nav {
             text-align: center;
             pointer-events: none;
         }
+    }
+
+    & winter-icon,
+    winter-dark-mode {
+        font-size: var(--winter-header-icon-size);
+    }
+
+    & winter-dark-mode:hover {
+        color: var(--winter-header-accent);
     }
 }

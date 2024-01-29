@@ -19,25 +19,32 @@ export class WinterDarkModeElement extends LitElement {
         baseStyles,
         css`
             :host {
-                position: fixed;
-                bottom: 1rem;
-                right: 1rem;
+                color: inherit;
+                font-family: inherit;
+                font-size: inherit;
+                display: inline-block;
+                line-height: 0;
             }
 
             button {
-                color: var(--text-color, black);
-                text-shadow: 0 0 0.5em var(--text-color, black);
-                background: none;
+                background: transparent;
+                display: inline-block;
                 border: none;
+                font-family: inherit;
+                font-size: inherit;
+                padding: 0;
+                align-items: unset;
+                color: inherit;
+                line-height: inherit;
             }
 
             button:hover {
-                --text-color: var(--color-alt-cyan-3, cyan);
+                font-size: inherit;
                 cursor: pointer;
             }
 
             winter-icon {
-                font-size: 3em;
+                font-size: inherit;
             }
         `,
     ];
