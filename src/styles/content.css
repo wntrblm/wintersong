@@ -60,6 +60,7 @@ main {
         }
     }
     & h1 {
+        display: none;
         font-size: var(--winter-font-size-xxxl);
     }
     & h2 {

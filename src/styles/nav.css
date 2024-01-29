@@ -29,6 +29,9 @@ header {
                 --outline-size: 0.15em;
                 text-shadow:
                     calc(var(--outline-size) * -1) 0px 0px var(--outline-color),
+                    calc(var(--outline-size) * -0.5) 0px 0px
+                        var(--outline-color),
+                    calc(var(--outline-size) * 0.5) 0px 0px var(--outline-color),
                     var(--outline-size) 0px 0px var(--outline-color);
             }
 
