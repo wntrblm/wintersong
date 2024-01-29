@@ -107,9 +107,6 @@ This is a blockquote:
 >
 > Blockquotes can also span multiple paragraphs and such.
 
-!!! quote
-    There are different types of admonitions.
-
 ```markdown
 > You can format a paragraph as a blockquote,
 > and even extend it over multiple lines.
