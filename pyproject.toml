@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "winter"
+name = "wintersong"
 dynamic = ["version"]
 description = ''
 readme = "README.md"
@@ -19,19 +19,19 @@ classifiers = [
 dependencies = ["mkdocs>=1.5.0", "pygments>=2.16", "pymdown-extensions>=10.3"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/winter"]
+packages = ["src/wintersong"]
 
 [project.urls]
 Bad = "Intentionally invalid URL to prevent accidentally publishing this to PyPI"
-Documentation = "https://github.com/wntrblm/winter#readme"
-Issues = "https://github.com/wntrblm/winter/issues"
-Source = "https://github.com/wntrblm/winter"
+Documentation = "https://github.com/wntrblm/wintersong#readme"
+Issues = "https://github.com/wntrblm/wintersong/issues"
+Source = "https://github.com/wntrblm/wintersong"
 
 [project.entry-points."mkdocs.themes"]
-winter = "winter"
+wintersong = "wintersong"
 
 [tool.hatch.version]
-path = "src/winter/__about__.py"
+path = "src/wintersong/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = ["pyright", "pytest", "ruff>=0.1.0"]

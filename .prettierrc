@@ -27,7 +27,7 @@
             }
         },
         {
-            "files": ["src/winter/**/*.html"],
+            "files": ["src/wintersong/**/*.html"],
             "options": {
                 "parser": "jinja-template"
             }

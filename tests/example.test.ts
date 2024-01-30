@@ -8,7 +8,7 @@ import { assert } from "@esm-bundle/chai";
 
 import { VERSION } from "../src/scripts";
 
-suite("winterjs", function () {
+suite("wintersong", function () {
     test(".VERSION", function () {
         assert.isString(VERSION);
     });

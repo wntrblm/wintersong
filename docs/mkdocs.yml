@@ -3,7 +3,7 @@ site_url: https://wintersong.wntr.dev
 repo_url: "https://github.com/wntrblm/wintersong"
 edit_uri: edit/main/docs/docs
 theme:
-    name: winter
+    name: wintersong
 plugins: []
 markdown_extensions:
     - abbr

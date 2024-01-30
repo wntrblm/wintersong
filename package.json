@@ -1,7 +1,7 @@
 {
-    "name": "winterjs",
+    "name": "wintersong",
     "version": "0.0.0",
-    "description": "Winterbloom client-side JavaScript stuff",
+    "description": "Winterbloom frontend library and web components",
     "type": "module",
     "private": "true",
     "engines": {
@@ -46,14 +46,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/wntrblm/winterjs.git"
+        "url": "git+https://github.com/wntrblm/wintersong.git"
     },
     "author": "Alethea Katherine Flowers",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/wntrblm/winterjs/issues"
+        "url": "https://github.com/wntrblm/wintersong/issues"
     },
-    "homepage": "https://github.com/wntrblm/winterjs#readme",
+    "homepage": "https://github.com/wntrblm/wintersong#readme",
     "dependencies": {
         "eslint-plugin-wc": "^2.0.4",
         "lit": "^3.1.1"
