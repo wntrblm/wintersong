@@ -115,13 +115,22 @@ class Oscilloscope {
         this.ctx.lineJoin = "round";
         this.ctx.lineWidth = this.strokeWidth;
         this.ctx.strokeStyle = this.strokeColor;
+
+        // this.ctx.beginPath();
+        // this.ctx.moveTo(0, this.height / 2);
+        // this.ctx.lineTo(this.width, this.height / 2);
+        // this.ctx.stroke();
+
         this.ctx.beginPath();
+
+        const ymid = this.height / 2;
 
         for (let x = 0; x < this.width; x++) {
             let sampleIdx = Math.round((x / this.width) * data.length);
             sampleIdx = (zeroCrossing + sampleIdx) % data.length;
             const sample = data[sampleIdx] ?? 0;
-            const y = ((sample / 128) * this.height) / 2;
+            const sampleNorm = (sample - 127) / 127;
+            const y = ymid + sampleNorm * 1.6 * ymid;
 
             if (x === 0) {
                 this.ctx.moveTo(x, y);
@@ -130,7 +139,7 @@ class Oscilloscope {
             }
         }
 
-        this.ctx.lineTo(this.width + 10, this.height / 2);
+        this.ctx.lineTo(this.width + 10, ymid);
         this.ctx.stroke();
 
         if (this.active) {
