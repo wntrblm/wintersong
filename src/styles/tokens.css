@@ -103,7 +103,7 @@
     --winter-footer-font-size: var(--winter-font-size-xs);
     --winter-footer-font-weight: var(--winter-font-weight-normal);
     --winter-footer-line-height: var(--winter-line-height-s);
-    --winter-footer-block-spacing-top: 1rem;
+    --winter-footer-block-spacing-top: 2rem;
     --winter-footer-block-spacing-bottom: 3rem;
     --winter-footer-fg: var(--winter-purple-1);
     --winter-footer-accent: var(--winter-teal-1);
@@ -114,7 +114,7 @@
     --winter-heading-fg: var(--winter-purple-1);
     --winter-heading-font: var(--winter-font-decorative);
     --winter-heading-font-weight: var(--winter-font-weight-semibold);
-    --winter-heading-line-height: var(--winter-line-height-m);
+    --winter-heading-line-height: var(--winter-line-height-s);
     --winter-heading-link-fg: var(--winter-teal-4);
 
     /* Inline content */

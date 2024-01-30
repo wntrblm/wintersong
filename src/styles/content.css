@@ -32,7 +32,7 @@ main {
     h4,
     h5,
     h6 {
-        display: block;
+        display: block flow-root;
         width: 100%;
         position: relative;
         font-family: var(--winter-heading-font);
@@ -365,6 +365,13 @@ main {
     }
 
     & img {
+        &.inline {
+            float: unset;
+            display: inline;
+            margin: 0.5em;
+            vertical-align: middle;
+        }
+
         &[align] {
             margin: 1em;
             max-width: 50%;

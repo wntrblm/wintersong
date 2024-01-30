@@ -7,19 +7,14 @@
 body {
     width: 100%;
     margin: 0;
-}
 
-body {
-    header,
+    & header,
     main,
     footer {
+        display: block;
         width: 100%;
         max-width: 980px;
         margin-right: auto;
         margin-left: auto;
     }
-}
-
-main {
-    display: block;
 }

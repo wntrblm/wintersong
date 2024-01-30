@@ -1,0 +1,24 @@
+/*
+    Copyright (c) 2024 Winterbloom LLC, Alethea Katherine Flowers
+    Published under the standard MIT License.
+    Full text available at: https://opensource.org/licenses/MIT
+*/
+
+@media screen and (max-width: 980px) {
+    body {
+        padding-inline: var(--winter-spacing-xs);
+    }
+
+    main {
+        & h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            & .headerlink {
+                display: none;
+            }
+        }
+    }
+}
