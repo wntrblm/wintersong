@@ -11,10 +11,6 @@ main {
             color: var(--winter-kbd-combinator-fg);
         }
 
-        & kbd {
-            box-shadow: var(--winter-shadow-xs);
-        }
-
         & kbd::before,
         kbd::after {
             font-family: var(--winter-font-sans);

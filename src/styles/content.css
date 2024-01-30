@@ -150,7 +150,7 @@ main {
         padding: var(--winter-code-padding);
         border: 1px solid transparent;
         border-radius: var(--winter-code-border-radius);
-        box-shadow: var(--winter-shadow-s);
+        box-shadow: var(--winter-code-shadow);
         word-break: break-word;
         -webkit-box-decoration-break: clone;
         box-decoration-break: clone;
@@ -167,7 +167,7 @@ main {
         color: var(--winter-pre-fg);
         background: var(--winter-pre-bg);
         padding: var(--winter-pre-padding);
-        box-shadow: var(--winter-shadow-s);
+        box-shadow: var(--winter-code-shadow);
 
         & code {
             font-size: 1em;
@@ -317,10 +317,13 @@ main {
     & kbd {
         font-family: var(--winter-kbd-font);
         font-size: var(--winter-kbd-font-size);
+        font-style: var(--winter-kbd-font-style);
+        font-weight: var(--winter-kbd-font-weight);
         color: var(--winter-kbd-fg);
         background: var(--winter-kbd-bg);
         padding: var(--winter-kbd-padding);
         border-radius: var(--winter-kbd-border-radius);
+        box-shadow: var(--winter-kbd-shadow);
         border: 1px solid transparent;
         word-break: break-word;
         -webkit-box-decoration-break: clone;

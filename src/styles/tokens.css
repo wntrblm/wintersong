@@ -128,20 +128,24 @@
     --winter-link-hover-decoration: underline;
 
     /* <code> */
-    --winter-code-font-size: 90%;
+    --winter-code-font-size: 85%;
     --winter-code-padding: 0.12em 0.5em;
     --winter-code-fg: var(--winter-white);
     --winter-code-bg: var(--winter-not-quite-black);
     --winter-code-border-radius: var(--winter-border-radius-s);
+    --winter-code-shadow: var(--winter-shadow-s);
 
     /* <kbd> */
-    --winter-kbd-font: var(--winter-font-decorative);
-    --winter-kbd-font-size: 85%;
-    --winter-kbd-padding: 0.12em 0.5em;
+    --winter-kbd-font: var(--winter-font-mono);
+    --winter-kbd-font-size: 90%;
+    --winter-kbd-font-weight: var(--winter-font-weight-semibold);
+    --winter-kbd-font-style: italic;
+    --winter-kbd-padding: 0.12em 0.5em 0.12em 0.4em;
     --winter-kbd-fg: var(--winter-white);
     --winter-kbd-bg: var(--color-purple-600);
     --winter-kbd-combinator-fg: var(--color-gray-600);
     --winter-kbd-border-radius: var(--winter-border-radius-s);
+    --winter-kbd-shadow: var(--winter-shadow-s);
 
     /* <mark> */
     --winter-mark-fg: inherit;
