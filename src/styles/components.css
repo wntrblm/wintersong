@@ -8,7 +8,7 @@ main {
     & winter-audio-player,
     winter-carousel,
     winter-image-map {
-        --elevation-shadow: var(--winter-shadow-m);
+        --elevation-shadow: var(--winter-shadow-s);
     }
 
     & winter-audio-player {

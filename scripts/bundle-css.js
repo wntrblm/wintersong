@@ -10,7 +10,9 @@ export async function bundleCss(minify = false, options = {}) {
     options = {
         entryPoints: ["src/styles/index.css"],
         outfile: "dist/winter.css",
-        target: "es2020",
+        supported: {
+            nesting: false,
+        },
         bundle: true,
         keepNames: true,
         minify: minify,

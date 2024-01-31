@@ -4,7 +4,7 @@
     Full text available at: https://opensource.org/licenses/MIT
 */
 
-body > header {
+header {
     padding-top: var(--winter-header-block-spacing-top);
     margin-bottom: var(--winter-header-block-spacing-bottom);
     font-family: var(--winter-header-font);
@@ -13,9 +13,7 @@ body > header {
     line-height: var(--winter-header-line-height);
     color: var(--winter-header-fg);
     background: var(--winter-header-bg);
-}
 
-header {
     & > nav:first-of-type {
         font-size: var(--winter-header-name-font-size);
         font-weight: var(--winter-header-name-font-weight);
@@ -91,7 +89,7 @@ nav {
         & li:not(:first-child) {
             margin-inline-start: 1.2em;
         }
-        & li:not(:last-child) ::after {
+        & li:not(:last-child) a::after {
             color: var(--winter-header-fg);
             position: absolute;
             margin-inline-start: 0.4em;
