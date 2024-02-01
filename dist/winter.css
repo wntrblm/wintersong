@@ -969,6 +969,7 @@ main .inline.end {
   height: 1lh;
   font-family: var(--winter-admonition-title-font);
   font-size: var(--winter-admonition-title-font-size);
+  white-space: pre-wrap;
   margin-block: 0;
 }
 .admonition .admonition-title::before {
@@ -990,6 +991,9 @@ main .inline.end {
   font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
   user-select: none;
+}
+.admonition .admonition-title abbr {
+  border-bottom: none;
 }
 .admonition p {
   margin-block: var(--winter-admonition-body-spacing);
