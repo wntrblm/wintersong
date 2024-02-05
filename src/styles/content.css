@@ -426,7 +426,7 @@ Tables
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 main {
-    & table:not([class]) {
+    & table {
         margin-block: var(--winter-block-spacing);
         max-width: 100%;
         overflow: auto;
@@ -481,6 +481,44 @@ main {
 
         & thead {
             border-color: var(--winter-table-heading-border);
+        }
+    }
+
+    /* Page-width table */
+    & div:has(> table.is-page-width) {
+        position: relative;
+        width: 100svw;
+        max-width: 100svw;
+        margin-inline: -50svw;
+        left: 50%;
+        right: 50%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0;
+        padding-inline: 1rem;
+        margin-block: var(--winter-block-spacing);
+    }
+
+    & table.is-page-width {
+        margin: 0;
+        padding: 0;
+        max-width: unset;
+    }
+
+    /* High-density table */
+    & table.is-high-density {
+        white-space: wrap;
+        font-family: var(--winter-font-mono);
+        font-size: var(--winter-font-size-xs);
+        padding: 0.25em 0.5em;
+
+        & th,
+        td {
+            width: fit-content;
+            min-width: 100px;
+        }
+
+        & td {
         }
     }
 }

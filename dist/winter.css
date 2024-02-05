@@ -481,6 +481,7 @@ h6 {
 body {
   width: 100%;
   margin: 0;
+  overflow-x: hidden;
 }
 body :is(header, main, footer) {
   display: block;
@@ -888,7 +889,7 @@ main svg {
 .dark main img[src$=".svg"]:not(.no-invert) {
   filter: invert(1) hue-rotate(180deg);
 }
-main table:not([class]) {
+main table {
   margin-block: var(--winter-block-spacing);
   max-width: 100%;
   overflow: auto;
@@ -899,40 +900,68 @@ main table:not([class]) {
   border-style: solid;
   border-width: 0;
 }
-main table:not([class]) tr {
+main table tr {
   border-color: inherit;
   border-style: inherit;
   border-width: 0;
 }
-main table:not([class]) tr:nth-child(2n) {
+main table tr:nth-child(2n) {
   background: var(--winter-table-striped-bg);
 }
-main table:not([class]) tr:hover {
+main table tr:hover {
   background: var(--winter-table-hover-bg);
 }
-main table:not([class]) :is(th, td) {
+main table :is(th, td) {
   border-color: inherit;
   border-style: inherit;
   padding: var(--winter-table-padding);
   background: transparent;
   min-width: 8rem;
 }
-main table:not([class]) :is(th, td):not([align]) {
+main table :is(th, td):not([align]) {
   text-align: left;
 }
-main table:not([class]) th {
+main table th {
   border-width: 0 0 2px;
 }
-main table:not([class]) td {
+main table td {
   border-width: 0 0 1px;
 }
-main table:not([class]) :is(thead, tbody) {
+main table :is(thead, tbody) {
   border-color: inherit;
   border-style: inherit;
   border-width: 0;
 }
-main table:not([class]) thead {
+main table thead {
   border-color: var(--winter-table-heading-border);
+}
+main div:has(> table.is-page-width) {
+  position: relative;
+  width: 100svw;
+  max-width: 100svw;
+  margin-inline: -50svw;
+  left: 50%;
+  right: 50%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0;
+  padding-inline: 1rem;
+  margin-block: var(--winter-block-spacing);
+}
+main table.is-page-width {
+  margin: 0;
+  padding: 0;
+  max-width: unset;
+}
+main table.is-high-density {
+  white-space: wrap;
+  font-family: var(--winter-font-mono);
+  font-size: var(--winter-font-size-xs);
+  padding: 0.25em 0.5em;
+}
+main table.is-high-density :is(th, td) {
+  width: fit-content;
+  min-width: 100px;
 }
 main .inline {
   float: inline-start;
