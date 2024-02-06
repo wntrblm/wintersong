@@ -17,13 +17,9 @@ jobs:
           cache: "npm"
           cache-dependency-path: "package-lock.json"
       - run: npm ci
-        working-directory: client
       - run: npm run lint:eslint
-        working-directory: client
       - run: npm run lint:prettier
-        working-directory: client
       - run: npm run lint:types
-        working-directory: client
   test:
     runs-on: ubuntu-latest
     steps:
@@ -34,8 +30,5 @@ jobs:
           cache: "npm"
           cache-dependency-path: "package-lock.json"
       - run: npm ci
-        working-directory: client
-      - run: npm run build
-        working-directory: client
+      - run: npm run build:no-check
       - run: npm run test
-        working-directory: client
