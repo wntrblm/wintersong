@@ -12,3 +12,4 @@ export { WinterCarouselElement } from "./components/carousel";
 export { WinterIconElement } from "./components/icon";
 export { WinterDarkModeElement } from "./components/dark-mode";
 export { WinterImageMapElement } from "./components/image-map";
+export { WinterPCBAssemblyElement } from "./components/pcb-assembly";

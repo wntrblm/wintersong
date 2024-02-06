@@ -446,7 +446,8 @@ main {
                 background: var(--winter-table-striped-bg);
             }
 
-            &:hover {
+            &:hover,
+            &[aria-selected] {
                 background: var(--winter-table-hover-bg);
             }
         }

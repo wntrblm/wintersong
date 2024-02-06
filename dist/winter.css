@@ -908,7 +908,7 @@ main table tr {
 main table tr:nth-child(2n) {
   background: var(--winter-table-striped-bg);
 }
-main table tr:hover {
+main table tr:is(:hover, [aria-selected]) {
   background: var(--winter-table-hover-bg);
 }
 main table :is(th, td) {
@@ -1243,6 +1243,20 @@ main winter-audio-player {
 }
 main winter-carousel img {
   margin: 0;
+}
+main winter-pcb-assembly canvas {
+  border-radius: 10px;
+}
+main winter-pcb-assembly canvas.back {
+  transform: scaleX(-1);
+}
+main winter-pcb-assembly table.bom-table {
+  width: 100%;
+}
+main winter-pcb-assembly table.bom-table :is(th:first-child, td:first-child) {
+  min-width: unset;
+  width: 2rem;
+  white-space: nowrap;
 }
 
 /* src/styles/responsive.css */

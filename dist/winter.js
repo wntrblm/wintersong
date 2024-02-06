@@ -1537,6 +1537,547 @@ WinterImageMapItemElement = __decorateClass([
   t3("winter-image-map-item")
 ], WinterImageMapItemElement);
 
+// src/scripts/components/pcb-assembly.ts
+var WinterPCBAssemblyElement = class extends s3 {
+  createRenderRoot() {
+    return this;
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    if (this.src) {
+      this.loadSrc();
+    }
+  }
+  async loadSrc() {
+    const resp = await fetch(this.src, {
+      mode: "same-origin"
+    });
+    if (!resp.ok) {
+      console.error(
+        `Could not fetch ${this.src}: ${resp.status} ${resp.statusText}`
+      );
+    }
+    this.pcbData = await resp.json();
+    this.prepData();
+    this.requestUpdate();
+  }
+  prepData() {
+    this.bom = new BOM(this.pcbData);
+    this.renderer = new PCBRenderer(this, this.pcbData, this.rotate);
+  }
+  render() {
+    if (!this.pcbData) {
+      return x`<p>loading...</p>`;
+    }
+    return x`
+            ${this.renderer.front.canvas}
+            <winter-pcb-assembly-bom-table
+                .renderer=${this.renderer}
+                .items=${this.bom.frontItemsGroupedByValue}></winter-pcb-assembly-bom-table>
+            ${this.renderer.back.canvas}
+            <winter-pcb-assembly-bom-table
+                .renderer=${this.renderer}
+                .items=${this.bom.backItemsGroupedByValue}></winter-pcb-assembly-bom-table>
+        `;
+  }
+};
+__name(WinterPCBAssemblyElement, "WinterPCBAssemblyElement");
+__decorateClass([
+  n5()
+], WinterPCBAssemblyElement.prototype, "src", 2);
+__decorateClass([
+  n5({ type: Boolean })
+], WinterPCBAssemblyElement.prototype, "rotate", 2);
+WinterPCBAssemblyElement = __decorateClass([
+  t3("winter-pcb-assembly")
+], WinterPCBAssemblyElement);
+var WinterPCBAssemblyBOMTableElement = class extends s3 {
+  createRenderRoot() {
+    return this;
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener("click", (e7) => {
+      const target = e7.target;
+      const row = target.closest("tr");
+      if (!row) {
+        return;
+      }
+      const itemValue = row.dataset["bomItemValue"];
+      const items = this.items.get(itemValue);
+      if (!items) {
+        return;
+      }
+      const refs = items.map((x2) => x2.ref);
+      this.renderer.highlight(refs);
+      for (const tr of this.querySelectorAll("tr[aria-selected]")) {
+        tr.ariaSelected = null;
+      }
+      row.ariaSelected = "true";
+    });
+  }
+  render() {
+    const rows = [];
+    for (const [value, items] of this.items.entries()) {
+      const refs = items.map((x2) => x2.ref).join(", ");
+      rows.push(
+        x`<tr data-bom-item-value=${value}>
+                    <td>
+                        ${x`<input
+                            type="checkbox"
+                            class="checkbox"
+                            aria-label="Mark row ${rows.length + 1} complete" />`}
+                    </td>
+                    <td>${refs}</td>
+                    <td>${value}</td>
+                    <td>${items[0]?.rating}</td>
+                </tr>`
+      );
+    }
+    return x`<table
+            class="bom-table is-high-density"
+            aria-label="Table of components">
+            <thead>
+                <tr>
+                    <th aria-label="Completed"></th>
+                    <th>References</th>
+                    <th>Value</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${rows}
+            </tbody>
+        </table>`;
+  }
+};
+__name(WinterPCBAssemblyBOMTableElement, "WinterPCBAssemblyBOMTableElement");
+__decorateClass([
+  n5({ attribute: false })
+], WinterPCBAssemblyBOMTableElement.prototype, "renderer", 2);
+__decorateClass([
+  n5({ attribute: false })
+], WinterPCBAssemblyBOMTableElement.prototype, "items", 2);
+WinterPCBAssemblyBOMTableElement = __decorateClass([
+  t3("winter-pcb-assembly-bom-table")
+], WinterPCBAssemblyBOMTableElement);
+var BOM = class {
+  constructor(pcbData) {
+    this.pcbData = pcbData;
+    this.frontItems = [];
+    this.backItems = [];
+    this.frontItemsGroupedByValue = /* @__PURE__ */ new Map();
+    this.backItemsGroupedByValue = /* @__PURE__ */ new Map();
+    this.extract();
+  }
+  static {
+    __name(this, "BOM");
+  }
+  extract() {
+    const frontRefs = /* @__PURE__ */ new Set();
+    for (const group of this.pcbData.bom.F) {
+      for (const [ref, _2] of group) {
+        frontRefs.add(ref);
+      }
+    }
+    for (const group of this.pcbData.bom.both) {
+      for (const [ref, index] of group) {
+        const fields = this.pcbData.bom.fields[index];
+        const dstList = frontRefs.has(ref) ? this.frontItems : this.backItems;
+        const dstMap = frontRefs.has(ref) ? this.frontItemsGroupedByValue : this.backItemsGroupedByValue;
+        const item = {
+          ref,
+          value: fields[0],
+          footprint: fields[1],
+          rating: fields[2],
+          side: frontRefs.has(ref) ? "front" : "back"
+        };
+        dstList.push(item);
+        if (!dstMap.has(item.value)) {
+          dstMap.set(item.value, []);
+        }
+        dstMap.get(item.value)?.push(item);
+      }
+    }
+  }
+};
+var PCBRenderer = class {
+  constructor(parent, pcbData, rotate = false) {
+    this.parent = parent;
+    this.pcbData = pcbData;
+    this.rotate = rotate;
+    this.scale = 10;
+    this.colors = {
+      edge_cuts: "#ff99ce",
+      board: "#ffb9dd",
+      pad: "gold",
+      hole: "white",
+      pin1: "#6bd280",
+      silk: "black",
+      highlight_stroke: "#7ce4f4",
+      highlight_fill: "#7ce4f488"
+    };
+    this.highlighted = /* @__PURE__ */ new Set();
+    this.width = this.pcbData.edges_bbox.maxx - this.pcbData.edges_bbox.minx;
+    this.height = this.pcbData.edges_bbox.maxy - this.pcbData.edges_bbox.miny;
+    if (this.rotate) {
+      const height = this.height;
+      this.height = this.width;
+      this.width = height;
+    }
+    this.back = new PCBDraw(this.makeCanvas("back"), this.colors);
+    this.front = new PCBDraw(this.makeCanvas("front"), this.colors);
+    this.draw();
+  }
+  static {
+    __name(this, "PCBRenderer");
+  }
+  makeCanvas(className, scale = 10) {
+    const canvas = document.createElement("canvas");
+    canvas.classList.add(className);
+    canvas.width = this.width * window.devicePixelRatio * scale;
+    canvas.height = this.height * window.devicePixelRatio * scale;
+    canvas.dataset["scale"] = `${scale}`;
+    return canvas;
+  }
+  highlight(refs) {
+    this.highlighted.clear();
+    for (const ref of refs) {
+      this.highlighted.add(ref);
+    }
+    this.draw();
+  }
+  /* Drawing */
+  draw() {
+    this.setTransforms(this.front.canvas);
+    this.front.clear();
+    this.front.items(this.pcbData.drawings.silkscreen.F, this.colors.silk);
+    this.front.footprints(this.pcbData.footprints, "F", this.highlighted);
+    this.front.items(this.pcbData.edges, this.colors.edge_cuts);
+    this.setTransforms(this.back.canvas);
+    this.back.clear();
+    this.back.items(this.pcbData.drawings.silkscreen.B, this.colors.silk);
+    this.back.footprints(this.pcbData.footprints, "B", this.highlighted);
+    this.back.items(this.pcbData.edges, this.colors.edge_cuts);
+  }
+  setTransforms(canvas) {
+    var ctx = canvas.getContext("2d");
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(
+      this.scale * window.devicePixelRatio,
+      this.scale * window.devicePixelRatio
+    );
+    if (this.rotate) {
+      const x2 = this.width / 2;
+      const y3 = this.height / 2;
+      ctx.translate(x2, y3);
+      ctx.rotate(deg2rad(90));
+      ctx.translate(-y3, -x2);
+    }
+    ctx.translate(
+      -this.pcbData.edges_bbox.minx,
+      -this.pcbData.edges_bbox.miny
+    );
+  }
+};
+var PCBDraw = class {
+  constructor(canvas, colors) {
+    this.canvas = canvas;
+    this.colors = colors;
+    this.ctx = canvas.getContext("2d");
+  }
+  static {
+    __name(this, "PCBDraw");
+  }
+  /* Public methods */
+  clear() {
+    this.ctx.save();
+    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+    this.ctx.fillStyle = this.colors.board;
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.restore();
+  }
+  footprints(footprints, layer, highlighted) {
+    const ctx = this.ctx;
+    ctx.lineWidth = 1 / 4;
+    for (let i4 = 0; i4 < footprints.length; i4++) {
+      const mod = footprints[i4];
+      this.footprint(layer, mod, highlighted.has(mod.ref));
+    }
+  }
+  items(items, color) {
+    for (const item of items) {
+      this.item(item, color);
+    }
+  }
+  /* Drawing commands. */
+  item(item, color) {
+    if (item.text) {
+      console.warn("pcb-assembly doesn't support text items", item);
+    } else if (item.type == "polygon") {
+      this.polygon(item, color);
+    } else if (item.type !== void 0) {
+      this.edge(item, color);
+    } else if (Object.hasOwn(item, "svgpath")) {
+      this.svgpath(item, color);
+    } else if (Object.hasOwn(item, "polygons")) {
+      this.polygons(item, color);
+    } else {
+      console.error("Unknown drawing item", item);
+    }
+  }
+  footprint(layer, footprint, highlight) {
+    const ctx = this.ctx;
+    const highlightPinOne = footprint.ref.startsWith("D") || footprint.ref.startsWith("U") || footprint.ref.startsWith("CP");
+    for (var item of footprint.drawings) {
+      if (item.layer == layer) {
+        this.item(item, this.colors.pad);
+      }
+    }
+    for (var pad of footprint.pads) {
+      if (pad.layers.includes(layer)) {
+        this.pad(pad, this.colors.pad, false);
+        if (pad.pin1 && highlightPinOne) {
+          this.pad(pad, this.colors.pin1, true);
+        }
+      }
+    }
+    for (var pad of footprint.pads) {
+      this.padHole(pad, this.colors.hole);
+    }
+    if (highlight) {
+      if (footprint.layer == layer) {
+        ctx.save();
+        ctx.translate(...footprint.bbox.pos);
+        ctx.rotate(deg2rad(-footprint.bbox.angle));
+        ctx.translate(...footprint.bbox.relpos);
+        ctx.fillStyle = this.colors.highlight_fill;
+        ctx.fillRect(0, 0, ...footprint.bbox.size);
+        ctx.strokeStyle = this.colors.highlight_stroke;
+        ctx.strokeRect(0, 0, ...footprint.bbox.size);
+        ctx.restore();
+      }
+    }
+  }
+  edge(edge, color) {
+    const ctx = this.ctx;
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+    ctx.lineWidth = edge.width;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.beginPath();
+    if (edge.type == "segment") {
+      ctx.moveTo(...edge.start);
+      ctx.lineTo(...edge.end);
+    }
+    if (edge.type == "rect") {
+      ctx.moveTo(...edge.start);
+      ctx.lineTo(edge.start[0], edge.end[1]);
+      ctx.lineTo(...edge.end);
+      ctx.lineTo(edge.end[0], edge.start[1]);
+      ctx.lineTo(...edge.start);
+    }
+    if (edge.type == "arc") {
+      ctx.arc(
+        ...edge.start,
+        edge.radius,
+        deg2rad(edge.startangle),
+        deg2rad(edge.endangle)
+      );
+    }
+    if (edge.type == "circle") {
+      ctx.arc(...edge.start, edge.radius, 0, 2 * Math.PI);
+      ctx.closePath();
+    }
+    if (edge.type == "curve") {
+      ctx.moveTo(...edge.start);
+      ctx.bezierCurveTo(...edge.cpa, ...edge.cpb, ...edge.end);
+    }
+    if ("filled" in edge && edge.filled) {
+      ctx.fill();
+    } else {
+      ctx.stroke();
+    }
+  }
+  polygon(shape, color) {
+    const ctx = this.ctx;
+    ctx.save();
+    ctx.translate(...shape.pos);
+    ctx.rotate(deg2rad(-shape.angle));
+    if ("filled" in shape && !shape.filled) {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = shape.width;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.stroke(this.makePolygonPath(shape));
+    } else {
+      ctx.fillStyle = color;
+      ctx.fill(this.makePolygonPath(shape));
+    }
+    ctx.restore();
+  }
+  polygons(item, color) {
+    this.ctx.save();
+    this.ctx.strokeStyle = color;
+    this.ctx.fillStyle = color;
+    this.ctx.lineCap = "round";
+    this.ctx.lineJoin = "round";
+    this.ctx.lineWidth = item.thickness;
+    var path = new Path2D();
+    for (var polygon of item.polygons) {
+      path.moveTo(...polygon[0]);
+      for (var i4 = 1; i4 < polygon.length; i4++) {
+        path.lineTo(...polygon[i4]);
+      }
+      path.closePath();
+    }
+    item.filled !== false ? this.ctx.fill(path) : this.ctx.stroke(path);
+    this.ctx.restore();
+  }
+  svgpath(item, color) {
+    this.ctx.save();
+    this.ctx.strokeStyle = color;
+    this.ctx.lineCap = "round";
+    this.ctx.lineJoin = "round";
+    this.ctx.lineWidth = item.thickness;
+    this.ctx.stroke(new Path2D(item.svgpath));
+    this.ctx.restore();
+  }
+  pad(pad, color, outline) {
+    const ctx = this.ctx;
+    ctx.save();
+    ctx.translate(...pad.pos);
+    ctx.rotate(deg2rad(pad.angle));
+    if (pad.offset) {
+      ctx.translate(...pad.offset);
+    }
+    ctx.fillStyle = color;
+    ctx.strokeStyle = color;
+    var path = this.makePadPath(pad);
+    if (outline) {
+      ctx.stroke(path);
+    } else {
+      ctx.fill(path);
+    }
+    ctx.restore();
+  }
+  padHole(pad, color) {
+    const ctx = this.ctx;
+    if (pad.type != "th")
+      return;
+    ctx.save();
+    ctx.translate(...pad.pos);
+    ctx.rotate(deg2rad(pad.angle));
+    ctx.fillStyle = color;
+    if (pad.drillshape == "oblong") {
+      ctx.fill(this.makeOblongPath(pad.drillsize));
+    } else {
+      ctx.fill(this.makeCirclePath(pad.drillsize[0] / 2));
+    }
+    ctx.restore();
+  }
+  /* Path generation commands */
+  makeChamferedRectPath(size, radius, chamfpos, chamfratio) {
+    var path = new Path2D();
+    var width = size[0];
+    var height = size[1];
+    var x2 = width * -0.5;
+    var y3 = height * -0.5;
+    var chamfOffset = Math.min(width, height) * chamfratio;
+    path.moveTo(x2, 0);
+    if (chamfpos & 4) {
+      path.lineTo(x2, y3 + height - chamfOffset);
+      path.lineTo(x2 + chamfOffset, y3 + height);
+      path.lineTo(0, y3 + height);
+    } else {
+      path.arcTo(x2, y3 + height, x2 + width, y3 + height, radius);
+    }
+    if (chamfpos & 8) {
+      path.lineTo(x2 + width - chamfOffset, y3 + height);
+      path.lineTo(x2 + width, y3 + height - chamfOffset);
+      path.lineTo(x2 + width, 0);
+    } else {
+      path.arcTo(x2 + width, y3 + height, x2 + width, y3, radius);
+    }
+    if (chamfpos & 2) {
+      path.lineTo(x2 + width, y3 + chamfOffset);
+      path.lineTo(x2 + width - chamfOffset, y3);
+      path.lineTo(0, y3);
+    } else {
+      path.arcTo(x2 + width, y3, x2, y3, radius);
+    }
+    if (chamfpos & 1) {
+      path.lineTo(x2 + chamfOffset, y3);
+      path.lineTo(x2, y3 + chamfOffset);
+      path.lineTo(x2, 0);
+    } else {
+      path.arcTo(x2, y3, x2, y3 + height, radius);
+    }
+    path.closePath();
+    return path;
+  }
+  makeOblongPath(size) {
+    return this.makeChamferedRectPath(
+      size,
+      Math.min(size[0], size[1]) / 2,
+      0,
+      0
+    );
+  }
+  makePolygonPath(shape) {
+    if (shape.path2d) {
+      return shape.path2d;
+    }
+    const path = new Path2D();
+    for (const polygon of shape.polygons) {
+      path.moveTo(...polygon[0]);
+      for (let i4 = 1; i4 < polygon.length; i4++) {
+        path.lineTo(...polygon[i4]);
+      }
+      path.closePath();
+    }
+    shape.path2d = path;
+    return shape.path2d;
+  }
+  makeCirclePath(radius) {
+    var path = new Path2D();
+    path.arc(0, 0, radius, 0, 2 * Math.PI);
+    path.closePath();
+    return path;
+  }
+  makePadPath(pad) {
+    if (pad.path2d) {
+      return pad.path2d;
+    }
+    if (pad.shape == "rect") {
+      const start = pad.size.map((c4) => -c4 * 0.5);
+      pad.path2d = new Path2D();
+      pad.path2d.rect(...start, ...pad.size);
+    } else if (pad.shape == "oval") {
+      pad.path2d = this.makeOblongPath(pad.size);
+    } else if (pad.shape == "circle") {
+      pad.path2d = this.makeCirclePath(pad.size[0] / 2);
+    } else if (pad.shape == "roundrect") {
+      pad.path2d = this.makeChamferedRectPath(pad.size, pad.radius, 0, 0);
+    } else if (pad.shape == "chamfrect") {
+      pad.path2d = this.makeChamferedRectPath(
+        pad.size,
+        pad.radius,
+        pad.chamfpos,
+        pad.chamfratio
+      );
+    } else if (pad.shape == "custom") {
+      pad.path2d = this.makePolygonPath(pad);
+    }
+    return pad.path2d;
+  }
+};
+function deg2rad(deg) {
+  return deg * Math.PI / 180;
+}
+__name(deg2rad, "deg2rad");
+
 // src/scripts/index.ts
 var VERSION = "head";
 export {
@@ -1546,7 +2087,8 @@ export {
   WinterCarouselElement,
   WinterDarkModeElement,
   WinterIconElement,
-  WinterImageMapElement
+  WinterImageMapElement,
+  WinterPCBAssemblyElement
 };
 /*! Bundled license information:
 
