@@ -44,12 +44,13 @@
         "allowUnreachableCode": false,
     },
     "include": [
-        "./src/**/*",
+        "./src/scripts/*",
         "./test/**/*"
     ],
     "exclude": [
         "./node_modules",
         "./**/node_modules/*",
-        "./scripts/"
+        "./scripts/",
+        "./src/wintersong"
     ],
 }
