@@ -40,4 +40,12 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
     },
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#f5e0dc",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#eabdb4",
+        "statusBarItem.remoteBackground": "#f5e0dc",
+        "statusBarItem.remoteForeground": "#15202b"
+    },
+    "peacock.color": "f5e0dc",
 }
