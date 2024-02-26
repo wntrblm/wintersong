@@ -200,10 +200,26 @@ h6 {
     261,
     32%,
     28%;
-  --winter-shadow-xs: 1px 1px 1px 0 hsl(var(--winter-shadow-color-hsl), 0.2), 0 0 10px 0 hsl(var(--winter-shadow-color-hsl), 0.1);
-  --winter-shadow-s: 3px 3px 2px 0 hsl(var(--winter-shadow-color-hsl), 0.2), 0 0 10px 0 hsl(var(--winter-shadow-color-hsl), 0.15);
-  --winter-shadow-m: 6px 6px 3px 0 hsl(var(--winter-shadow-color-hsl), 0.3), 0 0 10px 0 hsl(var(--winter-shadow-color-hsl), 0.2);
-  --winter-shadow-l: 10px 10px 3px 0 hsl(var(--winter-shadow-color-hsl), 0.3), 0 0 10px 0 hsl(var(--winter-shadow-color-hsl), 0.2);
+  --winter-shadow-alpha-xs: 0.2;
+  --winter-shadow-blur-alpha-xs: 0.05;
+  --winter-shadow-alpha-s: 0.2;
+  --winter-shadow-blur-alpha-s: 0.1;
+  --winter-shadow-alpha-m: 0.3;
+  --winter-shadow-blur-alpha-m: 0.15;
+  --winter-shadow-alpha-l: 0.3;
+  --winter-shadow-blur-alpha-l: 0.15;
+  --winter-shadow-color-xs: hsl( var(--winter-shadow-color-hsl), var(--winter-shadow-alpha-xs) );
+  --winter-shadow-blur-color-xs: hsl( var(--winter-shadow-color-hsl), var(--winter-shadow-blur-alpha-xs) );
+  --winter-shadow-color-s: hsl( var(--winter-shadow-color-hsl), var(--winter-shadow-alpha-s) );
+  --winter-shadow-blur-color-s: hsl( var(--winter-shadow-color-hsl), var(--winter-shadow-blur-alpha-s) );
+  --winter-shadow-color-m: hsl( var(--winter-shadow-color-hsl), var(--winter-shadow-alpha-m) );
+  --winter-shadow-blur-color-m: hsl( var(--winter-shadow-color-hsl), var(--winter-shadow-blur-alpha-m) );
+  --winter-shadow-color-l: hsl( var(--winter-shadow-color-hsl), var(--winter-shadow-alpha-l) );
+  --winter-shadow-blur-color-l: hsl( var(--winter-shadow-color-hsl), var(--winter-shadow-blur-alpha-l) );
+  --winter-shadow-xs: 1px 1px 1px 0 var(--winter-shadow-color-xs), 0 0 10px 0 var(--winter-shadow-blur-color-xs);
+  --winter-shadow-s: 3px 3px 1px 0 var(--winter-shadow-color-s), 0 0 10px 0 var(--winter-shadow-blur-color-s);
+  --winter-shadow-m: 6px 6px 3px 0 var(--winter-shadow-color-m), 0 0 10px 0 var(--winter-shadow-blur-color-m);
+  --winter-shadow-l: 10px 10px 3px 0 var(--winter-shadow-color-l), 0 0 10px 0 var(--winter-shadow-blur-color-l);
   --winter-spacing-xxxs: 0.125rem;
   --winter-spacing-xxs: 0.25rem;
   --winter-spacing-xs: 0.5rem;
@@ -271,9 +287,9 @@ h6 {
   --winter-line-height-m: 1.6;
   --winter-line-height-l: 1.8;
   --winter-line-height-xl: 2.2;
-  --winter-focus-outline-color: var(--color-not-quite-black);
-  --winter-focus-outline: 1px solid var(--focus-outline-color);
-  --winter-focus-outline-offset: 2px;
+  --winter-focus-outline-color: var(--color-gray-800);
+  --winter-focus-outline: 1px solid var(--winter-focus-outline-color);
+  --winter-focus-outline-offset: 0px;
   --winter-bg: var(--winter-white);
   --winter-fg: var(--winter-not-quite-black);
   --winter-header-font: var(--winter-font-decorative);
@@ -357,6 +373,84 @@ h6 {
   --winter-blockquote-bg: var(--color-white);
   --winter-hr-border-color: var(--winter-purple-3);
   --winter-hr-border: 0.15rem solid var(--winter-hr-border-color);
+  --winter-button-font: var(--winter-font-mono);
+  --winter-button-font-size: 90%;
+  --winter-button-font-weight: var(--winter-font-weight-semibold);
+  --winter-button-font-style: normal;
+  --winter-button-padding: 0.12em 0.5em 0.12em 0.5em;
+  --winter-button-combinator-fg: var(--color-gray-600);
+  --winter-button-border-radius: var(--winter-border-radius-s);
+  --winter-button-shadow: var(--winter-shadow-s);
+  --winter-button-fg: var(--winter-white);
+  --winter-button-bg: var(--color-purple-600);
+  --winter-button-hover-fg: var(--winter-white);
+  --winter-button-hover-bg: var(--color-purple-500);
+  --winter-button-active-fg: var(--winter-white);
+  --winter-button-active-bg: var(--color-purple-700);
+  --winter-button-disabled-fg: var(--color-gray-200);
+  --winter-button-disabled-bg: var(--color-gray-600);
+  --winter-button-outline-bg: var(--winter-white);
+  --winter-button-outline-disabled-bg: var(--color-gray-100);
+  --winter-button-secondary-fg: var(--winter-white);
+  --winter-button-secondary-bg: var(--color-blue-500);
+  --winter-button-secondary-hover-fg: var(--winter-white);
+  --winter-button-secondary-hover-bg: var(--color-blue-400);
+  --winter-button-secondary-active-fg: var(--winter-white);
+  --winter-button-secondary-active-bg: var(--color-blue-600);
+  --winter-button-secondary-disabled-fg: var(--color-gray-200);
+  --winter-button-secondary-disabled-bg: var(--color-blue-700);
+  --winter-button-contrast-fg: var(--winter-black);
+  --winter-button-contrast-bg: var(--color-cyan-200);
+  --winter-button-contrast-hover-fg: var(--winter-black);
+  --winter-button-contrast-hover-bg: var(--color-cyan-100);
+  --winter-button-contrast-active-fg: var(--winter-black);
+  --winter-button-contrast-active-bg: var(--color-cyan-50);
+  --winter-button-contrast-disabled-fg: var(--color-gray-200);
+  --winter-button-contrast-disabled-bg: var(--color-cyan-400);
+  --winter-button-danger-fg: var(--winter-white);
+  --winter-button-danger-bg: var(--color-red-400);
+  --winter-button-danger-hover-fg: var(--winter-white);
+  --winter-button-danger-hover-bg: var(--color-red-300);
+  --winter-button-danger-active-fg: var(--winter-white);
+  --winter-button-danger-active-bg: var(--color-red-500);
+  --winter-button-danger-disabled-fg: var(--color-gray-200);
+  --winter-button-danger-disabled-bg: var(--color-red-500);
+  --winter-input-fg: var(--winter-not-quite-black);
+  --winter-input-bg: var(--color-purple-50);
+  --winter-input-border: 2px solid var(--winter-purple-3);
+  --winter-input-border-radius: var(--winter-border-radius-s);
+  --winter-input-block-spacing: var(--winter-spacing-xs);
+  --winter-input-font-weight: var(--winter-font-weight-m);
+  --winter-input-font-size: var(--winter-font-size-m);
+  --winter-input-padding: 0.12em 0.5em;
+  --winter-input-disabled-fg: var(--color-gray-600);
+  --winter-input-disabled-bg: var(--color-gray-50);
+  --winter-input-disabled-border: 2px solid var(--color-gray-200);
+  --winter-input-readonly-fg: var(--color-gray-800);
+  --winter-input-readonly-bg: var(--color-gray-50);
+  --winter-input-readonly-border: 2px solid var(--color-gray-500);
+  --winter-input-active-fg: var(--color-blue-800);
+  --winter-input-active-bg: var(--color-blue-50);
+  --winter-input-active-border: 2px solid var(--color-blue-500);
+  --winter-input-valid-fg: var(--color-green-800);
+  --winter-input-valid-bg: var(--color-green-50);
+  --winter-input-valid-border: 2px solid var(--color-green-500);
+  --winter-input-invalid-fg: var(--color-red-800);
+  --winter-input-invalid-bg: var(--color-red-50);
+  --winter-input-invalid-border: 2px solid var(--color-red-500);
+  --winter-checkbox-size: 1.75rem;
+  --winter-checkbox-fg: var(--winter-purple-2);
+  --winter-checkbox-active-fg: var(--color-blue-500);
+  --winter-checkbox-disabled-fg: var(--color-gray-500);
+  --winter-range-padding: 0.5em 0;
+  --winter-range-track-radius: 5rem;
+  --winter-range-track-size: 0.375rem;
+  --winter-range-thumb-size: 1.25rem;
+  --winter-range-bg: var(--color-purple-200);
+  --winter-range-fg: var(--winter-purple-3);
+  --winter-range-active-bg: var(--color-purple-200);
+  --winter-range-active-fg: var(--winter-purple-2);
+  --winter-range-active-thumb-size: 1.4rem;
   --winter-admonition-font: var(--winter-font-serif);
   --winter-admonition-font-size: var(--winter-font-size-m);
   --winter-admonition-fg: var(--winter-fg);
@@ -425,6 +519,10 @@ h6 {
     --winter-near-black: color-mix( in srgb, var(--color-purple-900) 30%, var(--winter-bg) );
     --winter-bg: var(--winter-black);
     --winter-fg: var(--winter-white);
+    --winter-shadow-color-hsl:
+      260,
+      48.1%,
+      75%;
     --winter-header-fg: var(--winter-purple-3);
     --winter-header-accent: var(--winter-teal-3);
     --winter-footer-fg: var(--winter-purple-3);
@@ -450,6 +548,27 @@ h6 {
     --winter-blockquote-bg: var(--winter-near-black);
     --winter-hr-border-color: var(--color-purple-900);
     --winter-desc-term-fg: var(--winter-teal-4);
+    --winter-button-outline-bg: var(--winter-black);
+    --winter-button-outline-disabled-bg: var(--color-gray-900);
+    --winter-input-fg: var(--winter-white);
+    --winter-input-bg: var(--color-purple-900);
+    --winter-input-disabled-fg: var(--color-gray-100);
+    --winter-input-disabled-bg: var(--color-gray-900);
+    --winter-input-readonly-fg: var(--color-gray-50);
+    --winter-input-readonly-bg: var(--color-gray-800);
+    --winter-input-active-fg: var(--winter-white);
+    --winter-input-active-bg: var(--color-blue-900);
+    --winter-input-valid-fg: var(--color-green-100);
+    --winter-input-valid-bg: var(--color-green-900);
+    --winter-input-invalid-fg: var(--color-red-100);
+    --winter-input-invalid-bg: var(--color-red-900);
+    --winter-checkbox-fg: var(--winter-purple-4);
+    --winter-checkbox-active-fg: var(--color-blue-100);
+    --winter-checkbox-disabled-fg: var(--color-gray-500);
+    --winter-range-bg: var(--color-purple-800);
+    --winter-range-fg: var(--winter-purple-4);
+    --winter-range-active-bg: var(--color-purple-500);
+    --winter-range-active-fg: var(--winter-purple-5);
     --winter-admonition-fg: var(--winter-fg);
     --winter-admonition-bg: var(--winter-near-black);
     --winter-admonition-accent: var(--winter-teal-3);
@@ -748,6 +867,7 @@ main pre code {
   padding: 0;
   background: transparent;
   border: none;
+  box-shadow: none;
 }
 main pre:hover {
   scrollbar-color: var(--winter-pre-scrollbar-hover) transparent;
@@ -795,12 +915,12 @@ main dl dd {
   padding-inline: var(--winter-desc-list-padding);
   padding-block-end: 0;
 }
-main :is(a, [role=link]) {
+main :is(a:not([role=button]), [role=link]) {
   color: var(--winter-link-fg);
   background: var(--winter-link-bg);
   text-decoration: var(--winter-link-decoration);
 }
-main :is(a, [role=link]):is([aria-current], :hover, :active, :focus) {
+main :is(a:not([role=button]), [role=link]):is([aria-current], :hover, :active, :focus) {
   color: var(--winter-link-hover-fg);
   background: var(--winter-link-hover-bg);
   text-decoration: var(--winter-link-hover-decoration);
@@ -972,6 +1092,358 @@ main .inline {
 main .inline.end {
   float: inline-end;
   margin-inline: var(--winter-block-spacing);
+}
+
+/* src/styles/buttons.css */
+button,
+[role=button],
+a[role=button],
+input[type=reset],
+input[type=submit],
+input[type=button] {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 8ch;
+  min-height: 2.2rem;
+  text-align: center;
+  line-height: inherit;
+  vertical-align: middle;
+  --normal-fg: var(--winter-button-fg);
+  --normal-bg: var(--winter-button-bg);
+  --active-fg: var(--winter-button-active-fg);
+  --active-bg: var(--winter-button-active-bg);
+  --hover-fg: var(--winter-button-hover-fg);
+  --hover-bg: var(--winter-button-hover-bg);
+  --disabled-fg: var(--winter-button-disabled-fg);
+  --disabled-bg: var(--winter-button-disabled-bg);
+  --outline-fg: var(--normal-bg);
+  --outline-hover-fg: var(--hover-bg);
+  --outline-active-fg: var(--active-bg);
+  --outline-disabled-fg: var(--disabled-bg);
+  --fg: var(--normal-fg);
+  --bg: var(--normal-bg);
+  --shadow: var(--winter-button-shadow);
+  font-family: var(--winter-button-font);
+  font-size: var(--winter-button-font-size);
+  font-style: var(--winter-button-font-style);
+  font-weight: var(--winter-button-font-weight);
+  padding: var(--winter-button-padding);
+  border-radius: var(--winter-button-border-radius);
+  border: 0.15em solid transparent;
+  box-shadow: var(--shadow);
+  color: var(--fg);
+  background: var(--bg);
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]):disabled {
+  --fg: var(--disabled-fg);
+  --bg: var(--disabled-bg);
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]):disabled:hover {
+  cursor: not-allowed;
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]):not(:disabled):is(:hover, :focus) {
+  --fg: var(--hover-fg);
+  --bg: var(--hover-bg);
+  text-decoration: none;
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]):not(:disabled):active {
+  --fg: var(--active-fg);
+  --bg: var(--active-bg);
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]):focus {
+  outline: var(--winter-focus-outline);
+  outline-offset: var(--winter-focus-outline-offset);
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]).secondary {
+  --normal-fg: var(--winter-button-secondary-fg);
+  --normal-bg: var(--winter-button-secondary-bg);
+  --active-fg: var(--winter-button-secondary-active-fg);
+  --active-bg: var(--winter-button-secondary-active-bg);
+  --hover-fg: var(--winter-button-secondary-hover-fg);
+  --hover-bg: var(--winter-button-secondary-hover-bg);
+  --disabled-fg: var(--winter-button-secondary-disabled-fg);
+  --disabled-bg: var(--winter-button-secondary-disabled-bg);
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]).contrast {
+  --normal-fg: var(--winter-button-contrast-fg);
+  --normal-bg: var(--winter-button-contrast-bg);
+  --active-fg: var(--winter-button-contrast-active-fg);
+  --active-bg: var(--winter-button-contrast-active-bg);
+  --hover-fg: var(--winter-button-contrast-hover-fg);
+  --hover-bg: var(--winter-button-contrast-hover-bg);
+  --disabled-fg: var(--winter-button-contrast-disabled-fg);
+  --disabled-bg: var(--winter-button-contrast-disabled-bg);
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]).danger {
+  --normal-fg: var(--winter-button-danger-fg);
+  --normal-bg: var(--winter-button-danger-bg);
+  --active-fg: var(--winter-button-danger-active-fg);
+  --active-bg: var(--winter-button-danger-active-bg);
+  --hover-fg: var(--winter-button-danger-hover-fg);
+  --hover-bg: var(--winter-button-danger-hover-bg);
+  --disabled-fg: var(--winter-button-danger-disabled-fg);
+  --disabled-bg: var(--winter-button-danger-disabled-bg);
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]).outline {
+  --fg: var(--outline-fg);
+  --bg: var(--winter-button-outline-bg);
+  border: 0.15em solid currentColor;
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]).outline:is(:hover, :focus) {
+  --fg: var(--outline-hover-fg);
+  --bg: var(--winter-button-outline-bg);
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]).outline:active {
+  --fg: var(--outline-active-fg);
+  --bg: var(--winter-button-outline-bg);
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]).outline:disabled {
+  --fg: var(--outline-disabled-fg);
+  --bg: var(--winter-button-outline-disabled-bg);
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]):has(winter-icon) {
+  min-width: unset;
+  gap: 0.25em;
+}
+:is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]):not(:has(span)) winter-icon {
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+
+/* src/styles/forms.css */
+input:not([type=checkbox], [type=radio], [type=range], [type=file]),
+select,
+textarea {
+  appearance: none;
+}
+label:has(+ input) {
+  display: block;
+}
+input:not([type=checkbox], [type=radio]),
+button[type=submit],
+select,
+textarea,
+label:has(input) {
+  display: block;
+  width: 100%;
+  margin-block-end: var(--winter-input-block-spacing);
+}
+input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]),
+select,
+textarea {
+  outline: none;
+  border: var(--winter-input-border);
+  border-radius: var(--winter-input-border-radius);
+  color: var(--winter-input-fg);
+  background: var(--winter-input-bg);
+  font-size: var(--winter-input-font-size);
+  font-weight: var(--winter-input-font-weight);
+  box-shadow: var(--winter-input-shadow);
+  padding: var(--winter-input-padding);
+}
+:is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea):is(:active, :hover, :focus) {
+  color: var(--winter-input-active-fg);
+  background: var(--winter-input-active-bg);
+  border: var(--winter-input-active-border);
+}
+:is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea):focus {
+  outline: var(--winter-focus-outline);
+  outline-offset: var(--winter-focus-outline-offset);
+}
+:is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea):disabled {
+  color: var(--winter-input-disabled-fg);
+  background: var(--winter-input-disabled-bg);
+  border: var(--winter-input-disabled-border);
+}
+:is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea):disabled:hover {
+  cursor: not-allowed;
+}
+:is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea)[readonly] {
+  color: var(--winter-input-readonly-fg);
+  background: var(--winter-input-readonly-bg);
+  border: var(--winter-input-readonly-border);
+}
+:is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea):is(:user-invalid, [aria-invalid=true]) {
+  color: var(--winter-input-invalid-fg);
+  background: var(--winter-input-invalid-bg);
+  border: var(--winter-input-invalid-border);
+}
+:is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea):is(:user-valid, [aria-invalid=false]) {
+  color: var(--winter-input-valid-fg);
+  background: var(--winter-input-valid-bg);
+  border: var(--winter-input-valid-border);
+}
+label:has([type=checkbox], [type=radio]) {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: min-content auto;
+  gap: 0.1em;
+  align-items: center;
+}
+label:has([type=checkbox], [type=radio]):has([disabled]) {
+  cursor: not-allowed;
+}
+input[type=checkbox],
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  margin: 0;
+  color: var(--winter-checkbox-fg);
+  font-size: var(--winter-checkbox-size);
+  height: 1em;
+  margin-left: -0.1em;
+  display: grid;
+  place-content: center;
+}
+:is(input[type=checkbox], input[type=radio])::before {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  content: var(--unchecked-char, "\e835");
+}
+:is(input[type=checkbox], input[type=radio]):checked::before {
+  content: var(--checked-char, "\e834");
+}
+:is(input[type=checkbox], input[type=radio]):is(:active, :hover, :focus) {
+  color: var(--winter-checkbox-active-fg);
+}
+:is(input[type=checkbox], input[type=radio]):disabled {
+  color: var(--winter-checkbox-disabled-fg);
+  cursor: not-allowed;
+}
+input[type=radio] {
+  --checked-char: "\e837";
+  --unchecked-char: "\e836";
+}
+input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  padding: var(--winter-range-padding);
+  --size: var(--winter-range-thumb-size);
+  --fg: var(--winter-range-fg);
+  --bg: var(--winter-range-bg);
+  --margin-top: calc( (var(--size) * -0.5) + (var(--winter-range-track-size) * 0.5) );
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  border-radius: var(--winter-range-track-radius);
+  background-color: var(--bg);
+  height: var(--winter-range-track-size);
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  border-radius: var(--winter-range-track-radius);
+  background-color: var(--bg);
+  height: var(--winter-range-track-size);
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  border-radius: var(--winter-range-track-radius);
+  background-color: var(--bg);
+  height: var(--winter-range-track-size);
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: var(--size);
+  height: var(--size);
+  margin-top: var(--margin-top);
+  border: 2px solid var(--fg);
+  border-radius: 50%;
+  background-color: var(--fg);
+  cursor: pointer;
+}
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: var(--size);
+  height: var(--size);
+  margin-top: var(--margin-top);
+  border: 2px solid var(--fg);
+  border-radius: 50%;
+  background-color: var(--fg);
+  cursor: pointer;
+}
+input[type=range]::-ms-thumb {
+  -webkit-appearance: none;
+  width: var(--size);
+  height: var(--size);
+  margin-top: var(--margin-top);
+  border: 2px solid var(--fg);
+  border-radius: 50%;
+  background-color: var(--fg);
+  cursor: pointer;
+}
+input[type=range]:is(:hover, :active, :focus) {
+  --size: var(--winter-range-active-thumb-size);
+  --fg: var(--winter-range-active-fg);
+  --bg: var(--winter-range-active-bg);
+}
+form [role=group] {
+  display: flex;
+  width: 100%;
+  vertical-align: middle;
+  --winter-button-shadow: none;
+  margin-block-end: var(--winter-input-block-spacing);
+}
+form [role=group] > * {
+  margin-block-end: 0;
+}
+form [role=group] :is(input, select):first-child {
+  border-right: none;
+}
+
+/* src/styles/group.css */
+[role=group] {
+  display: inline-flex;
+  vertical-align: middle;
+}
+form [role=group] {
+  display: flex;
+  width: 100%;
+}
+[role=group] :not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+[role=group] :not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+[role=group]:has(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]) {
+  box-shadow: var(--winter-button-shadow);
+  border-radius: var(--winter-button-border-radius);
+}
+[role=group]:has(button:focus, [role=button]:focus, a[role=button]:focus, input[type=reset]:focus, input[type=submit]:focus, input[type=button]:focus) {
+  outline: var(--winter-focus-outline);
+  outline-offset: var(--winter-focus-outline-offset);
+}
+[role=group] :is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]) {
+  --shadow: none;
+}
+[role=group] :is(button, [role=button], a[role=button], input[type=reset], input[type=submit], input[type=button]):focus {
+  outline: none;
 }
 
 /* src/styles/admonitions.css */

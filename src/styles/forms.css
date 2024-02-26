@@ -27,7 +27,14 @@ label:has(input) {
 }
 
 /* "Normal" form controls */
-input:not([type="range"], [type="checkbox"], [type="radio"], [type="range"]),
+input:not(
+        [type="range"],
+        [type="checkbox"],
+        [type="radio"],
+        [type="range"],
+        [type="submit"],
+        [type="button"]
+    ),
 select,
 textarea {
     outline: none;

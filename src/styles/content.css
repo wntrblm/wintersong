@@ -175,6 +175,7 @@ main {
             padding: 0;
             background: transparent;
             border: none;
+            box-shadow: none;
         }
 
         scrollbar-width: thin;

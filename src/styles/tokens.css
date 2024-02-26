@@ -9,14 +9,56 @@
 
     /* Elevation */
     --winter-shadow-color-hsl: 261, 32%, 28%;
-    --winter-shadow-xs: 1px 1px 1px 0 hsl(var(--winter-shadow-color-hsl), 0.2),
-        0 0 10px 0 hsl(var(--winter-shadow-color-hsl), 0.1);
-    --winter-shadow-s: 3px 3px 2px 0 hsl(var(--winter-shadow-color-hsl), 0.2),
-        0 0 10px 0 hsl(var(--winter-shadow-color-hsl), 0.15);
-    --winter-shadow-m: 6px 6px 3px 0 hsl(var(--winter-shadow-color-hsl), 0.3),
-        0 0 10px 0 hsl(var(--winter-shadow-color-hsl), 0.2);
-    --winter-shadow-l: 10px 10px 3px 0 hsl(var(--winter-shadow-color-hsl), 0.3),
-        0 0 10px 0 hsl(var(--winter-shadow-color-hsl), 0.2);
+    --winter-shadow-alpha-xs: 0.2;
+    --winter-shadow-blur-alpha-xs: 0.05;
+    --winter-shadow-alpha-s: 0.2;
+    --winter-shadow-blur-alpha-s: 0.1;
+    --winter-shadow-alpha-m: 0.3;
+    --winter-shadow-blur-alpha-m: 0.15;
+    --winter-shadow-alpha-l: 0.3;
+    --winter-shadow-blur-alpha-l: 0.15;
+
+    --winter-shadow-color-xs: hsl(
+        var(--winter-shadow-color-hsl),
+        var(--winter-shadow-alpha-xs)
+    );
+    --winter-shadow-blur-color-xs: hsl(
+        var(--winter-shadow-color-hsl),
+        var(--winter-shadow-blur-alpha-xs)
+    );
+    --winter-shadow-color-s: hsl(
+        var(--winter-shadow-color-hsl),
+        var(--winter-shadow-alpha-s)
+    );
+    --winter-shadow-blur-color-s: hsl(
+        var(--winter-shadow-color-hsl),
+        var(--winter-shadow-blur-alpha-s)
+    );
+    --winter-shadow-color-m: hsl(
+        var(--winter-shadow-color-hsl),
+        var(--winter-shadow-alpha-m)
+    );
+    --winter-shadow-blur-color-m: hsl(
+        var(--winter-shadow-color-hsl),
+        var(--winter-shadow-blur-alpha-m)
+    );
+    --winter-shadow-color-l: hsl(
+        var(--winter-shadow-color-hsl),
+        var(--winter-shadow-alpha-l)
+    );
+    --winter-shadow-blur-color-l: hsl(
+        var(--winter-shadow-color-hsl),
+        var(--winter-shadow-blur-alpha-l)
+    );
+
+    --winter-shadow-xs: 1px 1px 1px 0 var(--winter-shadow-color-xs),
+        0 0 10px 0 var(--winter-shadow-blur-color-xs);
+    --winter-shadow-s: 3px 3px 1px 0 var(--winter-shadow-color-s),
+        0 0 10px 0 var(--winter-shadow-blur-color-s);
+    --winter-shadow-m: 6px 6px 3px 0 var(--winter-shadow-color-m),
+        0 0 10px 0 var(--winter-shadow-blur-color-m);
+    --winter-shadow-l: 10px 10px 3px 0 var(--winter-shadow-color-l),
+        0 0 10px 0 var(--winter-shadow-blur-color-l);
 
     /* Generic spacing */
     --winter-spacing-xxxs: 0.125rem;
@@ -367,6 +409,9 @@
         );
         --winter-bg: var(--winter-black);
         --winter-fg: var(--winter-white);
+
+        --winter-shadow-color-hsl: 260, 48.1%, 75%;
+
         --winter-header-fg: var(--winter-purple-3);
         --winter-header-accent: var(--winter-teal-3);
         --winter-footer-fg: var(--winter-purple-3);
@@ -392,6 +437,29 @@
         --winter-blockquote-bg: var(--winter-near-black);
         --winter-hr-border-color: var(--color-purple-900);
         --winter-desc-term-fg: var(--winter-teal-4);
+
+        --winter-button-outline-bg: var(--winter-black);
+        --winter-button-outline-disabled-bg: var(--color-gray-900);
+        --winter-input-fg: var(--winter-white);
+        --winter-input-bg: var(--color-purple-900);
+        --winter-input-disabled-fg: var(--color-gray-100);
+        --winter-input-disabled-bg: var(--color-gray-900);
+        --winter-input-readonly-fg: var(--color-gray-50);
+        --winter-input-readonly-bg: var(--color-gray-800);
+        --winter-input-active-fg: var(--winter-white);
+        --winter-input-active-bg: var(--color-blue-900);
+        --winter-input-valid-fg: var(--color-green-100);
+        --winter-input-valid-bg: var(--color-green-900);
+        --winter-input-invalid-fg: var(--color-red-100);
+        --winter-input-invalid-bg: var(--color-red-900);
+        --winter-checkbox-fg: var(--winter-purple-4);
+        --winter-checkbox-active-fg: var(--color-blue-100);
+        --winter-checkbox-disabled-fg: var(--color-gray-500);
+        --winter-range-bg: var(--color-purple-800);
+        --winter-range-fg: var(--winter-purple-4);
+        --winter-range-active-bg: var(--color-purple-500);
+        --winter-range-active-fg: var(--winter-purple-5);
+
         --winter-admonition-fg: var(--winter-fg);
         --winter-admonition-bg: var(--winter-near-black);
         --winter-admonition-accent: var(--winter-teal-3);

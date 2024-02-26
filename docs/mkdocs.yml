@@ -46,3 +46,5 @@ nav:
     - "Home": index.md
     - "Components": components.md
     - "Markdown": markdown.md
+    - "Forms": forms.md
+    - "Buttons": buttons.md
