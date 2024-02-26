@@ -766,7 +766,7 @@ main :is(h1, h2, h3, h4, h5, h6) {
 main :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
   margin-block-start: var(--winter-heading-spacing);
 }
-main :is(h1, h2, h3, h4, h5, h6) .headerlink {
+main :is(h1, h2, h3, h4, h5, h6) a.headerlink {
   position: absolute;
   top: 0;
   left: -1.25ch;
@@ -777,7 +777,7 @@ main :is(h1, h2, h3, h4, h5, h6) .headerlink {
   text-decoration: none;
   font-size: 75%;
 }
-main :is(h1, h2, h3, h4, h5, h6) .headerlink:is([aria-current], :hover, :active, :focus) {
+main :is(h1, h2, h3, h4, h5, h6) a.headerlink:is([aria-current], :hover, :active, :focus) {
   text-decoration: none;
 }
 main h1 {

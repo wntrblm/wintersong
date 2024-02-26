@@ -44,7 +44,7 @@ main {
             margin-block-start: var(--winter-heading-spacing);
         }
 
-        & .headerlink {
+        & a.headerlink {
             position: absolute;
             top: 0;
             left: -1.25ch;
