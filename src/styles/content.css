@@ -247,7 +247,7 @@ Text inline content
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 main {
-    & a,
+    & a:not([role="button"]),
     [role="link"] {
         color: var(--winter-link-fg);
         background: var(--winter-link-bg);

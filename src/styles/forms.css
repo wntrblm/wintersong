@@ -1,166 +1,251 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-Forms
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/*
+    Copyright (c) 2024 Winterbloom LLC, Alethea Katherine Flowers
+    Published under the standard MIT License.
+    Full text available at: https://opensource.org/licenses/MIT
+*/
 
-fieldset {
-}
-fieldset:disabled {
-}
-legend {
-}
-
-form {
-}
-
-label {
-}
-
-::placeholder {
-}
-:focus::placeholder {
-}
-
-/* Overall styling, e.g. vertical spacing */
-input,
-textarea,
+/* Reset appearences */
+input:not([type="checkbox"], [type="radio"], [type="range"], [type="file"]),
 select,
-button {
+textarea {
+    appearance: none;
 }
 
-/* `textarea` and `input` elements that share a similar look and similar styling
-capabilities */
-/* - common styling */
+/* Elements that create a new "block" */
+label:has(+ input) {
+    display: block;
+}
+
+input:not([type="checkbox"], [type="radio"]),
+button[type="submit"],
+select,
 textarea,
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-input[type="search"],
-input[type="url"],
-input[type="date"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="week"],
-input[type="time"] {
+label:has(input) {
+    display: block;
+    width: 100%;
+    margin-block-end: var(--winter-input-block-spacing);
 }
-/* - individual styling */
+
+/* "Normal" form controls */
+input:not([type="range"], [type="checkbox"], [type="radio"], [type="range"]),
+select,
 textarea {
+    outline: none;
+    border: var(--winter-input-border);
+    border-radius: var(--winter-input-border-radius);
+    color: var(--winter-input-fg);
+    background: var(--winter-input-bg);
+    font-size: var(--winter-input-font-size);
+    font-weight: var(--winter-input-font-weight);
+    box-shadow: var(--winter-input-shadow);
+    padding: var(--winter-input-padding);
+
+    &:active,
+    &:hover,
+    &:focus {
+        color: var(--winter-input-active-fg);
+        background: var(--winter-input-active-bg);
+        border: var(--winter-input-active-border);
+    }
+
+    &:focus {
+        outline: var(--winter-focus-outline);
+        outline-offset: var(--winter-focus-outline-offset);
+    }
+
+    &:disabled {
+        color: var(--winter-input-disabled-fg);
+        background: var(--winter-input-disabled-bg);
+        border: var(--winter-input-disabled-border);
+
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+
+    &[readonly] {
+        color: var(--winter-input-readonly-fg);
+        background: var(--winter-input-readonly-bg);
+        border: var(--winter-input-readonly-border);
+    }
+
+    &:user-invalid,
+    &[aria-invalid="true"] {
+        color: var(--winter-input-invalid-fg);
+        background: var(--winter-input-invalid-bg);
+        border: var(--winter-input-invalid-border);
+    }
+
+    &:user-valid,
+    &[aria-invalid="false"] {
+        color: var(--winter-input-valid-fg);
+        background: var(--winter-input-valid-bg);
+        border: var(--winter-input-valid-border);
+    }
 }
-input[type="text"] {
+
+/* Checkboxes */
+label:has([type="checkbox"], [type="radio"]) {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: min-content auto;
+    gap: 0.1em;
+    align-items: center;
+
+    &:has([disabled]) {
+        cursor: not-allowed;
+    }
 }
-input[type="password"] {
-}
-input[type="email"] {
-}
-input[type="tel"] {
-}
-input[type="number"] {
-}
-input[type="search"] {
-}
-input[type="url"] {
-}
-input[type="date"] {
-}
-input[type="datetime-local"] {
-}
-input[type="month"] {
-}
-input[type="week"] {
-}
-input[type="time"] {
-}
-/* Tick boxes */
+
 input[type="checkbox"],
 input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    color: var(--winter-checkbox-fg);
+    font-size: var(--winter-checkbox-size);
+    height: 1em;
+    margin-left: -0.1em;
+    display: grid;
+    place-content: center;
+
+    &::before {
+        font-family: "Material Symbols Outlined";
+        font-weight: normal;
+        font-style: normal;
+        font-size: inherit;
+        letter-spacing: normal;
+        text-transform: none;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: "liga";
+        -moz-font-feature-settings: "liga";
+        font-feature-settings: "liga";
+        -webkit-font-smoothing: antialiased;
+        user-select: none;
+        content: var(--unchecked-char, "\e835");
+    }
+
+    &:checked::before {
+        content: var(--checked-char, "\e834");
+    }
+
+    &:active,
+    &:hover,
+    &:focus {
+        color: var(--winter-checkbox-active-fg);
+    }
+
+    &:disabled {
+        color: var(--winter-checkbox-disabled-fg);
+        cursor: not-allowed;
+    }
 }
-input[type="checkbox"]:checked,
-input[type="radio"]:checked {
-}
-input[type="checkbox"] {
-}
-input[type="checkbox"]:checked {
-}
+
 input[type="radio"] {
+    --checked-char: "\e837";
+    --unchecked-char: "\e836";
 }
-input[type="radio"]:checked {
-}
-/* Other input fields, some with limited styling capabilities */
-input[type="file"] {
-}
-input[type="color"] {
-}
+
+/* Range input */
 input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    padding: var(--winter-range-padding);
+    --size: var(--winter-range-thumb-size);
+    --fg: var(--winter-range-fg);
+    --bg: var(--winter-range-bg);
+    --margin-top: calc(
+        (var(--size) * -0.5) + (var(--winter-range-track-size) * 0.5)
+    );
+
+    &::-webkit-slider-runnable-track {
+        width: 100%;
+        border-radius: var(--winter-range-track-radius);
+        background-color: var(--bg);
+        height: var(--winter-range-track-size);
+    }
+    &::-moz-range-track {
+        width: 100%;
+        border-radius: var(--winter-range-track-radius);
+        background-color: var(--bg);
+        height: var(--winter-range-track-size);
+    }
+    &::-ms-track {
+        width: 100%;
+        border-radius: var(--winter-range-track-radius);
+        background-color: var(--bg);
+        height: var(--winter-range-track-size);
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: var(--size);
+        height: var(--size);
+        margin-top: var(--margin-top);
+        border: 2px solid var(--fg);
+        border-radius: 50%;
+        background-color: var(--fg);
+        cursor: pointer;
+    }
+    &::-moz-range-thumb {
+        -webkit-appearance: none;
+        width: var(--size);
+        height: var(--size);
+        margin-top: var(--margin-top);
+        border: 2px solid var(--fg);
+        border-radius: 50%;
+        background-color: var(--fg);
+        cursor: pointer;
+    }
+    &::-ms-thumb {
+        -webkit-appearance: none;
+        width: var(--size);
+        height: var(--size);
+        margin-top: var(--margin-top);
+        border: 2px solid var(--fg);
+        border-radius: 50%;
+        background-color: var(--fg);
+        cursor: pointer;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        --size: var(--winter-range-active-thumb-size);
+        --fg: var(--winter-range-active-fg);
+        --bg: var(--winter-range-active-bg);
+    }
 }
 
-select {
-}
-optgroup {
-}
-option {
-}
-option:checked {
-}
-datalist {
-}
+/* Groups */
+form [role="group"] {
+    display: flex;
+    width: 100%;
+    vertical-align: middle;
 
-button,
-input[type="submit"] {
-}
-button:disabled,
-input[type="submit"]:disabled {
-}
-button.secondary {
-}
-button.secondary:disabled {
-}
+    --winter-button-shadow: none;
 
-/* This matches forms or form elements that are invalid *and* have been
-interacted with. Note that:
-1) You may need to add the `interacted` class to forms yourself
-2) You may need to add the `touched` class to form fields yourself
-3) `:user-invalid` is a working draft and not yet supported by most browsers
-4) `:-moz-ui-invalid` is non-standard and only works in Firefox
-Form validation error messages will appear (in capable browsers) regardless of
-this styling. You can omit 1) and 2) and still have working forms. Perfect
-example of progressive enhancement. */
-/* Applies to invalid forms */
-form.interacted:invalid {
-}
-/* Applies to invalid form fields. You would need to repeat your declarations
-for the following three groups of selectors individually. Browsers completely
-ignore any rule that contains a selector they do not know. */
-form.interacted :invalid,
-form .touched:invalid {
-}
-:user-invalid {
-}
-:-moz-ui-invalid {
-}
+    /* Combine block margin */
+    margin-block-end: var(--winter-input-block-spacing);
 
-output {
-}
+    & > * {
+        margin-block-end: 0;
+    }
 
-progress {
-}
-meter {
-}
-
-/* Some form fields, `details`, elements with `tabindex`, and possibly other
-elements can be focussed. You should use `:focus-visible` instead of `:focus`
-whenever possible. As the former is not yet widely supported, you need to do it
-as follows:
-1) Set styling on focus
-2) If browser supports `:focus-visible`, revert/unset the styling from 1)
-3) If the element matches `:focus-visible`, apply the styling again */
-:focus {
-}
-:focus:not(:focus-visible) {
-}
-:focus-visible {
-}
-
-[inert],
-[inert] * {
+    /* Remove right border on inputs */
+    & input,
+    select {
+        &:first-child {
+            border-right: none;
+        }
+    }
 }

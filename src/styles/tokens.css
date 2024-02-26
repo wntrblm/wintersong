@@ -75,9 +75,9 @@
     --winter-line-height-xl: 2.2;
 
     /* Focus */
-    --winter-focus-outline-color: var(--color-not-quite-black);
-    --winter-focus-outline: 1px solid var(--focus-outline-color);
-    --winter-focus-outline-offset: 2px;
+    --winter-focus-outline-color: var(--color-gray-800);
+    --winter-focus-outline: 1px solid var(--winter-focus-outline-color);
+    --winter-focus-outline-offset: 0px;
 
     /* Page colors */
     --winter-bg: var(--winter-white);
@@ -197,8 +197,98 @@
     --winter-hr-border-color: var(--winter-purple-3);
     --winter-hr-border: 0.15rem solid var(--winter-hr-border-color);
 
-    /* Markdown extensions */
+    /* <button> */
+    --winter-button-font: var(--winter-font-mono);
+    --winter-button-font-size: 90%;
+    --winter-button-font-weight: var(--winter-font-weight-semibold);
+    --winter-button-font-style: normal;
+    --winter-button-padding: 0.12em 0.5em 0.12em 0.5em;
+    --winter-button-combinator-fg: var(--color-gray-600);
+    --winter-button-border-radius: var(--winter-border-radius-s);
+    --winter-button-shadow: var(--winter-shadow-s);
 
+    --winter-button-fg: var(--winter-white);
+    --winter-button-bg: var(--color-purple-600);
+    --winter-button-hover-fg: var(--winter-white);
+    --winter-button-hover-bg: var(--color-purple-500);
+    --winter-button-active-fg: var(--winter-white);
+    --winter-button-active-bg: var(--color-purple-700);
+    --winter-button-disabled-fg: var(--color-gray-200);
+    --winter-button-disabled-bg: var(--color-gray-600);
+    --winter-button-outline-bg: var(--winter-white);
+    --winter-button-outline-disabled-bg: var(--color-gray-100);
+
+    --winter-button-secondary-fg: var(--winter-white);
+    --winter-button-secondary-bg: var(--color-blue-500);
+    --winter-button-secondary-hover-fg: var(--winter-white);
+    --winter-button-secondary-hover-bg: var(--color-blue-400);
+    --winter-button-secondary-active-fg: var(--winter-white);
+    --winter-button-secondary-active-bg: var(--color-blue-600);
+    --winter-button-secondary-disabled-fg: var(--color-gray-200);
+    --winter-button-secondary-disabled-bg: var(--color-blue-700);
+
+    --winter-button-contrast-fg: var(--winter-black);
+    --winter-button-contrast-bg: var(--color-cyan-200);
+    --winter-button-contrast-hover-fg: var(--winter-black);
+    --winter-button-contrast-hover-bg: var(--color-cyan-100);
+    --winter-button-contrast-active-fg: var(--winter-black);
+    --winter-button-contrast-active-bg: var(--color-cyan-50);
+    --winter-button-contrast-disabled-fg: var(--color-gray-200);
+    --winter-button-contrast-disabled-bg: var(--color-cyan-400);
+
+    --winter-button-danger-fg: var(--winter-white);
+    --winter-button-danger-bg: var(--color-red-400);
+    --winter-button-danger-hover-fg: var(--winter-white);
+    --winter-button-danger-hover-bg: var(--color-red-300);
+    --winter-button-danger-active-fg: var(--winter-white);
+    --winter-button-danger-active-bg: var(--color-red-500);
+    --winter-button-danger-disabled-fg: var(--color-gray-200);
+    --winter-button-danger-disabled-bg: var(--color-red-500);
+
+    /* <form> and friends */
+    --winter-input-fg: var(--winter-not-quite-black);
+    --winter-input-bg: var(--color-purple-50);
+    --winter-input-border: 2px solid var(--winter-purple-3);
+    --winter-input-border-radius: var(--winter-border-radius-s);
+    --winter-input-block-spacing: var(--winter-spacing-xs);
+    --winter-input-font-weight: var(--winter-font-weight-m);
+    --winter-input-font-size: var(--winter-font-size-m);
+    --winter-input-padding: 0.12em 0.5em;
+
+    --winter-input-disabled-fg: var(--color-gray-600);
+    --winter-input-disabled-bg: var(--color-gray-50);
+    --winter-input-disabled-border: 2px solid var(--color-gray-200);
+    --winter-input-readonly-fg: var(--color-gray-800);
+    --winter-input-readonly-bg: var(--color-gray-50);
+    --winter-input-readonly-border: 2px solid var(--color-gray-500);
+    --winter-input-active-fg: var(--color-blue-800);
+    --winter-input-active-bg: var(--color-blue-50);
+    --winter-input-active-border: 2px solid var(--color-blue-500);
+    --winter-input-valid-fg: var(--color-green-800);
+    --winter-input-valid-bg: var(--color-green-50);
+    --winter-input-valid-border: 2px solid var(--color-green-500);
+    --winter-input-invalid-fg: var(--color-red-800);
+    --winter-input-invalid-bg: var(--color-red-50);
+    --winter-input-invalid-border: 2px solid var(--color-red-500);
+
+    /* Checkbox/radio */
+    --winter-checkbox-size: 1.75rem;
+    --winter-checkbox-fg: var(--winter-purple-2);
+    --winter-checkbox-active-fg: var(--color-blue-500);
+    --winter-checkbox-disabled-fg: var(--color-gray-500);
+
+    /* Range */
+    --winter-range-padding: 0.5em 0;
+    --winter-range-track-radius: 5rem;
+    --winter-range-track-size: 0.375rem;
+    --winter-range-thumb-size: 1.25rem;
+    --winter-range-bg: var(--color-purple-200);
+    --winter-range-fg: var(--winter-purple-3);
+    --winter-range-active-bg: var(--color-purple-200);
+    --winter-range-active-fg: var(--winter-purple-2);
+    --winter-range-active-thumb-size: 1.4rem;
+
+    /* Markdown extensions */
     /* .admonition */
     --winter-admonition-font: var(--winter-font-serif);
     --winter-admonition-font-size: var(--winter-font-size-m);
