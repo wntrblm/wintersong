@@ -20,7 +20,7 @@
   <label>Readonly</label>
   <div role="group">
     <input readonly value="meep" />
-    <button type="button" class="outline"><winter-icon>content_copy</winter-icon></button>
+    <button type="button"><winter-icon>content_copy</winter-icon></button>
   </div>
   <label>Validation</label>
   <input value="meep" aria-invalid="true" />
@@ -45,6 +45,7 @@
     <input type="radio" name="language" />
     French
   </label>
+  <label>Select</label>
   <select name="favorite-cuisine" aria-label="Select your favorite cuisine..." required>
     <option selected disabled value="">
       Select your favorite cuisine...

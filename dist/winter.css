@@ -417,27 +417,27 @@ h6 {
   --winter-button-danger-disabled-bg: var(--color-red-500);
   --winter-input-fg: var(--winter-not-quite-black);
   --winter-input-bg: var(--color-purple-50);
-  --winter-input-border: 2px solid var(--winter-purple-3);
+  --winter-input-accent: var(--winter-purple-3);
   --winter-input-border-radius: var(--winter-border-radius-s);
-  --winter-input-block-spacing: var(--winter-spacing-xs);
+  --winter-input-block-spacing: var(--winter-spacing-s);
   --winter-input-font-weight: var(--winter-font-weight-m);
   --winter-input-font-size: var(--winter-font-size-m);
   --winter-input-padding: 0.12em 0.5em;
   --winter-input-disabled-fg: var(--color-gray-600);
   --winter-input-disabled-bg: var(--color-gray-50);
-  --winter-input-disabled-border: 2px solid var(--color-gray-200);
+  --winter-input-disabled-accent: var(--color-gray-200);
   --winter-input-readonly-fg: var(--color-gray-800);
   --winter-input-readonly-bg: var(--color-gray-50);
-  --winter-input-readonly-border: 2px solid var(--color-gray-500);
+  --winter-input-readonly-accent: var(--color-gray-500);
   --winter-input-active-fg: var(--color-blue-800);
   --winter-input-active-bg: var(--color-blue-50);
-  --winter-input-active-border: 2px solid var(--color-blue-500);
+  --winter-input-active-accent: var(--color-blue-500);
   --winter-input-valid-fg: var(--color-green-800);
   --winter-input-valid-bg: var(--color-green-50);
-  --winter-input-valid-border: 2px solid var(--color-green-500);
+  --winter-input-valid-accent: var(--color-green-500);
   --winter-input-invalid-fg: var(--color-red-800);
   --winter-input-invalid-bg: var(--color-red-50);
-  --winter-input-invalid-border: 2px solid var(--color-red-500);
+  --winter-input-invalid-accent: var(--color-red-500);
   --winter-checkbox-size: 1.75rem;
   --winter-checkbox-fg: var(--winter-purple-2);
   --winter-checkbox-active-fg: var(--color-blue-500);
@@ -1221,7 +1221,10 @@ select,
 textarea {
   appearance: none;
 }
-label:has(+ input) {
+main form {
+  margin-block: var(--winter-block-spacing);
+}
+label:has(+ input, + select, + textarea) {
   display: block;
 }
 input:not([type=checkbox], [type=radio]),
@@ -1236,47 +1239,51 @@ label:has(input) {
 input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]),
 select,
 textarea {
+  --fg: var(--winter-input-fg);
+  --bg: var(--winter-input-bg);
+  --accent: var(--winter-input-accent);
+  --border: 1px solid var(--accent);
   outline: none;
-  border: var(--winter-input-border);
+  border: var(--border);
   border-radius: var(--winter-input-border-radius);
-  color: var(--winter-input-fg);
-  background: var(--winter-input-bg);
+  color: var(--fg);
+  background: var(--bg);
   font-size: var(--winter-input-font-size);
   font-weight: var(--winter-input-font-weight);
   box-shadow: var(--winter-input-shadow);
   padding: var(--winter-input-padding);
 }
 :is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea):is(:active, :hover, :focus) {
-  color: var(--winter-input-active-fg);
-  background: var(--winter-input-active-bg);
-  border: var(--winter-input-active-border);
+  --fg: var(--winter-input-active-fg);
+  --bg: var(--winter-input-active-bg);
+  --accent: var(--winter-input-active-accent);
 }
 :is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea):focus {
   outline: var(--winter-focus-outline);
   outline-offset: var(--winter-focus-outline-offset);
 }
 :is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea):disabled {
-  color: var(--winter-input-disabled-fg);
-  background: var(--winter-input-disabled-bg);
-  border: var(--winter-input-disabled-border);
+  --fg: var(--winter-input-disabled-fg);
+  --bg: var(--winter-input-disabled-bg);
+  --accent: var(--winter-input-disabled-accent);
 }
 :is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea):disabled:hover {
   cursor: not-allowed;
 }
 :is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea)[readonly] {
-  color: var(--winter-input-readonly-fg);
-  background: var(--winter-input-readonly-bg);
-  border: var(--winter-input-readonly-border);
+  --fg: var(--winter-input-readonly-fg);
+  --bg: var(--winter-input-readonly-bg);
+  --accent: var(--winter-input-readonly-accent);
 }
 :is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea):is(:user-invalid, [aria-invalid=true]) {
-  color: var(--winter-input-invalid-fg);
-  background: var(--winter-input-invalid-bg);
-  border: var(--winter-input-invalid-border);
+  --fg: var(--winter-input-invalid-fg);
+  --bg: var(--winter-input-invalid-bg);
+  --accent: var(--winter-input-invalid-accent);
 }
 :is(input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]), select, textarea):is(:user-valid, [aria-invalid=false]) {
-  color: var(--winter-input-valid-fg);
-  background: var(--winter-input-valid-bg);
-  border: var(--winter-input-valid-border);
+  --fg: var(--winter-input-valid-fg);
+  --bg: var(--winter-input-valid-bg);
+  --accent: var(--winter-input-valid-accent);
 }
 label:has([type=checkbox], [type=radio]) {
   cursor: pointer;
@@ -1332,6 +1339,12 @@ input[type=radio] {
 input[type=radio] {
   --checked-char: "\e837";
   --unchecked-char: "\e836";
+}
+label:has(input[type=checkbox]):has(+ label > input[type=checkbox]) {
+  margin-block-end: 0;
+}
+label:has(input[type=radio]):has(+ label > input[type=radio]) {
+  margin-block-end: 0;
 }
 input[type=range] {
   -webkit-appearance: none;
@@ -1399,6 +1412,21 @@ input[type=range]:is(:hover, :active, :focus) {
   --size: var(--winter-range-active-thumb-size);
   --fg: var(--winter-range-active-fg);
   --bg: var(--winter-range-active-bg);
+}
+:is(input:not([type=checkbox], [type=radio]), select, textarea):has(+ small) {
+  margin-block-end: 0;
+}
+:is(input:not([type=checkbox], [type=radio]), select, textarea) + small {
+  display: block;
+  width: 100%;
+  margin-block-end: var(--winter-input-block-spacing);
+  color: var(--winter-input-accent);
+}
+:is(input:not([type=checkbox], [type=radio]), select, textarea):is(:user-invalid, [aria-invalid=true]) + small {
+  color: var(--winter-input-invalid-accent);
+}
+:is(input:not([type=checkbox], [type=radio]), select, textarea):is(:user-valid, [aria-invalid=false]) + small {
+  color: var(--winter-input-valid-accent);
 }
 form [role=group] {
   display: flex;

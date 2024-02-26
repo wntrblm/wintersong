@@ -290,28 +290,28 @@
     /* <form> and friends */
     --winter-input-fg: var(--winter-not-quite-black);
     --winter-input-bg: var(--color-purple-50);
-    --winter-input-border: 2px solid var(--winter-purple-3);
+    --winter-input-accent: var(--winter-purple-3);
     --winter-input-border-radius: var(--winter-border-radius-s);
-    --winter-input-block-spacing: var(--winter-spacing-xs);
+    --winter-input-block-spacing: var(--winter-spacing-s);
     --winter-input-font-weight: var(--winter-font-weight-m);
     --winter-input-font-size: var(--winter-font-size-m);
     --winter-input-padding: 0.12em 0.5em;
 
     --winter-input-disabled-fg: var(--color-gray-600);
     --winter-input-disabled-bg: var(--color-gray-50);
-    --winter-input-disabled-border: 2px solid var(--color-gray-200);
+    --winter-input-disabled-accent: var(--color-gray-200);
     --winter-input-readonly-fg: var(--color-gray-800);
     --winter-input-readonly-bg: var(--color-gray-50);
-    --winter-input-readonly-border: 2px solid var(--color-gray-500);
+    --winter-input-readonly-accent: var(--color-gray-500);
     --winter-input-active-fg: var(--color-blue-800);
     --winter-input-active-bg: var(--color-blue-50);
-    --winter-input-active-border: 2px solid var(--color-blue-500);
+    --winter-input-active-accent: var(--color-blue-500);
     --winter-input-valid-fg: var(--color-green-800);
     --winter-input-valid-bg: var(--color-green-50);
-    --winter-input-valid-border: 2px solid var(--color-green-500);
+    --winter-input-valid-accent: var(--color-green-500);
     --winter-input-invalid-fg: var(--color-red-800);
     --winter-input-invalid-bg: var(--color-red-50);
-    --winter-input-invalid-border: 2px solid var(--color-red-500);
+    --winter-input-invalid-accent: var(--color-red-500);
 
     /* Checkbox/radio */
     --winter-checkbox-size: 1.75rem;
