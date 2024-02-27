@@ -1284,6 +1284,9 @@ main form section aside p:first-child {
 main form section .grid {
   --gap: 0.5rem 1.5rem;
 }
+main form section .grid .grid {
+  --gap: 0.5rem 1rem;
+}
 label:has(+ input, + select, + textarea) {
   display: block;
 }
