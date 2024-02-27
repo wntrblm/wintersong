@@ -87,6 +87,96 @@ var Teeth = class {
   }
 };
 
+// src/scripts/audio/midi.ts
+var MIDI = class {
+  constructor(portName) {
+    this.portName = portName;
+  }
+  static {
+    __name(this, "MIDI");
+  }
+  async connect() {
+    let access = await navigator.requestMIDIAccess({ sysex: true });
+    for (const port of access.inputs.values()) {
+      if (port.name === this.portName) {
+        this.input = port;
+      }
+    }
+    for (const port of access.outputs.values()) {
+      if (port.name === this.portName) {
+        this.output = port;
+      }
+    }
+    if (this.input == void 0 || this.output == void 0) {
+      throw `Unable to connect to ${this.portName}`;
+    }
+  }
+  send(data) {
+    this.output.send(data);
+  }
+  async receive() {
+    const done = new Promise((resolve) => {
+      this.input.onmidimessage = function(msg) {
+        resolve(msg);
+      };
+    });
+    return await done;
+  }
+  async transact(data) {
+    const done = new Promise((resolve) => {
+      this.input.onmidimessage = function(msg) {
+        resolve(msg);
+      };
+      this.output.send(data);
+    });
+    return await done;
+  }
+};
+
+// src/scripts/base/dom.ts
+var dom_exports = {};
+__export(dom_exports, {
+  $: () => $,
+  $$: () => $$,
+  isHTMLElement: () => isHTMLElement,
+  removeAllChildren: () => removeAllChildren
+});
+
+// src/scripts/base/types.ts
+function isString(value) {
+  return typeof value === "string";
+}
+__name(isString, "isString");
+
+// src/scripts/base/dom.ts
+function isHTMLElement(v2) {
+  return typeof HTMLElement === "object" && v2 instanceof HTMLElement;
+}
+__name(isHTMLElement, "isHTMLElement");
+function $(x2) {
+  if (isHTMLElement(x2)) {
+    return x2;
+  } else if (isString(x2)) {
+    return document.getElementById(x2) ?? document.querySelector(x2);
+  }
+  return x2;
+}
+__name($, "$");
+function $$(selectorOrParent, selector) {
+  if (isHTMLElement(selectorOrParent)) {
+    return selectorOrParent.querySelectorAll(selector);
+  } else {
+    return document.querySelectorAll(selectorOrParent);
+  }
+}
+__name($$, "$$");
+function removeAllChildren(node) {
+  var range = document.createRange();
+  range.selectNodeContents(node);
+  range.deleteContents();
+}
+__name(removeAllChildren, "removeAllChildren");
+
 // node_modules/@lit/reactive-element/css-tag.js
 var t = globalThis;
 var e = t.ShadowRoot && (void 0 === t.ShadyCSS || t.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype;
@@ -396,7 +486,7 @@ var m = RegExp(`>|${d2}(?:([^\\s"'>=/]+)(${d2}*=${d2}*(?:[^
 \f\r"'\`<>=]|("|')|))|$)`, "g");
 var p2 = /'/g;
 var g = /"/g;
-var $ = /^(?:script|style|textarea|title)$/i;
+var $2 = /^(?:script|style|textarea|title)$/i;
 var y2 = /* @__PURE__ */ __name((t4) => (i4, ...s4) => ({ _$litType$: t4, strings: i4, values: s4 }), "y");
 var x = y2(1);
 var b2 = y2(2);
@@ -417,7 +507,7 @@ var P = /* @__PURE__ */ __name((t4, i4) => {
     const s5 = t4[i5];
     let a4, u4, d3 = -1, y3 = 0;
     for (; y3 < s5.length && (c4.lastIndex = y3, u4 = c4.exec(s5), null !== u4); )
-      y3 = c4.lastIndex, c4 === f2 ? "!--" === u4[1] ? c4 = v : void 0 !== u4[1] ? c4 = _ : void 0 !== u4[2] ? ($.test(u4[2]) && (r7 = RegExp("</" + u4[2], "g")), c4 = m) : void 0 !== u4[3] && (c4 = m) : c4 === m ? ">" === u4[0] ? (c4 = r7 ?? f2, d3 = -1) : void 0 === u4[1] ? d3 = -2 : (d3 = c4.lastIndex - u4[2].length, a4 = u4[1], c4 = void 0 === u4[3] ? m : '"' === u4[3] ? g : p2) : c4 === g || c4 === p2 ? c4 = m : c4 === v || c4 === _ ? c4 = f2 : (c4 = m, r7 = void 0);
+      y3 = c4.lastIndex, c4 === f2 ? "!--" === u4[1] ? c4 = v : void 0 !== u4[1] ? c4 = _ : void 0 !== u4[2] ? ($2.test(u4[2]) && (r7 = RegExp("</" + u4[2], "g")), c4 = m) : void 0 !== u4[3] && (c4 = m) : c4 === m ? ">" === u4[0] ? (c4 = r7 ?? f2, d3 = -1) : void 0 === u4[1] ? d3 = -2 : (d3 = c4.lastIndex - u4[2].length, a4 = u4[1], c4 = void 0 === u4[3] ? m : '"' === u4[3] ? g : p2) : c4 === g || c4 === p2 ? c4 = m : c4 === v || c4 === _ ? c4 = f2 : (c4 = m, r7 = void 0);
     const x2 = c4 === m && t4[i5 + 1].startsWith("/>") ? " " : "";
     l4 += c4 === f2 ? s5 + n3 : d3 >= 0 ? (o6.push(a4), s5.slice(0, d3) + e3 + s5.slice(d3) + h2 + x2) : s5 + h2 + (-2 === d3 ? i5 : x2);
   }
@@ -445,7 +535,7 @@ var V = class _V {
               d3.push({ type: 1, index: c4, name: e7[2], strings: s5, ctor: "." === e7[1] ? k : "?" === e7[1] ? H : "@" === e7[1] ? I : R }), r7.removeAttribute(t5);
             } else
               t5.startsWith(h2) && (d3.push({ type: 6, index: c4 }), r7.removeAttribute(t5));
-        if ($.test(r7.tagName)) {
+        if ($2.test(r7.tagName)) {
           const t5 = r7.textContent.split(h2), s5 = t5.length - 1;
           if (s5 > 0) {
             r7.textContent = i3 ? i3.emptyScript : "";
@@ -711,13 +801,13 @@ var l3 = /* @__PURE__ */ __name((t4) => (r7, ...e7) => {
   const i4 = e7.length;
   let s4, l4;
   const n6 = [], u4 = [];
-  let c4, $2 = 0, f3 = false;
-  for (; $2 < i4; ) {
-    for (c4 = r7[$2]; $2 < i4 && void 0 !== (l4 = e7[$2], s4 = o4(l4)); )
-      c4 += s4 + r7[++$2], f3 = true;
-    $2 !== i4 && u4.push(l4), n6.push(c4), $2++;
+  let c4, $3 = 0, f3 = false;
+  for (; $3 < i4; ) {
+    for (c4 = r7[$3]; $3 < i4 && void 0 !== (l4 = e7[$3], s4 = o4(l4)); )
+      c4 += s4 + r7[++$3], f3 = true;
+    $3 !== i4 && u4.push(l4), n6.push(c4), $3++;
   }
-  if ($2 === i4 && n6.push(r7[i4]), f3) {
+  if ($3 === i4 && n6.push(r7[i4]), f3) {
     const t5 = n6.join("$$lit$$");
     void 0 === (r7 = a3.get(t5)) && (n6.raw = n6, a3.set(t5, r7 = n6)), e7 = u4;
   }
@@ -2081,6 +2171,8 @@ __name(deg2rad, "deg2rad");
 // src/scripts/index.ts
 var VERSION = "head";
 export {
+  dom_exports as DOM,
+  MIDI,
   teeth_exports as Teeth,
   VERSION,
   WinterAudioPlayerElement,
