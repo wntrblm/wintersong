@@ -6,7 +6,7 @@
 
 export const VERSION = "head";
 
-export * as Teeth from "./teeth";
+export { default as Teeth } from "./teeth";
 export { MIDI } from "./audio/midi";
 export * as DOM from "./base/dom";
 export { WinterAudioPlayerElement } from "./components/audio-player";

@@ -16,10 +16,6 @@ var __decorateClass = (decorators, target, key, kind) => {
 };
 
 // src/scripts/teeth.ts
-var teeth_exports = {};
-__export(teeth_exports, {
-  default: () => Teeth
-});
 var Teeth = class {
   static {
     __name(this, "Teeth");
@@ -2173,7 +2169,7 @@ var VERSION = "head";
 export {
   dom_exports as DOM,
   MIDI,
-  teeth_exports as Teeth,
+  Teeth,
   VERSION,
   WinterAudioPlayerElement,
   WinterCarouselElement,
