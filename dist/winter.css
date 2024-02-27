@@ -1292,6 +1292,9 @@ main form section .grid {
 main form section .grid .grid {
   --gap: 0.5rem 1rem;
 }
+main form section :is(label, h2) + :is(img, figure, canvas) {
+  margin-block-start: 0;
+}
 label:has(+ input, + select, + textarea, + [role=group]) {
   display: block;
 }

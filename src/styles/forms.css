@@ -44,6 +44,13 @@ main form {
                 --gap: 0.5rem 1rem;
             }
         }
+
+        & label,
+        h2 {
+            & + :is(img, figure, canvas) {
+                margin-block-start: 0;
+            }
+        }
     }
 }
 
