@@ -335,7 +335,7 @@
         var(--winter-spacing-s);
     --winter-form-aside-font: var(--winter-font-serif);
     --winter-form-aside-font-size: var(--winter-font-size-s);
-    --winter-form-aside-fg: var(--winter-not-quite-black);
+    --winter-form-aside-fg: currentColor;
     --winter-form-aside-bg: var(--color-white);
     --winter-form-aside-accent: var(--winter-purple-4);
 
