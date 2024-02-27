@@ -19,7 +19,7 @@ input[type="button"] {
     justify-content: center;
 
     min-width: 8ch;
-    min-height: 2.2rem;
+    /* min-height: 2.2rem; */
     text-align: center;
     line-height: inherit;
     vertical-align: middle;

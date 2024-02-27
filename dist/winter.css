@@ -451,6 +451,12 @@ h6 {
   --winter-range-active-bg: var(--color-purple-200);
   --winter-range-active-fg: var(--winter-purple-2);
   --winter-range-active-thumb-size: 1.4rem;
+  --winter-form-aside-padding: var(--winter-spacing-xs) var(--winter-spacing-s);
+  --winter-form-aside-font: var(--winter-font-serif);
+  --winter-form-aside-font-size: var(--winter-font-size-s);
+  --winter-form-aside-fg: var(--winter-not-quite-black);
+  --winter-form-aside-bg: var(--color-white);
+  --winter-form-aside-accent: var(--winter-purple-4);
   --winter-admonition-font: var(--winter-font-serif);
   --winter-admonition-font-size: var(--winter-font-size-m);
   --winter-admonition-fg: var(--winter-fg);
@@ -616,6 +622,7 @@ body :is(header, main, footer) {
   display: grid;
   grid-gap: var(--gap);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+  align-items: start;
 }
 .grid.col-2 {
   grid-template-columns: 1fr 1fr;
@@ -835,6 +842,9 @@ main :is(h2 + :is(h2, h3, h4, h5, h6), h3 + :is(h3, h4, h5, h6), h4 + :is(h4, h5
 }
 main.hide-title h1 {
   display: none;
+}
+main section {
+  margin-block: var(--winter-block-spacing);
 }
 main :is(p, ol, ul, pre, blockquote, figure, hr, dl) {
   margin-block: var(--winter-block-spacing);
@@ -1138,7 +1148,6 @@ input[type=button] {
   align-items: center;
   justify-content: center;
   min-width: 8ch;
-  min-height: 2.2rem;
   text-align: center;
   line-height: inherit;
   vertical-align: middle;
@@ -1252,6 +1261,28 @@ textarea {
 }
 main form {
   margin-block: var(--winter-block-spacing);
+}
+main form section {
+  margin-block: var(--winter-block-spacing);
+}
+main form section h2 {
+  margin-block-end: var(--winter-spacing-l);
+}
+main form section aside {
+  margin-block: var(--winter-block-spacing);
+  font-family: var(--winter-form-aside-font);
+  font-size: var(--winter-form-aside-font-size);
+  color: var(--winter-form-aside-fg);
+  background: var(--winter-form-aside-bg);
+  border-inline-start: 0.15rem solid var(--winter-form-aside-accent);
+  padding: var(--winter-form-aside-padding);
+  box-shadow: var(--winter-shadow-xs);
+}
+main form section aside p:first-child {
+  margin-block-start: 0;
+}
+main form section .grid {
+  --gap: 1.5rem;
 }
 label:has(+ input, + select, + textarea) {
   display: block;

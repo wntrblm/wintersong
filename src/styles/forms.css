@@ -14,6 +14,33 @@ textarea {
 /* Forms that appear within main should have some block spacing */
 main form {
     margin-block: var(--winter-block-spacing);
+
+    & section {
+        margin-block: var(--winter-block-spacing);
+
+        & h2 {
+            margin-block-end: var(--winter-spacing-l);
+        }
+
+        & aside {
+            margin-block: var(--winter-block-spacing);
+            font-family: var(--winter-form-aside-font);
+            font-size: var(--winter-form-aside-font-size);
+            color: var(--winter-form-aside-fg);
+            background: var(--winter-form-aside-bg);
+            border-inline-start: 0.15rem solid var(--winter-form-aside-accent);
+            padding: var(--winter-form-aside-padding);
+            box-shadow: var(--winter-shadow-xs);
+
+            & p:first-child {
+                margin-block-start: 0;
+            }
+        }
+
+        & .grid {
+            --gap: 1.5rem;
+        }
+    }
 }
 
 /* Elements that create a new "block" */

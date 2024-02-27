@@ -94,6 +94,10 @@ main {
     &.hide-title h1 {
         display: none;
     }
+
+    section {
+        margin-block: var(--winter-block-spacing);
+    }
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

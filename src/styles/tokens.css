@@ -330,6 +330,15 @@
     --winter-range-active-fg: var(--winter-purple-2);
     --winter-range-active-thumb-size: 1.4rem;
 
+    /* <aside> within form, styled similar to <blockquote> */
+    --winter-form-aside-padding: var(--winter-spacing-xs)
+        var(--winter-spacing-s);
+    --winter-form-aside-font: var(--winter-font-serif);
+    --winter-form-aside-font-size: var(--winter-font-size-s);
+    --winter-form-aside-fg: var(--winter-not-quite-black);
+    --winter-form-aside-bg: var(--color-white);
+    --winter-form-aside-accent: var(--winter-purple-4);
+
     /* Markdown extensions */
     /* .admonition */
     --winter-admonition-font: var(--winter-font-serif);
