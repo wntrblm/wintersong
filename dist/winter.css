@@ -422,7 +422,7 @@ h6 {
   --winter-input-block-spacing: var(--winter-spacing-s);
   --winter-input-font-weight: var(--winter-font-weight-m);
   --winter-input-font-size: var(--winter-font-size-m);
-  --winter-input-padding: 0.12em 0.5em;
+  --winter-input-padding: 0.2em 0.5em;
   --winter-input-disabled-fg: var(--color-gray-600);
   --winter-input-disabled-bg: var(--color-gray-50);
   --winter-input-disabled-accent: var(--color-gray-200);
@@ -438,6 +438,10 @@ h6 {
   --winter-input-invalid-fg: var(--color-red-800);
   --winter-input-invalid-bg: var(--color-red-50);
   --winter-input-invalid-accent: var(--color-red-500);
+  --winter-label-font-size: inherit;
+  --winter-label-font-family: var(--winter-font-decorative);
+  --winter-label-font-weight: var(--winter-font-weight-semibold);
+  --winter-label-fg: currentColor;
   --winter-checkbox-size: 1.75rem;
   --winter-checkbox-fg: var(--winter-purple-2);
   --winter-checkbox-active-fg: var(--color-blue-500);
@@ -1148,6 +1152,7 @@ input[type=button] {
   align-items: center;
   justify-content: center;
   min-width: 8ch;
+  min-height: 2.2rem;
   text-align: center;
   line-height: inherit;
   vertical-align: middle;
@@ -1287,7 +1292,7 @@ main form section .grid {
 main form section .grid .grid {
   --gap: 0.5rem 1rem;
 }
-label:has(+ input, + select, + textarea) {
+label:has(+ input, + select, + textarea, + [role=group]) {
   display: block;
 }
 input:not([type=checkbox], [type=radio]),
@@ -1298,6 +1303,12 @@ label:has(input) {
   display: block;
   width: 100%;
   margin-block-end: var(--winter-input-block-spacing);
+}
+label:not(:has(input[type=checkbox], input[type=radio])) {
+  color: var(--winter-label-fg);
+  font-weight: var(--winter-label-font-weight);
+  font-family: var(--winter-label-font-family);
+  font-size: var(--winter-label-font-size);
 }
 input:not([type=range], [type=checkbox], [type=radio], [type=range], [type=submit], [type=button]),
 select,
@@ -1503,6 +1514,9 @@ form [role=group] > * {
 }
 form [role=group] :is(input, select):first-child {
   border-right: none;
+}
+form [role=group] :is(button, input[type=submit], input[type=button], input[type=reset]) {
+  min-height: unset;
 }
 
 /* src/styles/group.css */

@@ -295,7 +295,7 @@
     --winter-input-block-spacing: var(--winter-spacing-s);
     --winter-input-font-weight: var(--winter-font-weight-m);
     --winter-input-font-size: var(--winter-font-size-m);
-    --winter-input-padding: 0.12em 0.5em;
+    --winter-input-padding: 0.2em 0.5em;
 
     --winter-input-disabled-fg: var(--color-gray-600);
     --winter-input-disabled-bg: var(--color-gray-50);
@@ -312,6 +312,12 @@
     --winter-input-invalid-fg: var(--color-red-800);
     --winter-input-invalid-bg: var(--color-red-50);
     --winter-input-invalid-accent: var(--color-red-500);
+
+    /* Labels */
+    --winter-label-font-size: inherit;
+    --winter-label-font-family: var(--winter-font-decorative);
+    --winter-label-font-weight: var(--winter-font-weight-semibold);
+    --winter-label-fg: currentColor;
 
     /* Checkbox/radio */
     --winter-checkbox-size: 1.75rem;

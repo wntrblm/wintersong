@@ -11,7 +11,7 @@ textarea {
     appearance: none;
 }
 
-/* Forms that appear within main should have some block spacing */
+/* Spacing between form elements */
 main form {
     margin-block: var(--winter-block-spacing);
 
@@ -48,7 +48,7 @@ main form {
 }
 
 /* Elements that create a new "block" */
-label:has(+ input, + select, + textarea) {
+label:has(+ input, + select, + textarea, + [role="group"]) {
     display: block;
 }
 
@@ -62,7 +62,17 @@ label:has(input) {
     margin-block-end: var(--winter-input-block-spacing);
 }
 
+/* Labels */
+
+label:not(:has(input[type="checkbox"], input[type="radio"])) {
+    color: var(--winter-label-fg);
+    font-weight: var(--winter-label-font-weight);
+    font-family: var(--winter-label-font-family);
+    font-size: var(--winter-label-font-size);
+}
+
 /* "Normal" form controls */
+
 input:not(
         [type="range"],
         [type="checkbox"],
@@ -340,5 +350,13 @@ form [role="group"] {
         &:first-child {
             border-right: none;
         }
+    }
+
+    /* Remove min-height on buttons so they're the same size as their input */
+    & button,
+    input[type="submit"],
+    input[type="button"],
+    input[type="reset"] {
+        min-height: unset;
     }
 }
