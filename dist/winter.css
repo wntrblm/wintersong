@@ -1282,7 +1282,7 @@ main form section aside p:first-child {
   margin-block-start: 0;
 }
 main form section .grid {
-  --gap: 1.5rem;
+  --gap: 0.5rem 1.5rem;
 }
 label:has(+ input, + select, + textarea) {
   display: block;
