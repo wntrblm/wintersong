@@ -609,6 +609,35 @@ body :is(header, main, footer) {
   margin-right: auto;
   margin-left: auto;
 }
+.grid {
+  display: grid;
+  --min: 15ch;
+  --gap: 1rem;
+  display: grid;
+  grid-gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+}
+.grid.col-2 {
+  grid-template-columns: 1fr 1fr;
+}
+.grid.col-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.grid.col-4 {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.grid.col-1-2 {
+  grid-template-columns: 1fr 2fr;
+}
+.grid.col-2-1 {
+  grid-template-columns: 2fr 1fr;
+}
+.grid.col-1-3 {
+  grid-template-columns: 1fr 3fr;
+}
+.grid.col-3-1 {
+  grid-template-columns: 3fr 1fr;
+}
 
 /* src/styles/nav.css */
 header {
