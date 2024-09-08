@@ -22,7 +22,6 @@ dependencies = ["mkdocs>=1.5.0", "pygments>=2.16", "pymdown-extensions>=10.3"]
 packages = ["src/wintersong"]
 
 [project.urls]
-Bad = "Intentionally invalid URL to prevent accidentally publishing this to PyPI"
 Documentation = "https://github.com/wntrblm/wintersong#readme"
 Issues = "https://github.com/wntrblm/wintersong/issues"
 Source = "https://github.com/wntrblm/wintersong"
