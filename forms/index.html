@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8" />
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no" /><!-- Page author --><link rel="canonical" href="https://wintersong.wntr.dev/forms/" /><link
+  rel="shortcut icon"
+  sizes="192x192"
+  href="/icon.png" />
+<link
+  rel="apple-touch-icon"
+  sizes="192x192"
+  href="/icon.png" />
+
+<meta name="generator" content="mkdocs-1.6.1" /><!-- Title --><title>
+          Wintersong
+          
+            
+          
+
+          
+            - Forms
+          
+        </title><link rel="stylesheet" href="../winter.css" /></head>
+
+  <body
+    class=""
+    data-page="forms/"><header>
+        <nav role="navigation" aria-label="main navigation">
+          <ul>
+            <li>
+              <a href="..">Wintersong</a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <img class="logo" src="/winterbloom.png" alt="Winterbloom logo" />
+            </li>
+          </ul>
+        </nav>
+        <nav role="navigation" aria-label="secondary navigation">
+          <ul class="has-dividers"><li>
+                <a
+                  
+                  href="..">
+                  Home
+                </a>
+              </li><li>
+                <a
+                  
+                  href="../components/">
+                  Components
+                </a>
+              </li><li>
+                <a
+                  
+                  href="../markdown/">
+                  Markdown
+                </a>
+              </li><li>
+                <a
+                  aria-current
+                  href="./">
+                  Forms
+                </a>
+              </li><li>
+                <a
+                  
+                  href="../buttons/">
+                  Buttons
+                </a>
+              </li></ul>
+          <ul><li>
+              <winter-dark-mode></winter-dark-mode>
+            </li>
+          </ul>
+        </nav>
+      </header><main
+      class="hide-title">
+  <article class="content"><h1 id="forms">Forms<a class="headerlink" href="#forms" title="Permanent link">#</a></h1>
+<form>
+  <label>First name</label>
+  <input
+    name="first_name"
+    placeholder="First name"
+    autocomplete="given-name" />
+  <label>Email</label>
+  <input
+    type="email"
+    name="email"
+    placeholder="Email"
+    autocomplete="email" />
+  <small>This is some help text</small>
+  <label>Number</label>
+  <input type="number" name="number" placeholder="Number" min="0" max="100" step="1" />
+  <label>Disabled</label>
+  <input disabled value="meep" />
+  <label>Readonly</label>
+  <div role="group">
+    <input readonly value="meep" />
+    <button type="button"><winter-icon>content_copy</winter-icon></button>
+  </div>
+  <label>Validation</label>
+  <input value="meep" aria-invalid="true" />
+  <small>Looks bad!</small>
+  <input value="meep" aria-invalid="false" />
+  <small>Looks good!</small>
+  <label>Range</label>
+  <input type="range" value="50" min="0" max="100" />
+  <label>
+    <input type="checkbox" name="checkbox" checked />
+    Checkbox
+  </label>
+  <label>
+    <input type="checkbox" name="checkbox" disabled />
+    Checkbox (disabled)
+  </label>
+  <label>
+    <input type="radio" name="language" checked />
+    English
+  </label>
+  <label>
+    <input type="radio" name="language" />
+    French
+  </label>
+  <label>Select</label>
+  <select name="favorite-cuisine" aria-label="Select your favorite cuisine..." required>
+    <option selected disabled value="">
+      Select your favorite cuisine...
+    </option>
+    <option>Italian</option>
+    <option>Japanese</option>
+    <option>Indian</option>
+    <option>Thai</option>
+    <option>French</option>
+  </select>
+  <label>Textarea</label>
+  <textarea>Oh god how did this get here I am not good with computer.</textarea>
+  <input
+    type="submit"
+    value="Subscribe"
+  />
+</form></article>
+</main><footer>
+        <ul>
+          <li>
+            © 2024
+            Winterbloom · Alethea Flowers
+          </li>
+          <li>
+            Published under
+            <a
+              href="https://github.com/wntrblm/wintersong/blob/main/docs/LICENSE">
+              CC BY-SA 4.0
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li class="updated">
+            Last updated on 2024/9/8
+          </li>
+          <li>
+            <a href="https://github.com/wntrblm/wintersong/edit/main/docs/docs/forms.md">Edit this page on GitHub</a>
+          </li>
+          <li>
+            <a href="mailto:support@winterbloom.com">
+              Send us a message
+            </a>
+          </li>
+        </ul>
+      </footer>
+      <script type="module" src="../winter.js"></script>
+      
+    
+  </body>
+</html>
