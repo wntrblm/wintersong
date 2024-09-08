@@ -12,14 +12,17 @@ export class MIDI {
 
     async connect() {
         let access = await navigator.requestMIDIAccess({ sysex: true });
+        const searchName = this.portName.toLowerCase();
 
         for (const port of access.inputs.values()) {
-            if (port.name === this.portName) {
+            const name = port.name?.toLowerCase() ?? "";
+            if (name.includes(searchName)) {
                 this.input = port;
             }
         }
         for (const port of access.outputs.values()) {
-            if (port.name === this.portName) {
+            const name = port.name?.toLowerCase() ?? "";
+            if (name.includes(searchName)) {
                 this.output = port;
             }
         }
